@@ -23,7 +23,10 @@ const NavBar = () => {
                             <NavDropdown.Item href="/UpcomingMovies">Upcoming Movies</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="/Tickets">Tickets</Nav.Link>
+                        <Nav.Link href="/Screens">Screens</Nav.Link>
+                        <Nav.Link href="/OpeningTimes">Opening Times</Nav.Link>
                         <Nav.Link href="/Forum">Forum</Nav.Link>
+
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
