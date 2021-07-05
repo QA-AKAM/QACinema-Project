@@ -6,8 +6,10 @@ import UpcomingMovies from './Components/Listings/UpcomingMovies';
 import Tickets from './Components/TicketBooking/Tickets';
 import Forum from './Components/Information/Forum';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Components/Footer/Footer';
 
 import './Resources/App.css';
+import { Component } from 'react';
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
 
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
