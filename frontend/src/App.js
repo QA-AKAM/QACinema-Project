@@ -4,6 +4,8 @@ import Home from './Components/Home/Home';
 import CurrentMovies from './Components/Listings/CurrentMovies';
 import UpcomingMovies from './Components/Listings/UpcomingMovies';
 import Tickets from './Components/TicketBooking/Tickets';
+import Screens from './Components/Information/Screens';
+import OpeningTimes from './Components/Information/OpeningTimes';
 import Forum from './Components/Information/Forum';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
@@ -32,6 +34,14 @@ function App() {
 
           <Route path="/Tickets" >
             <Tickets />
+          </Route>
+
+          <Route path="/Screens" >
+            <Screens />
+          </Route>
+
+          <Route path="/OpeningTimes" >
+            <OpeningTimes />
           </Route>
 
           <Route path="/Forum" >
