@@ -3,10 +3,26 @@ const Footer = () => {
         <div class='container'>
             <div class='row'>
                 <div class='col-sm'>
-                    <p href='/AboutUs'> About Us </p>
+                    <a href='/AboutUs'>
+                        <p> About Us </p>
+                    </a>
                 </div>
                 <div class='col-sm'>
-                    <p href='/AboutUs'> Contact Us </p>
+                    <a href='/OpeningTimes'>
+                        <p> Opening Times </p>
+                    </a>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-sm'>
+                    <a href='/ContactUs'>
+                        <p> Contact Us </p>
+                    </a>
+                </div>
+                <div class='col-sm'>
+                    <a href='/Screens'>
+                        <p> Screens </p>
+                    </a>
                 </div>
             </div>
             <div class='col'>
