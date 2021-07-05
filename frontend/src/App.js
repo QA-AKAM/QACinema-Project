@@ -7,6 +7,7 @@ import Tickets from './Components/TicketBooking/Tickets';
 import Forum from './Components/Information/Forum';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
+import OpeningTimes from './Components/Information/OpeningTimes';
 
 import './Resources/App.css';
 import { Component } from 'react';
@@ -35,6 +36,10 @@ function App() {
 
           <Route path="/Forum" >
             <Forum />
+          </Route>
+
+          <Route path="/OpeningTimes">
+            <OpeningTimes />
           </Route>
 
         </Switch>
