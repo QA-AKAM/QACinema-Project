@@ -47,10 +47,6 @@ function App() {
             <Forum />
           </Route>
 
-          <Route path="/OpeningTimes">
-            <OpeningTimes />
-          </Route>
-
         </Switch>
       </Router>
       <Footer />
