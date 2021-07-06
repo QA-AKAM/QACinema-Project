@@ -25,14 +25,14 @@ router.get('/movie/:id', async (request, response) => {
     }
 });
 
-//get movie by released NOT WORKING
-router.get('/released/true', async (request, response) => {
+//get movie by released
+router.get('/released/:released', async (request, response) => {
     try {
-        const movie = await Movie.find({ released: { $eq: true } })
+        const movie = await Movie.find({ released: { $eq: request.params.released } })
         response.send(movie);
     } catch {
         response.status(404);
-        response.send({ error: 'movie does not exist' })
+        response.send({ error: 'no movies' })
     }
 });
 

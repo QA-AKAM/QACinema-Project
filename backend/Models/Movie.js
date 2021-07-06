@@ -64,7 +64,7 @@ const movieSchema = new Schema({
         }
     ],
     released: {
-        type: String,
+        type: Boolean,
         required: true,
     }
 });
