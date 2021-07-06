@@ -2,7 +2,7 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { Form, FormControl, Button } from 'react-bootstrap';
-
+import Logo from '../../Images/Logo.png';
 const NavBar = () => {
     return (
         <div>
@@ -11,7 +11,7 @@ const NavBar = () => {
                     <Navbar.Brand href="#home">
                         <img
                             alt=""
-                            //src="/logo512.png"
+                            src={Logo}
                             width="30"
                             height="30"
                             className="d-inline-block align-top"
