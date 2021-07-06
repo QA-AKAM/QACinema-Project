@@ -65,4 +65,4 @@ const Screens = () => {
     )
 }
 
-export default Screens
+export default Screens;
