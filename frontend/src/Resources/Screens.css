@@ -12,6 +12,10 @@
     width: 50px;
 }
 
+.background .container {
+    padding: 10px;
+}
+
 input:invalid+span:after {
     content: '✖';
     padding-left: 3px;
