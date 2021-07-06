@@ -9,20 +9,27 @@ const ticketSchema = new Schema({
         minlength: 2
     },
     surname: {
-        type: Number,
+        type: String,
         required: true,
-        minlength: 4
+        minlength: 2
 
     },
     movieID: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Movies",
         required: true
     },
-    dateTime: {
-        type: String,
+    dayID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movies',
         required: true
     },
-    noOfTickets: [{
+    timeID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movies',
+        required: true
+    },
+    noOfTickets: {
         noOfAdult: {
             type: Number,
             required: true,
@@ -38,9 +45,9 @@ const ticketSchema = new Schema({
             required: true,
             default: 0
         }
-    }],
-    payment: {
-        type: String
+    },
+    paymentID: {
+        type: mongoose.Schema.Types.ObjectId
     }
 });
 
