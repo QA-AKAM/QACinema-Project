@@ -4,6 +4,7 @@ import '../../CSS/Pages.css';
 import { useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
+import { Card } from 'react-bootstrap';
 
 const Tickets = () => {
 
@@ -19,16 +20,24 @@ const Tickets = () => {
 
     if (!booked) {
         return (
-            <div class='container'>
-                <h3>Tickets</h3>
-                <BookingDetails getBookingProp={getBooking} />
+            <div class='background'>
+                <div class='container'>
+                    <Card>
+                        <h3>Tickets</h3>
+                        <BookingDetails getBookingProp={getBooking} />
+                    </Card>
+                </div>
             </div>
         )
     } else {
         return (
-            <div class='container'>
-                <h3>Tickets</h3>
-                <Payment bookingProp={booking} />
+            <div class='background'>
+                <div class='container'>
+                    <Card>
+                        <h3>Tickets</h3>
+                        <Payment bookingProp={booking} />
+                    </Card>
+                </div>
             </div>
         )
     }
