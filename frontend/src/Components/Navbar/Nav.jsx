@@ -12,10 +12,10 @@ const NavBar = () => {
                         <img
                             alt=""
                             src={Logo}
-                            width="30"
-                            height="30"
+                            width="125"
+                            height="35"
                             className="d-inline-block align-top"
-                        />{' '}QA Cinema</Navbar.Brand>
+                        /></Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/Home">Home</Nav.Link>
                         <NavDropdown title="Movies" id="basic-nav-dropdown">
