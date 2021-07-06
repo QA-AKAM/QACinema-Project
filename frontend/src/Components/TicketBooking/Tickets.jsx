@@ -5,11 +5,13 @@ import Payment from "./Payment";
 
 const Tickets = () => {
 
-    const [booking, setBooking] = useState({});
+    const [booking, setBooking] = useState([]);
     const [booked, setBooked] = useState(false);
 
-    const getBooking = () => {
+    const getBooking = (details) => {
+        console.log(details);
         setBooked(true);
+        setBooking(details);
     }
 
 

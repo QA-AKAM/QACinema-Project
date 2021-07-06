@@ -1,8 +1,8 @@
-const Payment = () => {
+const Payment = ({ bookingProp }) => {
+    const { child, adult, senior } = bookingProp;
+    console.log(bookingProp);
     return (
-        <a href='/Booking'>
-            <h3> Payment </h3>
-        </a>
+        <h3> Payment for {child} children, {adult} adults and {senior} seniors! </h3>
     )
 }
 
