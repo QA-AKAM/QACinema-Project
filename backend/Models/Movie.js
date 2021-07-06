@@ -57,7 +57,6 @@ const movieSchema = new Schema({
                 {
                     time: {
                         type: String
-
                     }
                 }
             ]
