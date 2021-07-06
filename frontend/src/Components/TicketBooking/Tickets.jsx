@@ -1,4 +1,6 @@
 'use strict';
+import '../../CSS/Pages.css';
+
 import { useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
@@ -30,6 +32,5 @@ const Tickets = () => {
             </div>
         )
     }
-
 }
 export default Tickets;
