@@ -1,3 +1,27 @@
 .row {
     padding: 8px;
 }
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+
+.container .ticket-type{
+    margin: 5px;
+    width: 50px;
+}
+
+input:invalid+span:after {
+    content: '✖';
+    padding-left: 3px;
+}
+
+input:valid+span:after {
+    content: '✓';
+    padding-left: 3px;
+}
+
+form #submit {
+    margin: 3px;
+}

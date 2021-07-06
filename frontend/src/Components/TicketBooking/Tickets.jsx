@@ -1,13 +1,36 @@
 'use strict';
 import '../../CSS/Pages.css';
 
+import { useState } from 'react';
+import BookingDetails from "./BookingDetails";
+import Payment from "./Payment";
+
 const Tickets = () => {
-    return (
-        <div class="background">
-            <div class="landing-text">
-                <h1> Tickets</h1>
+
+    const [booking, setBooking] = useState([]);
+    const [booked, setBooked] = useState(false);
+
+    const getBooking = (details) => {
+        console.log(details);
+        setBooked(true);
+        setBooking(details);
+    }
+
+
+    if (!booked) {
+        return (
+            <div class='container'>
+                <h3>Tickets</h3>
+                <BookingDetails getBookingProp={getBooking} />
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div class='container'>
+                <h3>Tickets</h3>
+                <Payment bookingProp={booking} />
+            </div>
+        )
+    }
 }
 export default Tickets;
