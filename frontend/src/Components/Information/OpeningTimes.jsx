@@ -1,5 +1,4 @@
 'use strict';
-'use strict';
 import '../../CSS/Pages.css';
 
 const OpeningTimes = () => {
@@ -67,5 +66,4 @@ const OpeningTimes = () => {
         </div>
     )
 }
-
 export default OpeningTimes;
