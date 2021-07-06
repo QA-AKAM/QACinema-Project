@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 //get routes
 
 //Connect to MongoDB database
-mongoose.connect("mongodb://localhost/qacinema", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb + srv://akam:reactnode@cluster0.ihlmt.mongodb.net/cinema", { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
 
         app.use(express.json());
