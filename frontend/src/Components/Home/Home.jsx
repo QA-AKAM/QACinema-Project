@@ -39,9 +39,9 @@ const Home = () => {
                 </Carousel>
             </div>
             <div id="home">
-                <div class="landing-text">
-                    <h1> Welcome to QA Cinemas</h1>
-                    <h3>Experience all the latest movies in stunning IMAX!</h3>
+                <div>
+                    <h1 class='landing-text'> Welcome to QA Cinemas</h1>
+                    <h3 class="landing-text">Experience all the latest movies in stunning IMAX!</h3>
                 </div>
             </div>
             <div class="padding">
