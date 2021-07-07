@@ -44,7 +44,7 @@ router.put('/ticketPrice', async (req, res) => {
 });
 
 //delete price
-router.delete('/booking/:type', async (req, res) => {
+router.delete('/ticketPrice/:type', async (req, res) => {
     try {
         const field = req.params.type;
         const price = await Ticket.findOne({ field: { $exists: true } });
@@ -53,8 +53,8 @@ router.delete('/booking/:type', async (req, res) => {
         res.status(201)
             .send(price);
     } catch {
-        res.status(404);
-        res.send({ error: `The price for ${field} has been removed` })
+        res.status(404)
+            .send({ error: `The price for ${field} coul not be removed` })
     }
 });
 
