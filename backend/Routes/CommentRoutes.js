@@ -6,7 +6,18 @@ const Comment = require('../Models/Comment');
 //get all comments
 router.get('/comment', async (request, response) => {
     try {
-        const comment = await Comment.find().populate({ path: 'movieID', select: 'title' });
+        const comment = await Comment.find().populate({ path: 'movieID', select: 'title' }).sort({ $natural: -1 });
+        response.send(comment);
+    } catch {
+        response.status(404);
+        response.send({ error: 'comment does not exist' })
+    }
+});
+
+//get comments by movieID
+router.get('/comment/:id', async (request, response) => {
+    try {
+        const comment = await Comment.find({ movieID: request.params.id }).populate({ path: 'movieID', select: 'title' }).sort({ $natural: -1 });
         response.send(comment);
     } catch {
         response.status(404);
