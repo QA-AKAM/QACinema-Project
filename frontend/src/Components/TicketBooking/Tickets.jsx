@@ -22,8 +22,8 @@ const Tickets = () => {
         return (
             <div class='background'>
                 <div class='container'>
+                    <h1 class='landing-text'>Tickets</h1>
                     <Card>
-                        <h3>Tickets</h3>
                         <BookingDetails getBookingProp={getBooking} />
                     </Card>
                 </div>
