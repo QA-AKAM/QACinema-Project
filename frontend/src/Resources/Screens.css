@@ -3,8 +3,9 @@
 }
 
 .container input {
-  width: 100%;
+  width: 95%;
   clear: both;
+  margin-bottom: 4px;
 }
 
 .container .ticket-type{
@@ -28,4 +29,14 @@ input:valid+span:after {
 
 form #submit {
     margin: 3px;
+    margin-bottom: 8px;
+}
+
+input#email {
+    width:80%;
+}
+
+textarea#message {
+    width: 80%;
+    height: 250px;
 }
