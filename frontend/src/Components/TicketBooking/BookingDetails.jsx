@@ -47,7 +47,7 @@ const BookingDetails = ({ getBookingProp }) => {
                         <label> Senior </label>
                         <input type="number" id='senior' class='ticket-type' onChange={(event) => {
                             return setSenior(event.target.value);
-                        }} min='0' />
+                        }} min='0' /><br />
                         <label> Movie of Choice: </label>
                         <input type="text" id='movie' onChange={setMovieName} />
                         <label> Date:</label>
