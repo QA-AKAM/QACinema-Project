@@ -1,62 +1,23 @@
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import NavBar from './Components/Navbar/Nav';
-import Home from './Components/Home/Home';
-import CurrentMovies from './Components/Listings/CurrentMovies';
-import UpcomingMovies from './Components/Listings/UpcomingMovies';
-import Tickets from './Components/TicketBooking/Tickets';
-import Screens from './Components/Information/Screens';
-import OpeningTimes from './Components/Information/OpeningTimes';
-import Forum from './Components/Information/Forum';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './Components/Footer/Footer';
-import About from './Components/Information/About';
+import logo from './Resources/logo.svg';
 import './Resources/App.css';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/Home" />
-          </Route>
-
-          <Route path="/Home" >
-            <Home />
-          </Route>
-
-          <Route path="/CurrentMovies" >
-            <CurrentMovies />
-          </Route>
-
-          <Route path="/UpcomingMovies" >
-            <UpcomingMovies />
-          </Route>
-
-          <Route path="/Tickets" >
-            <Tickets />
-          </Route>
-
-          <Route path="/Screens" >
-            <Screens />
-          </Route>
-
-          <Route path="/OpeningTimes" >
-            <OpeningTimes />
-          </Route>
-
-          <Route path="/Forum" >
-            <Forum />
-          </Route>
-
-          <Route path="/About" >
-            <About />
-          </Route>
-
-        </Switch>
-      </Router>
-      <Footer />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
