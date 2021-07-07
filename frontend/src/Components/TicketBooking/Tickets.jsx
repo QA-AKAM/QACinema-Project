@@ -21,22 +21,27 @@ const Tickets = () => {
     if (!booked) {
         return (
             <div class='background'>
-                <div class='container'>
-                    <h1 class='landing-text'>Tickets</h1>
-                    <Card>
-                        <BookingDetails getBookingProp={getBooking} />
-                    </Card>
+                <div class="container2">
+                    <div class='container'>
+                        <h1 class='landing-text'>Tickets</h1>
+                        <Card class="card text-white bg-dark">
+                            <BookingDetails getBookingProp={getBooking} />
+                        </Card>
+                    </div>
                 </div>
             </div>
         )
     } else {
         return (
             <div class='background'>
-                <div class='container'>
-                    <Card>
-                        <h3>Tickets</h3>
-                        <Payment bookingProp={booking} />
-                    </Card>
+                <div class="container2">
+
+                    <div class='container'>
+                        <Card>
+                            <h3>Tickets</h3>
+                            <Payment bookingProp={booking} />
+                        </Card>
+                    </div>
                 </div>
             </div>
         )

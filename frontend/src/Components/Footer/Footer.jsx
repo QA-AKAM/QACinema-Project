@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div class='col'>
-                    <p> QA Cinema 2021 &copy; </p>
+                    <p2> QA Cinema 2021 &copy; </p2>
                 </div>
             </Container>
 
