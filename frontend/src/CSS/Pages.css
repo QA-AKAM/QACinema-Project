@@ -3,7 +3,7 @@
     background-color: #343A40;
     background-position: center;
     background-size: 40%;
-    height: 100vh;
+    height: 100%;
  }
 
  .imgDiv {
@@ -13,6 +13,10 @@
     margin-left: auto;
     margin-right: auto;
     vertical-align: middle; 
+ }
+
+ .container2 {
+     height: 100vh;
  }
 
 h1.landing-text {
