@@ -10,7 +10,7 @@ import Forum from './Components/Information/Forum';
 import ContactUs from './Components/Information/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
-
+import About from './Components/Information/About';
 import './Resources/App.css';
 
 function App() {
@@ -53,6 +53,10 @@ function App() {
 
           <Route path="/ContactUs">
             <ContactUs />
+          </Route>
+    
+          <Route path="/About" >
+            <About />
           </Route>
 
         </Switch>
