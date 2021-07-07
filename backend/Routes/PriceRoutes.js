@@ -3,6 +3,19 @@ const router = express.Router();
 
 const Price = require('../Models/Price');
 
+//create price
+router.post('/ticketPrice', async (req, res) => {
+    try {
+        const prices = new Price(req.body);
+        await prices.save(prices);
+        res.status(201)
+            .send(prices);
+    } catch {
+        res.status(404)
+            .send({ error: `The request could not be completed` });
+    }
+});
+
 //get all prices
 router.get('/ticketPrice', async (req, res) => {
     try {
@@ -16,19 +29,6 @@ router.get('/ticketPrice', async (req, res) => {
     }
 });
 
-//create price
-router.post('/ticketPrice', async (req, res) => {
-    try {
-        const prices = new Price(req.body);
-        await prices.save(prices);
-        res.status(201)
-            .send(prices);
-    } catch {
-        res.status(404)
-            .send({ error: `The request could not be completed` })
-    }
-});
-
 //update price
 router.put('/ticketPrice', async (req, res) => {
     try {
@@ -39,11 +39,11 @@ router.put('/ticketPrice', async (req, res) => {
             .send(prices);
     } catch {
         res.status(404)
-            .send({ error: `The price for ${field} could not be updated` })
+            .send({ error: `The price for ${field} could not be updated` });
     }
 });
 
-//delete price
+//delete price by type
 router.delete('/ticketPrice/:type', async (req, res) => {
     try {
         const field = req.params.type;
@@ -54,7 +54,7 @@ router.delete('/ticketPrice/:type', async (req, res) => {
             .send(price);
     } catch {
         res.status(404)
-            .send({ error: `The price for ${field} coul not be removed` })
+            .send({ error: `The price for ${field} coul not be removed` });
     }
 });
 

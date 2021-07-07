@@ -1,100 +1,98 @@
 const express = require('express');
 const router = express.Router();
 
-const Ticket = require('../Models/Ticket');
-const Payment = require('../Models/Payment');
-
-//get all bookings
-router.get('/booking', async (request, response) => {
-    try {
-        const bookings = await Ticket.find()
-            .populate({
-                path: 'movieID',
-                select: 'title imageURL dateTime'
-            });
-        response.send(bookings);
-    } catch {
-        response.status(404);
-        response.send({ error: 'no bookings' })
-    }
-});
-
-//get bookings by id
-router.get('/booking/:id', async (request, response) => {
-    try {
-        const booking = await Ticket.findById(request.params.id)
-            .populate({
-                path: 'movieID',
-                select: 'title imageURL dateTime'
-            });
-        response.send(booking);
-    } catch {
-        response.status(404);
-        response.send({ error: 'booking does not exist' })
-    }
-});
-
-//get bookings by firstName
-router.get('/bookings/name/:firstname', async (request, response) => {
-    try {
-        const movie = await Ticket.find({ firstName: { $eq: request.params.firstname } })
-            .populate({
-                path: 'movieID',
-                select: 'title imageURL dateTime'
-            });
-        response.send(movie);
-    } catch {
-        response.status(404);
-        response.send({ error: 'no bookings' })
-    }
-});
-
+const Ticket = require('../Models/Booking');
 
 //create movie using form
-router.post('/booking', async (request, response) => {
+router.post('/booking', async (req, res) => {
     try {
-        const payment = new Payment(request.body.payment);
-        await payment.save();
-        const paymentId = (await Payment.find().sort({ _id: -1 }).limit(1)).map(key => key._id)[0].toString();
-        const ticket = new Ticket(request.body);
-        ticket.paymentID = paymentId;
-        await ticket.save();
-        response.send(ticket);
+        const booking = new Booking(req.body);
+        await booking.save();
+        res.status(201)
+            .send(booking);
     } catch {
-        response.status(404);
-        response.send({ error: 'the could not be completed' })
+        res.status(404)
+            .send({ error: 'The request could not be completed' });
     }
 });
 
-//update movie
-router.put('/booking/:id', async (request, response) => {
+//get all bookings
+router.get('/booking', async (req, res) => {
     try {
-        const ticket = await Ticket.findById(request.params.id);
-        ticket.firstName = request.body.firstName;
-        ticket.surname = request.body.surname;
-        ticket.noOfTickets = request.body.noOfTickets;
-        ticket.dayID = request.body.dayID;
-        ticket.timeID = request.body.timeID;
-        await ticket.save();
-        response.send(ticket);
+        const bookings = await Booking.find()
+            .populate({
+                path: 'movieID',
+                select: 'title imageURL'
+            });
+        res.status(201)
+            .send(bookings);
     } catch {
-        response.status(404);
-        response.send({ error: 'the booking could not be updated' })
+        res.status(404)
+            .send({ error: 'No bookings available' });
+    }
+});
+
+
+//update booking by id
+router.put('/booking/:id', async (req, res) => {
+    try {
+        const booking = await Booking.findById(req.params.id);
+        booking = new Booking(res.body);
+        await booking.save();
+        res.status(201)
+            .send(booking);
+    } catch {
+        res.status(404)
+            .send({ error: 'The booking could not be updated' });
     }
 });
 
 //delete movie
-router.delete('/booking/:id', async (request, response) => {
+router.delete('/booking/:id', async (req, res) => {
     try {
-        const ticket = await Ticket.findById(request.params.id);
-        const payment = await Payment.findById(ticket.paymentID);
+        const booking = await Ticket.findById(requ.params.id);
+        const payment = await Payment.findById(booking.paymentID);
         await payment.deleteOne();
-        await ticket.deleteOne();
-        response.send(ticket);
+        await booking.deleteOne();
+        res.status(201)
+            .send(booking);
     } catch {
-        response.status(404);
-        response.send({ error: 'the booking could not be deleted' })
+        res.status(404)
+            .send({ error: 'the booking could not be deleted' });
     }
 });
+
+//get bookings by id
+router.get('/booking/:id', async (req, res) => {
+    try {
+        const booking = await Booking.findById(req.params.id)
+            .populate({
+                path: 'movieID',
+                select: 'title imageURL'
+            });
+        res.status(201)
+            .send(booking);
+    } catch {
+        res.status(404)
+            .send({ error: 'Booking does not exist' })
+    }
+});
+
+//get bookings by name
+router.get('/booking/name/:name', async (req, res) => {
+    try {
+        const booking = await Booking.find({ name: { $eq: req.params.name } })
+            .populate({
+                path: 'movieID',
+                select: 'title imageURL dateTime'
+            });
+        res.status(201)
+            .send(booking);
+    } catch {
+        res.status(404)
+            .send({ error: 'no bookings' });
+    }
+});
+
 
 module.exports = router;
