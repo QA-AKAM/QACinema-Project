@@ -4,9 +4,7 @@ import '../../CSS/Pages.css';
 const OpeningTimes = () => {
     return (
         <div class="background">
-            <div class="landing-text">
-                <h2>Opening Times</h2>
-            </div>
+            <h1 class='landing-text'>Opening Times</h1>
             <div class='container'>
                 <table class="table table-hover table-dark">
                     <thead>
