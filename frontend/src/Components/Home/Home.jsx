@@ -1,5 +1,10 @@
 'use strict';
 import { Carousel, Alert } from 'react-bootstrap';
+import InTheHeights from '../../Images/In-The-Heights.jpg';
+import BlackWidow from '../../Images/Black-Widow.jpg';
+import F9 from '../../Images/Fast-and-Furious9.jpg';
+import IMAX from '../../Images/Imax.png';
+import '../../CSS/Pages.css';
 import './Home.css';
 const Home = () => {
     return (
@@ -11,7 +16,7 @@ const Home = () => {
                             Need ID/nAME */}
                         <img
                             className="d-block w-100"
-                            src="./Images/In-The-Heights.jpg"
+                            src={InTheHeights}
                             alt="In the heights img"
                             href="/Forum"
                         />
@@ -20,23 +25,23 @@ const Home = () => {
                     <Carousel.Item interval={8000}>
                         <img
                             className="d-block w-100"
-                            src="./Images/Black-Widow.jpg"
+                            src={BlackWidow}
                             alt="Black Widow img"
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={8000}>
                         <img
                             className="d-block w-100"
-                            src="./Images/Fast-and-Furious9.jpg"
+                            src={F9}
                             alt="Fast and Furious img"
                         />
                     </Carousel.Item>
                 </Carousel>
             </div>
             <div id="home">
-                <div class="landing-text">
-                    <h1> Welcome to QA Cinemas</h1>
-                    <h3>Experience all the latest movies in stunning IMAX!</h3>
+                <div>
+                    <h1 class='landing-text'> Welcome to QA Cinemas</h1>
+                    <h3 class="landing-text">Experience all the latest movies in stunning IMAX!</h3>
                 </div>
             </div>
             <div class="padding">
@@ -53,7 +58,7 @@ const Home = () => {
 
                         </div>
                         <div class="col-lg-6">
-                            <img src="./Images/imax2.png" alt="" class="imgDiv" />
+                            <img src={IMAX} alt="" class="imgDiv" />
                         </div>
                     </div>
                 </div>

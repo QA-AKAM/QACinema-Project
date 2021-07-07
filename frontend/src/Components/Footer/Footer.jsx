@@ -20,7 +20,6 @@ const Footer = () => {
                     <p> QA Cinema 2021 &copy; </p>
                 </div>
             </Container>
-
         </div>
     )
 }
