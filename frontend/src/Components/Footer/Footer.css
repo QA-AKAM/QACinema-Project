@@ -2,5 +2,11 @@
 .Footer {
   background: #343A41;
   color: white;
-  height: 400px;
+  height: 200px;
+  bottom: 0;
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
