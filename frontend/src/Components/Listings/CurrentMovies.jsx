@@ -4,9 +4,7 @@ import '../../CSS/Pages.css';
 const CurrentMovies = () => {
     return (
         <div class="background">
-            <div class="landing-text">
-                <h1> CurrentMovies</h1>
-            </div>
+            <h1 class='landing-text'>Current Movies</h1>
         </div>
     )
 }
