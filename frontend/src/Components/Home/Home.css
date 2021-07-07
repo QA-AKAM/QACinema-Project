@@ -1,0 +1,13 @@
+.carouselImg {
+    margin: auto;
+    width: 1140px;
+    height: 700px;
+}
+
+#home {
+        display: table;
+        position: relative;
+        width: 100%;
+        background-size: cover;
+        padding-bottom: 100px;
+    }
