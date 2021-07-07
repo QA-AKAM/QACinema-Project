@@ -7,6 +7,7 @@ import Tickets from './Components/TicketBooking/Tickets';
 import Screens from './Components/Information/Screens';
 import OpeningTimes from './Components/Information/OpeningTimes';
 import Forum from './Components/Information/Forum';
+import ContactUs from './Components/Information/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
 import About from './Components/Information/About';
@@ -50,6 +51,10 @@ function App() {
             <Forum />
           </Route>
 
+          <Route path="/ContactUs">
+            <ContactUs />
+          </Route>
+    
           <Route path="/About" >
             <About />
           </Route>
