@@ -9,7 +9,7 @@ import OpeningTimes from './Components/Information/OpeningTimes';
 import Forum from './Components/Information/Forum';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
-
+import About from './Components/Information/About';
 import './Resources/App.css';
 
 function App() {
@@ -48,6 +48,10 @@ function App() {
 
           <Route path="/Forum" >
             <Forum />
+          </Route>
+
+          <Route path="/About" >
+            <About />
           </Route>
 
         </Switch>
