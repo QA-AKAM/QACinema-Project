@@ -1,18 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const Ticket = require('../Models/Booking');
+const Booking = require('../Models/Booking');
 
 //create movie using form
 router.post('/booking', async (req, res) => {
     try {
         const booking = new Booking(req.body);
         await booking.save();
-        res.status(201)
-            .send(booking);
+        res.status(201).send(booking);
     } catch {
-        res.status(404)
-            .send({ error: 'The request could not be completed' });
+        res.status(404).send({ error: 'The request could not be completed' });
     }
 });
 
@@ -24,11 +22,9 @@ router.get('/booking', async (req, res) => {
                 path: 'movieID',
                 select: 'title imageURL'
             });
-        res.status(201)
-            .send(bookings);
+        res.status(201).send(bookings);
     } catch {
-        res.status(404)
-            .send({ error: 'No bookings available' });
+        res.status(404).send({ error: 'No bookings available' });
     }
 });
 
@@ -37,32 +33,29 @@ router.get('/booking', async (req, res) => {
 router.put('/booking/:id', async (req, res) => {
     try {
         const booking = await Booking.findById(req.params.id);
-        booking = new Booking(res.body);
+        Object.assign(booking, req.body);
         await booking.save();
         res.status(201)
             .send(booking);
     } catch {
-        res.status(404)
-            .send({ error: 'The booking could not be updated' });
+        res.status(404).send({ error: 'The booking could not be updated' });
     }
 });
 
-//delete movie
+//delete booking
 router.delete('/booking/:id', async (req, res) => {
     try {
-        const booking = await Ticket.findById(requ.params.id);
-        const payment = await Payment.findById(booking.paymentID);
-        await payment.deleteOne();
+        const booking = await Booking.findById(req.params.id);
+        // const payment = await Payment.findById(booking.paymentID);
+        // await payment.deleteOne();
         await booking.deleteOne();
-        res.status(201)
-            .send(booking);
+        res.status(201).send(booking);
     } catch {
-        res.status(404)
-            .send({ error: 'the booking could not be deleted' });
+        res.status(404).send({ error: 'the booking could not be deleted' });
     }
 });
 
-//get bookings by id
+//get booking by id
 router.get('/booking/:id', async (req, res) => {
     try {
         const booking = await Booking.findById(req.params.id)
@@ -70,15 +63,13 @@ router.get('/booking/:id', async (req, res) => {
                 path: 'movieID',
                 select: 'title imageURL'
             });
-        res.status(201)
-            .send(booking);
+        res.status(201).send(booking);
     } catch {
-        res.status(404)
-            .send({ error: 'Booking does not exist' })
+        res.status(404).send({ error: 'Booking does not exist' })
     }
 });
 
-//get bookings by name
+//get booking by name
 router.get('/booking/name/:name', async (req, res) => {
     try {
         const booking = await Booking.find({ name: { $eq: req.params.name } })
@@ -86,11 +77,9 @@ router.get('/booking/name/:name', async (req, res) => {
                 path: 'movieID',
                 select: 'title imageURL dateTime'
             });
-        res.status(201)
-            .send(booking);
+        res.status(201).send(booking);
     } catch {
-        res.status(404)
-            .send({ error: 'no bookings' });
+        res.status(404).send({ error: 'no bookings' });
     }
 });
 

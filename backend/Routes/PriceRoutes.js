@@ -4,57 +4,47 @@ const router = express.Router();
 const Price = require('../Models/Price');
 
 //create price
-router.post('/ticketPrice', async (req, res) => {
+router.post('/price', async (req, res) => {
     try {
         const prices = new Price(req.body);
         await prices.save(prices);
-        res.status(201)
-            .send(prices);
+        res.status(201).send(prices);
     } catch {
-        res.status(404)
-            .send({ error: `The request could not be completed` });
+        res.status(404).send({ error: `The request could not be completed` });
     }
 });
 
 //get all prices
-router.get('/ticketPrice', async (req, res) => {
+router.get('/price', async (req, res) => {
     try {
         const prices = await Price.find();
-        res.status(201)
-            .send(prices);
+        res.status(201).send(prices);
     }
     catch {
-        res.status(404)
-            .send({ error: `No prices available` });
+        res.status(404).send({ error: `No prices available` });
     }
 });
 
 //update price
-router.put('/ticketPrice', async (req, res) => {
+router.put('/price/:id', async (req, res) => {
     try {
-        const prices = await Ticket.find();
-        prices = new Price(req.body);
-        await ticketPrice.save();
-        res.status(201)
-            .send(prices);
+        const prices = await Price.findById(req.params.id);
+        Object.assign(prices, req.body);
+        await prices.save();
+        res.status(201).send(prices);
     } catch {
-        res.status(404)
-            .send({ error: `The price for ${field} could not be updated` });
+        res.status(404).send({ error: `The prices could not be updated` });
     }
 });
 
 //delete price by type
-router.delete('/ticketPrice/:type', async (req, res) => {
+router.delete('/price/:id', async (req, res) => {
     try {
-        const field = req.params.type;
-        const price = await Ticket.findOne({ field: { $exists: true } });
-        delete price.field;
-        await price.save();
-        res.status(201)
-            .send(price);
+        const prices = await Price.findById(req.params.id);
+        await prices.deleteOne();
+        res.status(201).send(prices);
     } catch {
-        res.status(404)
-            .send({ error: `The price for ${field} coul not be removed` });
+        res.status(404).send({ error: `The prices could not be removed` });
     }
 });
 

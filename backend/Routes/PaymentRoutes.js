@@ -7,12 +7,10 @@ const Payment = require('../Models/Payment');
 router.post('/payment', async (req, res) => {
     try {
         const payment = new Payment(req.body);
-        await payment.save(prices);
-        res.status(201)
-            .send(payment);
+        await payment.save(payment);
+        res.status(201).send(payment);
     } catch {
-        res.status(404)
-            .send({ error: `The request could not be completed` });
+        res.status(404).send({ error: `The request could not be completed` });
     }
 });
 
@@ -20,39 +18,33 @@ router.post('/payment', async (req, res) => {
 router.get('/payment', async (req, res) => {
     try {
         const payments = await Payment.find();
-        res.status(201)
-            .send(payments);
+        res.status(201).send(payments);
     }
     catch {
-        res.status(404)
-            .send({ error: `No payment cards available` });
+        res.status(404).send({ error: `No payment cards available` });
     }
 });
 
 //update payment method
-router.put('/payment', async (req, res) => {
+router.put('/payment/:id', async (req, res) => {
     try {
-        const payment = await Ticket.find();
-        payment = new Price(req.body);
+        const payment = await Payment.findById(req.params.id);
+        Object.assign(payment, req.body);
         await payment.save();
-        res.status(201)
-            .send(payment);
+        res.status(201).send(payment);
     } catch {
-        res.status(404)
-            .send({ error: `The payment method could not be updated` });
+        res.status(404).send({ error: `The payment method could not be updated` });
     }
 });
 
 //delete payment method by id
 router.delete('/payment/:id', async (req, res) => {
     try {
-        const payment = Payment.findById(request.params.id);
+        const payment = await Payment.findById(req.params.id);
         await payment.deleteOne();
-        res.status(201)
-            .send(payment);
+        res.status(201).send(payment);
     } catch {
-        res.status(404)
-            .send({ error: `The payment method could not be removed` });
+        res.status(404).send({ error: `The payment method could not be removed` });
     }
 });
 

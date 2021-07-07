@@ -15,12 +15,11 @@ const bookingSchema = new Schema({
     },
     day: {
         type: String,
-        minlenght: "6",
+        minlenght: "5",
         required: true
     },
     time: {
         type: String,
-        minlenght: "5",
         required: true
     },
     noOfTickets: {
