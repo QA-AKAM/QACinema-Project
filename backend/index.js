@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 //get routes
 const movieRouter = require('./Routes/MovieRoutes');
 const bookingRouter = require('./Routes/BookingRoutes');
+const priceRouter = require('./Routes/PriceRoutes');
 
 //Connect to MongoDB database
 mongoose.connect("mongodb+srv://akam:reactnode@cluster0.ihlmt.mongodb.net/cinema", { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,6 +21,7 @@ mongoose.connect("mongodb+srv://akam:reactnode@cluster0.ihlmt.mongodb.net/cinema
         app.use(express.json());
         app.use(movieRouter);
         app.use(bookingRouter);
+        app.use(priceRouter);
 
 
         app.listen(PORT, () => {
