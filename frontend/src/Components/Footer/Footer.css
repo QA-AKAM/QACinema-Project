@@ -2,11 +2,7 @@
 .Footer {
   background: #343A41;
   color: white;
-  height: 200px;
-  bottom: 0;
-  position:fixed;
-  left: 0;
-  bottom: 0;
+  height: 75px;
   width: 100%;
   text-align: center;
 }
