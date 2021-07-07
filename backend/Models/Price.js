@@ -6,23 +6,17 @@ const priceSchema = new Schema({
     adult: {
         type: Number,
         minlength: 1,
-        max: 7,
         required: true,
-        default: 0
     },
     child: {
         type: Number,
         minlength: 1,
-        max: 7,
         required: true,
-        default: 0
     },
     senior: {
         type: Number,
         minlength: 1,
-        max: 7,
         required: true,
-        default: 0
     }
 });
 
