@@ -5,7 +5,6 @@ const UpcomingMovies = () => {
     return (
         <div class="background">
             <h1 class='landing-text'>Upcoming Movies</h1>
-
         </div>
     )
 }

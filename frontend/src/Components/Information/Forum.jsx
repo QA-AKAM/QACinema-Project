@@ -4,9 +4,7 @@ import '../../CSS/Pages.css';
 const Forum = () => {
     return (
         <div class="background">
-            <div class="landing-text">
-                <h1> Forum</h1>
-            </div>
+            <h1 class='landing-text'>Forum</h1>
         </div>
     )
 }
