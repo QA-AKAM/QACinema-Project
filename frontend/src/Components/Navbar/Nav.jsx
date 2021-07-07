@@ -2,20 +2,20 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { Form, FormControl, Button } from 'react-bootstrap';
-
+import Logo from '../../Images/Logo.png';
 const NavBar = () => {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/Home">
                         <img
                             alt=""
-                            //src="/logo512.png"
-                            width="30"
-                            height="30"
+                            src={Logo}
+                            width="125"
+                            height="35"
                             className="d-inline-block align-top"
-                        />{' '}QA Cinema</Navbar.Brand>
+                        /></Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/Home">Home</Nav.Link>
                         <NavDropdown title="Movies" id="basic-nav-dropdown">

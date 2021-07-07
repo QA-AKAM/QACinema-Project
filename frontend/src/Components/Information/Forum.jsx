@@ -1,8 +1,11 @@
 'use strict';
+import '../../CSS/Pages.css';
 
 const Forum = () => {
     return (
-        <h3>Forum</h3>
+        <div class="background">
+            <h1 class='landing-text'>Forum</h1>
+        </div>
     )
 }
 export default Forum;

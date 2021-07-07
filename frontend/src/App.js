@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import NavBar from './Components/Navbar/Nav';
 import Home from './Components/Home/Home';
 import CurrentMovies from './Components/Listings/CurrentMovies';
@@ -9,9 +9,8 @@ import OpeningTimes from './Components/Information/OpeningTimes';
 import Forum from './Components/Information/Forum';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
-
+import About from './Components/Information/About';
 import './Resources/App.css';
-import { Component } from 'react';
 
 function App() {
   return (
@@ -19,6 +18,10 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/Home" />
+          </Route>
+
           <Route path="/Home" >
             <Home />
           </Route>
@@ -47,8 +50,8 @@ function App() {
             <Forum />
           </Route>
 
-          <Route path="/OpeningTimes">
-            <OpeningTimes />
+          <Route path="/About" >
+            <About />
           </Route>
 
         </Switch>

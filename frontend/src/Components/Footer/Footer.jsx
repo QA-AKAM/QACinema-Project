@@ -6,13 +6,13 @@ const Footer = () => {
             <Container>
                 <div class='row'>
                     <div class='col-sm'>
-                        <a href='/AboutUs'>
-                            <p> About Us </p>
+                        <a href='/About'>
+                            <p1> About Us </p1>
                         </a>
                     </div>
                     <div class='col-sm'>
                         <a href='/ContactUs'>
-                            <p> Contact Us </p>
+                            <p1> Contact Us </p1>
                         </a>
                     </div>
                 </div>
@@ -24,5 +24,4 @@ const Footer = () => {
         </div>
     )
 }
-
 export default Footer;
