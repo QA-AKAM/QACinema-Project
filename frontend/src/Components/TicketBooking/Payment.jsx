@@ -18,12 +18,12 @@ const Payment = ({ bookingProp }) => {
                 <h1>Order Confirmation</h1>
                 <div class='confirm'>
                     <Card>
-                        <h3> {ticketNo} {(ticketNo === 1) ? 'Ticket' : 'Tickets'} to see {movieName} </h3>
+                        <h3> {ticketNo} {(ticketNo == 1) ? 'Ticket' : 'Tickets'} to see {movieName} </h3>
                         <p> Booker: {firstname} {surname} </p>
                         <p> Tickets: </p>
-                        <p> {child} child {(child === 1) ? 'ticket' : 'Tickets'} - £{5 * child} </p>
-                        <p> {adult} adult {(adult === 1) ? 'ticket' : 'Tickets'} - £{9 * adult} </p>
-                        <p> {senior} senior {(senior === 1) ? 'ticket' : 'Tickets'} - £{7 * senior} </p>
+                        <p> {child} child {(child == 1) ? 'ticket' : 'tickets'} - £{5 * child} </p>
+                        <p> {adult} adult {(adult == 1) ? 'ticket' : 'tickets'} - £{9 * adult} </p>
+                        <p> {senior} senior {(senior == 1) ? 'ticket' : 'tickets'} - £{7 * senior} </p>
                         <h5> Total - £{total} </h5>
                     </Card>
                 </div>
