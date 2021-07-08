@@ -16,7 +16,7 @@ const Footer = () => {
                         </a>
                     </div>
                     <div class='col-sm'>
-                        <a href='/NearbyVenue'>
+                        <a href='/Nearby'>
                             <p1> Nearby Venues </p1>
                         </a>
                     </div>
