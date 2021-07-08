@@ -16,6 +16,7 @@ h1.landing-text {
 .bgBlur{
     background:transparent !important;
     backdrop-filter: blur(5px);
+    padding-top: 100;
 }
 
 .cardHoverZoom:hover {

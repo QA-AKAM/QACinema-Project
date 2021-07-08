@@ -63,26 +63,41 @@ const CurrentMovies = () => {
                             <Card className="bg-dark text-white cardHoverZoom mb-3">
                                 <Row className="no-gutters">
                                     <Col md={4}>
-                                        <img src={movie.imageURL} height="100%" />
+                                        <img src={movie.imageURL} width="100%" />
+                                        <div class="mt-2 col-md-12">
+                                            {movie.actors.map((actor) => (
+                                                <div>
+                                                    <Card.Text>{actor.name} as {actor.role}</Card.Text>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </Col>
                                     <Col md={8}>
                                         <Card.Body>
                                             <Card.Title className="cardMovieTitle">{movie.title}</Card.Title>
                                             <Card.Text className="cardMovieText">{movie.shortPlot}</Card.Text>
                                             <Card.Text className="cardMovieText">Directed by {movie.director}</Card.Text>
-                                            {movie.actors.map((actor) => (
-                                                <div>
-                                                    <Card.Text>{actor.name} as {actor.role}</Card.Text>
-                                                </div>
-                                            ))}
-                                            {dateAssigner(movie.dateTime).map((date) => (
-                                                <div>
-                                                    <Card.Text>{date.day}</Card.Text>
-                                                    {date.timeOfMovie.map((time) => (
-                                                        <Card.Text>{time.time}</Card.Text>
-                                                    ))}
-                                                </div>
-                                            ))}
+
+                                            <div class="container">
+                                                <table class="table table-hover table-dark">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="4" scope="colgroup">Showings</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {dateAssigner(movie.dateTime).map((date) => (
+                                                            <tr>
+                                                                <th scope="col">{date.day}</th>
+                                                                {date.timeOfMovie.map((time) => (
+                                                                    <td scope="row">{time.time}</td>
+                                                                ))}
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
                                             <Link to={`/released/${movie._id}`}>
                                                 <Button value={movie._id}>View more...</Button>
                                             </Link>
@@ -94,7 +109,7 @@ const CurrentMovies = () => {
                     </div>
                 </Jumbotron>
             </Container>
-        </div>
+        </div >
     )
 }
 export default CurrentMovies;
