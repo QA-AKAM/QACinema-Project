@@ -13,6 +13,7 @@ import Footer from './Components/Footer/Footer';
 import About from './Components/Information/About';
 import './Resources/App.css';
 import Directions from './Components/Information/Directions/Directions'
+import Nearby from './Components/Information/Nearby/Nearby'
 
 function App() {
   return (
@@ -62,6 +63,10 @@ function App() {
 
           <Route path="/Directions" >
             <Directions />
+          </Route>
+
+          <Route path="/Nearby" >
+            <Nearby />
           </Route>
 
         </Switch>
