@@ -11,6 +11,16 @@ const Footer = () => {
                         </a>
                     </div>
                     <div class='col-sm'>
+                        <a href='/Directions'>
+                            <p1> Navigation </p1>
+                        </a>
+                    </div>
+                    <div class='col-sm'>
+                        <a href='/NearbyVenue'>
+                            <p1> Nearby Venues </p1>
+                        </a>
+                    </div>
+                    <div class='col-sm'>
                         <a href='/ContactUs'>
                             <p1> Contact Us </p1>
                         </a>
