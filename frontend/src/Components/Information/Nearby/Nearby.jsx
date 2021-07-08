@@ -1,6 +1,7 @@
 'use strict'
 import '../../../CSS/Pages.css';
 import NearbyVenue from './NearbyVenue';
+import { useState } from 'react';
 
 import VenueCote from '../../../Images/venue_cote.jpg';
 import SlugLettuce from '../../../Images/venue_sluglettuce.jpg';
@@ -8,7 +9,7 @@ import Emilia from '../../../Images/venue_emilia.jpg';
 import v4 from '../../../Images/directions_from_underground.jpg';
 
 const Directions = () => {
-    const cardData = [{
+    const [cardData, setCardData] = useState([{
         img: VenueCote,
         title: "Cote - St Katherine's Docks",
         description: "Modern, all-day French brasserie chain, serving regional specialities and traditional classics. Choose any cooked breakfast or light main, a fresh juice or a hot drink, and a glass of sparkling Baron de Marck Champagne. Available at all of our brasseries.",
@@ -45,8 +46,8 @@ const Directions = () => {
         ],
         nav: "https://www.google.co.uk/maps/place/Emilia's+Crafted+Pasta+(St.+Katharine+Docks)/@51.507246,-0.071571,17z/data=!4m5!3m4!1s0x48760349cb62bf9f:0x1b713290cb21ac2c!8m2!3d51.507246!4d-0.071571"
     }
+    ]);
 
-    ];
     return (
         <div class="background">
             <div class="container">

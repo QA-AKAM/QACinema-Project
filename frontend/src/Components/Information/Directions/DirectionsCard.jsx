@@ -10,7 +10,7 @@ const DirectionsCard = ({ cardData }) => {
                     border: '1px solid red',
                     padding: '1rem',
                     color: 'red'
-                }}>Directions</a>
+                }}>{cardData.btn}</a>
             <div class='container' style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 marginTop: '3rem',
