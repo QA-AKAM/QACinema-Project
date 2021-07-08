@@ -67,7 +67,7 @@ const CurrentMovies = () => {
                                         <div class="mt-2 col-md-12">
                                             {movie.actors.map((actor) => (
                                                 <div>
-                                                    <Card.Text>{actor.name} as {actor.role}</Card.Text>
+                                                    <p1> <strong>{actor.name}</strong> as <em>{actor.role}</em></p1>
                                                 </div>
                                             ))}
                                         </div>
