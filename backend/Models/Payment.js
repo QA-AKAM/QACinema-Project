@@ -15,11 +15,17 @@ const paymentSchema = new Schema({
         maxlength: 16
 
     },
-    cardExpDate: {
+    cardExpMonth: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 5
+        minlength: 2,
+        maxlength: 2
+    },
+    cardExpYear: {
+        type: String,
+        required: true,
+        minlength: 2,
+        maxlength: 2
     },
     cardCVC: {
         type: Number,
