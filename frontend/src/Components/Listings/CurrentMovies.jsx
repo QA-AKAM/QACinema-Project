@@ -83,6 +83,9 @@ const CurrentMovies = () => {
                                                     ))}
                                                 </div>
                                             ))}
+                                            <Link to={`/released/${movie._id}`}>
+                                                <Button value={movie._id}>View more...</Button>
+                                            </Link>
                                         </Card.Body>
                                     </Col>
                                 </Row>
