@@ -1,5 +1,5 @@
  .background {
-    background-image: linear-gradient(rgba(0,0,0,0),hsl(0,0%,0%, 1)),url("../Images/QA-Cinema-BG.png");
+    background-image: linear-gradient(rgba(0,0,0,0),hsl(0,0%,0%, 1)),url("../Images/QA-Cinema BG.png");
     background-color: #343A40;
     background-position: center;
     background-size: 40%;
@@ -65,4 +65,11 @@ p1 {
 }
 p1:hover {
     color: #dc3545;
+}
+
+.confirm {
+    margin: auto;
+    margin-bottom: 25px;
+    justify-content: center;
+    width: 75%;
 }
