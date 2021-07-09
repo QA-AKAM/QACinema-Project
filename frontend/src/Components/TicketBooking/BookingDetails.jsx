@@ -6,32 +6,33 @@ const BookingDetails = ({ getBookingProp }) => {
 
     const getBooking = getBookingProp;
 
-    const [firstname, setFirstname] = useState('');
-    const [surname, setSurname] = useState('');
-    const [child, setChild] = useState(0);
-    const [adult, setAdult] = useState(0);
-    const [senior, setSenior] = useState(0);
-
-    const [movieName, setMovieName] = useState('');
-    const [found, setFound] = useState({});
-
-    //get movies list
+    //set movies list
     const [movieList, setMovieList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState(null);
 
-    //get selected movie & set days
+    //set selected movie & set days
     const [selectedMovie, setSelectedMovie] = useState({});
     const [days, setDays] = useState([]);
 
-    //get selected day & set times
+    //set selected day & set times
     const [selectedDay, setSelectedDay] = useState({});
     const [times, setTimes] = useState([]);
 
+    //set selected time
+    const [selectedTime, setSelectedTime] = useState({})
+
+    //set tickets
+    const [child, setChild] = useState(0);
+    const [adult, setAdult] = useState(0);
+    const [senior, setSenior] = useState(0);
+
+    //set name
+    const [name, setName] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getBooking({ firstname, surname, child, adult, senior, movieName });
+        getBooking({ name, child, adult, senior, selectedDay, selectedTime, selectedMovie, paymentID: null });
     }
 
     //get movies
@@ -57,10 +58,9 @@ const BookingDetails = ({ getBookingProp }) => {
         setDays(selectedMovie.dateTime);
     }, [selectedMovie])
 
-    //set timesq
+    //set times
     useEffect(() => {
-        const timesOfMovie = selectedDay.timeOfMovie;
-        console.log(timesOfMovie);
+        setTimes(selectedDay.timeOfMovie);
     }, [selectedDay])
 
     return (
@@ -69,27 +69,11 @@ const BookingDetails = ({ getBookingProp }) => {
             <div class='row'>
                 <div class='col-sm'>
                     <form>
-                        <label> First Name: </label>
-                        <input type='text' id='firstname' onChange={(event) => {
-                            return setFirstname(event.target.value);
-                        }} /><br />
-                        <label> Surname: </label>
-                        <input type="text" id='surname' onChange={(event) => {
-                            return setSurname(event.target.value);
+                        {/* render name */}
+                        <label> Booking Name: </label>
+                        <input type='text' id='name' onChange={(event) => {
+                            setName(event.target.value);
                         }} />
-                        <label> Tickets: </label><br />
-                        <label> Child </label>
-                        <input type="number" id='child' class='ticket-type' onChange={(event) => {
-                            return setChild(event.target.value);
-                        }} min='0' />
-                        <label> Adult </label>
-                        <input type="number" id='adult' class='ticket-type' onChange={(event) => {
-                            return setAdult(event.target.value);
-                        }} min='0' />
-                        <label> Senior </label>
-                        <input type="number" id='senior' class='ticket-type' onChange={(event) => {
-                            return setSenior(event.target.value);
-                        }} min='0' /><br />
 
                         {/* render movies list */}
                         <label> Movie of Choice: </label>
@@ -107,40 +91,70 @@ const BookingDetails = ({ getBookingProp }) => {
                         </select >
 
                         {/* render days */}
-                        <label> Day: </label>
+                        < label > Day: </label>
                         <select aria-label="day-select"
                             onChange={e =>
                                 days.map(day => {
                                     day._id === e.target.value &&
                                         setSelectedDay(day)
                                 })
-                            }>
+                            }
+                        >
                             <option selected disabled hidden> Select Day </option>
-                            {days.map(day => (
+                            {days?.map(day => (
                                 <option value={day._id}>{day.day}</option>
                             ))}
                         </select >
 
-                        {/* render times */}
 
+                        {/* render times */}
+                        < label > Time: </label>
+                        <select aria-label="time-select"
+                            onChange={e =>
+                                times.map(time => {
+                                    time._id === e.target.value &&
+                                        setSelectedTime(time)
+                                })
+                            }
+                        >
+                            <option selected disabled hidden> Select Time </option>
+                            {times?.map(time => (
+                                <option value={time._id}>{time.time}</option>
+                            ))}
+                        </select >
 
                         {/* render no of tickets (adult, child, senior) */}
+                        <label> Tickets: </label><br />
+                        <label> Child </label>
+                        <input type="number" id='child' class='ticket-type' value={child}
+                            onChange={(event) => {
+                                setChild(event.target.value);
+                            }} min='0' />
+                        <label> Adult </label>
+                        <input type="number" id='adult' class='ticket-type' value={adult}
+                            onChange={(event) => {
+                                setAdult(event.target.value);
+                            }} min='0' />
+                        <label> Senior </label>
+                        <input type="number" id='senior' class='ticket-type' value={senior}
+                            onChange={(event) => {
+                                setSenior(event.target.value);
+                            }} min='0' />
 
-
-                        {/* .....payment? */}
-
-
-                        <br />
-                        <label> Date:</label>
-                        <input type="date" id='date'></input>
-                        <label> Time:</label>
-                        <input type="time" id='time' min='9:30' max='23:30' step='900'></input>
-                        <button type='submit' class='button btn-primary' id='submit' onClick={handleSubmit}> To Payment </button>
+                        {/* submit*/}
+                        <button type='submit' class='button btn-primary' id='submit'
+                            onClick={handleSubmit}> To Payment </button>
                     </form>
                 </div>
                 <div class='col-sm'>
                     <Card>
-                        <p>I found the movie {found.Title}</p>
+
+                        {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
+                        <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
+                        <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
+                        <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
+
+
                     </Card>
                 </div>
             </div>

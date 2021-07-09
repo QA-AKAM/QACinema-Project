@@ -12,7 +12,6 @@ const Tickets = () => {
     const [booked, setBooked] = useState(false);
 
     const getBooking = (details) => {
-        console.log(details);
         setBooked(true);
         setBooking(details);
     }
