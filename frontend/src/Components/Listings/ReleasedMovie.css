@@ -1,16 +1,3 @@
-#moviePosterBg {
-        background:  url("https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@.jpg") no-repeat center center fixed;
-        display: table;
-        height: 100%;
-        position: relative;
-        width: 100%;
-        background-size: cover;
-        padding-top: 400px;
-        padding-bottom: 400px;
-        filter: brightness(90%);
-
-    }
-
 .landing-movie-title {
         display: table-cell;
         text-align: center;
@@ -29,13 +16,11 @@
         color:white;
     }
 
-.cardImg {
-    height: auto; 
-    width: auto; 
-    max-width: 300px; 
-    max-height: 300px;
-}    
-.card-deck {
-    margin: 0 auto;
-    display: flex;
+.cardMovieTitle {
+    text-align: left;
+    font-size:72px !important;
+}
+
+.cardMovieText {
+    text-align: left;
 }
