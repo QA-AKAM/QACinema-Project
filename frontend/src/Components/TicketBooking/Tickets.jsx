@@ -25,30 +25,27 @@ const Tickets = () => {
         setPayment(paymentID);
     }
 
-    const constructBody = () => {
-        return {
-            name: booking.name,
-            MovieID: booking.selectedMovie._id,
-            day: booking.selectedDay,
-            time: booking.selectedTime,
-            noOfTickets: {
-                noOfAdult: booking.adult,
-                noOfChild: booking.child,
-                noOfConcession: booking.senior
-            },
-            paymentID: payment
-        }
+    const constructBody = {
+        name: booking?.name,
+        MovieID: booking?.selectedMovie?._id,
+        day: booking?.selectedDay?.day,
+        time: booking?.selectedTime?.time,
+        noOfTickets: {
+            noOfAdult: booking?.adult,
+            noOfChild: booking?.child,
+            noOfConcession: booking?.senior
+        },
+        paymentID: payment
     }
 
     useEffect(() => {
+        console.log(constructBody);
         axios.post('http://localhost:5000/booking/', constructBody)
             .then(() => {
                 setLoaded(true);
                 console.log('woop! woop!');
             })
             .catch((error) => {
-                console.log(constructBody);
-                console.log(booking.name);
                 setLoaded(true);
                 setError(error);
             });
