@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck'
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -84,26 +85,27 @@ const ReleasedMovie = () => {
                 <Container>
                     <Row>
                         <Col lg={12}>
-                            <h2>Synopsis</h2>
-                            <p>
-                                {movieList.shortPlot}
-                            </p>
-                            <p>
-                                Movie runtime: {movieList.runTime}
-                            </p>
+                            <Card bg="dark" text="dark">
+                                <Card.Title>Synopsis</Card.Title>
+                                <Card.Text>{movieList.shortPlot}</Card.Text>
+                                <Card.Subtitle>Movie runtime: {movieList.runTime}</Card.Subtitle>
+                            </Card>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col lg={12}>
-                            <h2>Cast</h2>
-                            {movieList.actors.map((details) => (
-                                <div>
-                                    <h5>{details.name} as {details.role}</h5>
-                                    <img src={details.image} alt="" />
-                                </div>
-                            ))}
-                        </Col>
-                    </Row>
+                    <h2>Cast</h2>
+                    <CardDeck>
+                        {movieList.actors.map((details) => (
+                            <div class="card-group">
+                                <Card >
+                                    <Card.Img src={details.image} />
+                                    <Card.Body>
+                                        <Card.Text>{details.name}</Card.Text>
+                                        <Card.Subtitle>{details.role}</Card.Subtitle>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        ))}
+                    </CardDeck>
                     <Row>
                         <Col>
                             <h2>Book Now!</h2>
