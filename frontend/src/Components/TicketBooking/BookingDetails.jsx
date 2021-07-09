@@ -32,7 +32,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getBooking({ name, child, adult, senior, selectedDay, selectedTime, selectedMovie, paymentID: null });
+        getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
     }
 
     //get movies
