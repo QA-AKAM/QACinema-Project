@@ -13,17 +13,28 @@ const BookingDetails = ({ getBookingProp }) => {
     const [senior, setSenior] = useState(0);
 
     const [movieName, setMovieName] = useState('');
-    const [movieList, setMovieList] = useState([]);
     const [found, setFound] = useState({});
 
+    //get movies list
+    const [movieList, setMovieList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState(null);
+
+    //get selected movie & set days
+    const [selectedMovie, setSelectedMovie] = useState({});
+    const [days, setDays] = useState([]);
+
+    //get selected day & set times
+    const [selectedDay, setSelectedDay] = useState({});
+    const [times, setTimes] = useState([]);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         getBooking({ firstname, surname, child, adult, senior, movieName });
     }
 
+    //get movies
     const getMovies = () => {
         axios.get('http://localhost:5000/released/true')
             .then((response) => {
@@ -35,6 +46,22 @@ const BookingDetails = ({ getBookingProp }) => {
                 setError(error);
             });
     }
+
+    //set movies
+    useEffect(() => {
+        getMovies();
+    }, [movieList]);
+
+    //set days
+    useEffect(() => {
+        setDays(selectedMovie.dateTime);
+    }, [selectedMovie])
+
+    //set timesq
+    useEffect(() => {
+        const timesOfMovie = selectedDay.timeOfMovie;
+        console.log(timesOfMovie);
+    }, [selectedDay])
 
     return (
         <div class='container'>
@@ -63,13 +90,47 @@ const BookingDetails = ({ getBookingProp }) => {
                         <input type="number" id='senior' class='ticket-type' onChange={(event) => {
                             return setSenior(event.target.value);
                         }} min='0' /><br />
+
+                        {/* render movies list */}
                         <label> Movie of Choice: </label>
-                        <select aria-label="Default select example">
+                        <select aria-label="movie-select"
+                            onChange={e =>
+                                movieList.map(movie => {
+                                    movie._id === e.target.value &&
+                                        setSelectedMovie(movie)
+                                })
+                            }>
                             <option selected disabled hidden> Select Movie </option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select ><br />
+                            {movieList.map(movie => (
+                                <option value={movie._id}>{movie.title}</option>
+                            ))}
+                        </select >
+
+                        {/* render days */}
+                        <label> Day: </label>
+                        <select aria-label="day-select"
+                            onChange={e =>
+                                days.map(day => {
+                                    day._id === e.target.value &&
+                                        setSelectedDay(day)
+                                })
+                            }>
+                            <option selected disabled hidden> Select Day </option>
+                            {days.map(day => (
+                                <option value={day._id}>{day.day}</option>
+                            ))}
+                        </select >
+
+                        {/* render times */}
+
+
+                        {/* render no of tickets (adult, child, senior) */}
+
+
+                        {/* .....payment? */}
+
+
+                        <br />
                         <label> Date:</label>
                         <input type="date" id='date'></input>
                         <label> Time:</label>
@@ -83,7 +144,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     </Card>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
