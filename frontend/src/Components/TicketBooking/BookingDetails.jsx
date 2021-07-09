@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
+import axios from 'axios';
 
 const BookingDetails = ({ getBookingProp }) => {
 
@@ -7,25 +8,32 @@ const BookingDetails = ({ getBookingProp }) => {
 
     const [firstname, setFirstname] = useState('');
     const [surname, setSurname] = useState('');
-
     const [child, setChild] = useState(0);
     const [adult, setAdult] = useState(0);
     const [senior, setSenior] = useState(0);
 
     const [movieName, setMovieName] = useState('');
+    const [movieList, setMovieList] = useState([]);
     const [found, setFound] = useState({});
+
+    const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         getBooking({ firstname, surname, child, adult, senior, movieName });
     }
 
-    useEffect(() => {
-        movieSearch();
-    }, [movieName])
-
-    const movieSearch = () => {
-
+    const getMovies = () => {
+        axios.get('http://localhost:5000/released/true')
+            .then((response) => {
+                setLoaded(true);
+                setMovieList(response.data);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            });
     }
 
     return (
@@ -56,11 +64,12 @@ const BookingDetails = ({ getBookingProp }) => {
                             return setSenior(event.target.value);
                         }} min='0' /><br />
                         <label> Movie of Choice: </label>
-                        <input type="text" id='movie' onChange={(event) => {
-                            setMovieName(event.target.value);
-                            movieSearch(movieName);
-                            return setMovieName(event.target.value);
-                        }} />
+                        <select aria-label="Default select example">
+                            <option selected disabled hidden> Select Movie </option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select ><br />
                         <label> Date:</label>
                         <input type="date" id='date'></input>
                         <label> Time:</label>
