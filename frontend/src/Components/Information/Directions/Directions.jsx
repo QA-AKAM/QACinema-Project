@@ -5,7 +5,7 @@ import CinemaOutside from '../../../Images/cinema_outside.jpeg';
 import Map from './Map';
 import ParkingOutside from '../../../Images/parking_outside.jpg';
 import FromUnderground from '../../../Images/directions_from_underground.jpg';
-import FromBus from '../../../Images/directions_from_underground.jpg';
+import FromBus from '../../../Images/directions_from_bus.jpg';
 import DirectionsCard from './DirectionsCard';
 
 
