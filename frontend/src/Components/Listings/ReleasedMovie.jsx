@@ -17,45 +17,54 @@ const ReleasedMovie = () => {
 
     const [movieList, setMovieList] = useState([]);
     const [error, setError] = useState(null);
-    const [loaded, setLoaded] = useState(true);
-    const loadTime = 2000;
+    const [errorActor, setErrorActor] = useState(null);
+    const [loaded, setLoaded] = useState(false);
+    const [loadedActor, setLoadedActor] = useState(false);
+    const [image, setImage] = useState("");
 
     const getMovies = () => {
-        setTimeout(() => {
-            axios.get(`http://localhost:5000/movie/${movie}`)
-                .then((response) => {
-                    setMovieList(response.data);
-                    setLoaded(true);
-                })
-                .catch((error) => {
-                    setLoaded(true);
-                    setError(error);
-                })
-                .finally(() => {
-                    setLoaded(false);
-                });
-
-        }, loadTime);
+        axios.get(`http://localhost:5000/movie/${movie}`)
+            .then((response) => {
+                setMovieList(response.data);
+                setLoaded(true);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            })
     }
 
-    const getActor = (actorList) => {
-        const actorArray = [];
-        actorList.map((actor) => {
-            axios.get(`https://api.themoviedb.org/3/search/person?api_key=ccfef2d1b5f5a0ef2b5cf0b2530b3167&language=en-US&query=${actor.name}&page=1&include_adult=false`, { crossdomain: true })
-                .then((response) => {
-                    actorArray.unshift(response.data);
-                    // actorArray.pop()
-                })
-                .catch((error) => {
-                    setLoaded(true);
-                    console.log(error)
-                })
-                .finally(() => {
-                    setLoaded(false);
-                });
-        })
-        console.log(actorArray)
-        return actorArray;
+    // const getActor = (actorList) => {
+    //     const actorArray = [actorList];
+    //     actorList.map((actor) => {
+    //         axios.get(`https://api.themoviedb.org/3/search/person?api_key=ccfef2d1b5f5a0ef2b5cf0b2530b3167&language=en-US&query=${actor.name}&page=1&include_adult=false`, { crossdomain: true })
+    //             .then((response) => {
+    //                 actorArray.push(response.data);
+    //             })
+    //             .catch((error) => {
+    //                 setLoaded(true);
+    //                 console.log(error)
+    //             })
+    //             .finally(() => {
+    //                 setLoaded(false);
+    //             });
+    //     })
+    //     actorArray.shift();
+    //     return actorArray;
+    // }
+
+    const getActorPic = (actorName) => {
+        let profilePic = "";
+        axios.get(`https://api.themoviedb.org/3/search/person?api_key=ccfef2d1b5f5a0ef2b5cf0b2530b3167&language=en-US&query=${actorName}&page=1&include_adult=false`, { crossdomain: true })
+            .then((response) => {
+                profilePic = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${response.data.results[0].profile_path}`;
+                console.log(profilePic);
+                setImage(profilePic);
+            })
+        // .catch((error) => {
+        //     setLoaded(true);
+        //     console.log(error)
+        // })
     }
 
     const dateAssigner = (day) => {
@@ -80,7 +89,7 @@ const ReleasedMovie = () => {
         getMovies();
     }, []);
 
-    if (loaded) {
+    if (!loaded) {
         return <p>Data is loading</p>
     }
 
@@ -122,11 +131,21 @@ const ReleasedMovie = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={12}>
+                        {/* <Col lg={6}>
                             <h2>Cast</h2>
                             {getActor(movieList.actors).map((details) => (
-                                console.log(details.results)
+                                console.log(details.map)
                             ))}
+                        </Col> */}
+                        <Col lg={6}>
+                            <h2>Cast</h2>
+                            {movieList.actors.map((details) => {
+                                <div>
+                                    <h5>{details.name}</h5>
+                                    <img src={profilePic} alt={profilePic} />
+                                </div>
+
+                            })}
                         </Col>
                     </Row>
                     <Row>
