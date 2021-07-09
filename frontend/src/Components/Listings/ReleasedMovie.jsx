@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck'
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -11,24 +10,54 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import './ReleasedMovie.css';
+import { CardDeck } from "react-bootstrap";
 
 const ReleasedMovie = () => {
 
     const { movie } = useParams();
+
     const [movieList, setMovieList] = useState([]);
+    const [actorDetails, setActorDetails] = useState([]);
     const [error, setError] = useState(null);
-    const [loaded, setLoaded] = useState(false);
+    const [loaded, setLoaded] = useState(true);
+    const loadTime = 2000;
 
     const getMovies = () => {
-        axios.get(`http://localhost:5000/movie/${movie}`)
-            .then((response) => {
-                setMovieList(response.data);
-                setLoaded(true);
-            })
-            .catch((error) => {
-                setLoaded(true);
-                setError(error);
-            })
+        setTimeout(() => {
+            axios.get(`http://localhost:5000/movie/${movie}`)
+                .then((response) => {
+                    setMovieList(response.data);
+                    setLoaded(true);
+                })
+                .catch((error) => {
+                    setLoaded(true);
+                    setError(error);
+                })
+                .finally(() => {
+                    setLoaded(false);
+                });
+
+        }, loadTime);
+    }
+
+    const getActor = (actorList) => {
+        const actorArray = [];
+        actorList.map((actor) => {
+            axios.get(`https://api.themoviedb.org/3/search/person?api_key=ccfef2d1b5f5a0ef2b5cf0b2530b3167&language=en-US&query=${actor.name}&page=1&include_adult=false`, { crossdomain: true })
+                .then((response) => {
+                    actorArray.unshift(response.data);
+                    // actorArray.pop()
+                })
+                .catch((error) => {
+                    setLoaded(true);
+                    console.log(error)
+                })
+                .finally(() => {
+                    setLoaded(false);
+                });
+        })
+        console.log(actorArray)
+        return actorArray;
     }
 
     const dateAssigner = (day) => {
@@ -53,7 +82,7 @@ const ReleasedMovie = () => {
         getMovies();
     }, []);
 
-    if (!loaded) {
+    if (loaded) {
         return <p>Data is loading</p>
     }
 
@@ -85,41 +114,52 @@ const ReleasedMovie = () => {
                 <Container>
                     <Row>
                         <Col lg={12}>
-                            <Card bg="dark" text="dark">
-                                <Card.Title>Synopsis</Card.Title>
-                                <Card.Text>{movieList.shortPlot}</Card.Text>
-                                <Card.Subtitle>Movie runtime: {movieList.runTime}</Card.Subtitle>
-                            </Card>
+                            <h2>Synopsis</h2>
+                            <p>
+                                {movieList.shortPlot}
+                            </p>
+                            <p>
+                                Movie runtime: {movieList.runTime}
+                            </p>
                         </Col>
                     </Row>
-                    <h2>Cast</h2>
-                    <CardDeck>
-                        {movieList.actors.map((details) => (
-                            <div class="card-group">
-                                <Card >
-                                    <Card.Img src={details.image} />
-                                    <Card.Body>
-                                        <Card.Text>{details.name}</Card.Text>
-                                        <Card.Subtitle>{details.role}</Card.Subtitle>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        ))}
-                    </CardDeck>
                     <Row>
-                        <Col>
-                            <h2>Book Now!</h2>
-                            {dateAssigner(movieList.dateTime).map((date) => (
-                                <div>
-                                    <Card.Text>{date.day}</Card.Text>
-                                    {date.timeOfMovie.map((time) => (
-                                        <div>
-                                            <Card.Text>{time.time}</Card.Text>
-                                        </div>
-                                    ))}
+                        <h2>Cast</h2>
+                        <div class="card-deck mt-4">
+                            {movieList.actors.map((details) => (
+                                <div class="card-group">
+                                    <Card margin="auto">
+                                        <Card.Img class="cardImg" src={details.image} />
+                                        <Card.Body>
+                                            <Card.Text>{details.name}</Card.Text>
+                                            <Card.Subtitle>{details.role}</Card.Subtitle>
+                                        </Card.Body>
+                                    </Card>
                                 </div>
                             ))}
-                        </Col>
+                        </div>
+                    </Row>
+                    <Row>
+                        <h2>Book Now!</h2>
+                        <div class="container">
+                            <table class="table table-hover table-dark">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" scope="colgroup">Showings</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dateAssigner(movieList.dateTime).map((date) => (
+                                        <tr>
+                                            <th scope="col">{date.day}</th>
+                                            {date.timeOfMovie.map((time) => (
+                                                <td scope="row">{time.time}</td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </Row>
                 </Container>
             </div>
