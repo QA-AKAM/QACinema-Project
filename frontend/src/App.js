@@ -15,6 +15,7 @@ import './Resources/App.css';
 import Directions from './Components/Information/Directions/Directions'
 import Nearby from './Components/Information/Nearby/Nearby'
 import ReleasedMovie from './Components/Listings/ReleasedMovie';
+import Classifications from './Components/Information/Classifications';
 
 function App() {
   return (
@@ -72,6 +73,10 @@ function App() {
 
           <Route path="/Nearby" >
             <Nearby />
+          </Route>
+
+          <Route path="/Classifications" >
+            <Classifications />
           </Route>
 
         </Switch>
