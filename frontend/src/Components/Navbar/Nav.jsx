@@ -32,21 +32,22 @@ const NavBar = () => {
         if (released) {
             return (
                 <tr >
-                    <Link to={`/released/${id}`}>
+                    <Link to={`/released/${id}`} onClick={handleClose}>
                         <td>{title}</td>
                     </Link>
                 </tr>
             )
-        } else {
+        } else if (!released) {
             return (
                 <tr >
-                    <Link to={`/unreleased/${id}`}>
+                    <Link to={`/unreleased/${id}`} onClick={handleClose}>
                         <td>{title}</td>
                     </Link>
                 </tr>
             )
         }
     }
+
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
@@ -75,15 +76,14 @@ const NavBar = () => {
                         <Button variant="outline-danger" onClick={handleShow}>Search</Button>
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
+                                <Modal.Title>Search for something!</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Form.Control type="text" placeholder="Search Term" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
 
-                                <Table striped hover className="mt-3">
+                                <Table flush>
                                     <thead>
                                         <tr>
-                                            <th>"{searchQuery}" was found in the following movies:</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -101,8 +101,8 @@ const NavBar = () => {
                         </Modal>
                     </Form>
                 </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            </Container >
+        </Navbar >
     );
 }
 export default NavBar;
