@@ -2,6 +2,8 @@
     height: 400px;
     width: 300px;
     perspective: 1000px;
+    margin: auto;    
+    display: block;
 }
 
 .movieImage{
@@ -17,8 +19,6 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin: auto;    
-    display: block;
 }
 
 .card-wrapper:hover .content{
