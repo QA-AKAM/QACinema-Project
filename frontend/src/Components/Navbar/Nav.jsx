@@ -40,7 +40,7 @@ const NavBar = () => {
         } else if (!released) {
             return (
                 <tr >
-                    <Link to={`/unreleased/${id}`} onClick={handleClose}>
+                    <Link to={`/upcoming/${id}`} onClick={handleClose}>
                         <td>{title}</td>
                     </Link>
                 </tr>
