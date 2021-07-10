@@ -50,7 +50,7 @@ const UpcomingMovies = () => {
                     <div>
                         <Row>
                             {movieList.map((movie) => (
-                                <Col lg={4} className="py-3">
+                                <Col lg={4} xs={12} md={6} className="p-2">
                                     <div className="card-wrapper">
                                         <div className="content">
                                             <div className="face-front z-depth-2">

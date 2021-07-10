@@ -17,6 +17,8 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    margin: auto;    
+    display: block;
 }
 
 .card-wrapper:hover .content{
@@ -42,3 +44,4 @@
     /* left: 50%; */
     margin-left: -55px;
 }
+
