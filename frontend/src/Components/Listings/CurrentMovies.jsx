@@ -18,94 +18,60 @@ const CurrentMovies = () => {
     const loadTime = 100;
 
     const getMovies = () => {
-        setTimeout(() => {
-            axios.get('http://localhost:5000/released/true')
-                .then((response) => {
-                    setLoaded(true);
-                    setMovieList(response.data);
-                })
-                .catch((error) => {
-                    setLoaded(true);
-                    setError(error);
-                });
-        }, loadTime);
+        axios.get('http://localhost:5000/released/true')
+            .then((response) => {
+                setLoaded(true);
+                setMovieList(response.data);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            });
     }
 
     useEffect(() => {
         getMovies();
     }, []);
 
-    const dateAssigner = (day) => {
-        let currentDayNum = new Date().getDay() - 1;
-        let currentHour = new Date().getHours()
-        let sorted_list = day.slice(currentDayNum).concat(day.slice(0, currentDayNum));
-        sorted_list[0].timeOfMovie.map((movieTimeObj) => {
-            let movieTime = movieTimeObj.time;
-            let movieTimeHr = movieTime.slice(0, 2);
-            for (let i = 0; i < sorted_list[0].timeOfMovie.length - 1; i++) {
-                if (parseInt(movieTimeHr) < currentHour) {
-                    sorted_list[0].timeOfMovie.splice(i, 1);
-                    console.log(sorted_list);
-                }
-            }
-        })
-        return sorted_list;
-    };
+    const imageUpdater = (oldImage) => {
+        return oldImage.replace('._V1_SX300', '')
+    }
+
+    if (!loaded) {
+        return <p>Data is loading</p>
+    }
 
     return (
         <div class="background">
             <Container>
                 <Jumbotron className="bgBlur">
-                    <h1 class='landing-text'> Current Movies </h1>
-                    <p class="lead">These are the movies we are currently running!</p>
+                    <h1 class='landing-text'>Current Movies </h1>
+                    <p class="lead">Come to our cinema and watch these films right now!</p>
                     <div>
-                        {movieList.map((movie) => (
-                            <Card className="bg-dark text-white cardHoverZoom mb-3">
-                                <Row className="no-gutters">
-                                    <Col md={4}>
-                                        <img src={movie.imageURL} width="100%" />
-                                        <div class="mt-2 col-md-12">
-                                            {movie.actors.map((actor) => (
-                                                <div>
-                                                    <p1> <strong>{actor.name}</strong> as <em>{actor.role}</em></p1>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Col>
-                                    <Col md={8}>
-                                        <Card.Body>
-                                            <Card.Title className="cardMovieTitle">{movie.title}</Card.Title>
-                                            <Card.Text className="cardMovieText">{movie.shortPlot}</Card.Text>
-                                            <Card.Text className="cardMovieText">Directed by {movie.director}</Card.Text>
-
-                                            <div class="container">
-                                                <table class="table table-hover table-dark">
-                                                    <thead>
-                                                        <tr>
-                                                            <th colspan="4" scope="colgroup">Showings</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {dateAssigner(movie.dateTime).map((date) => (
-                                                            <tr>
-                                                                <th scope="col">{date.day}</th>
-                                                                {date.timeOfMovie.map((time) => (
-                                                                    <td scope="row">{time.time}</td>
-                                                                ))}
-                                                            </tr>
-                                                        ))}
-                                                    </tbody>
-                                                </table>
+                        <Row>
+                            {movieList.map((movie) => (
+                                <Col lg={4} xs={12} md={6} className="p-2">
+                                    <div className="card-wrapper">
+                                        <div className="content">
+                                            <div className="face-front z-depth-2">
+                                                <img className="movieImage" src={imageUpdater(movie.imageURL)} alt={movie.title} />
                                             </div>
-
-                                            <Link to={`/released/${movie._id}`}>
-                                                <Button value={movie._id}>View more...</Button>
-                                            </Link>
-                                        </Card.Body>
-                                    </Col>
-                                </Row>
-                            </Card>
-                        ))}
+                                            <div className="face-back z-depth-2">
+                                                <Card.Body>
+                                                    <Card.Title>{movie.title}</Card.Title>
+                                                    <Card.Title>Directed by {movie.director}</Card.Title>
+                                                    <br />
+                                                    <Card.Subtitle>Released: {movie.year}</Card.Subtitle>
+                                                    <Link to={`/released/${movie._id}`}>
+                                                        <Button className="alignBottom" value={movie._id} variant="dark">View more...</Button>
+                                                    </Link>
+                                                </Card.Body>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
                     </div>
                 </Jumbotron>
             </Container>
