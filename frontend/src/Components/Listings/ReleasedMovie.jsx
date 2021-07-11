@@ -29,26 +29,29 @@ const ReleasedMovie = () => {
 
     const dateAssigner = (day) => {
         let dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-        let date = new Date(2021, 6, 11, 16, 30, 0, 0);
+        let date = new Date();
         let currentDayNum = date.getDay();
         if (currentDayNum === 0) {
             currentDayNum = 7;
         }
         let currentHour = date.getHours()
         let sorted_list = getDateForDay(date, day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1)));
+        console.log(sorted_list[0])
         if (sorted_list[0].day === dayArray[currentDayNum - 1]) {
-            sorted_list[0].timeOfMovie.map((movieTimeObj) => {
-                let movieTime = movieTimeObj.time;
-                let movieTimeHr = movieTime.slice(0, 2);
-                if (parseInt(movieTimeHr) <= currentHour) {
-                    console.log(sorted_list[0].timeOfMovie);
-                    sorted_list[0].timeOfMovie.shift();
-                    console.log(sorted_list[0].timeOfMovie);
-                }
-            })
+            for (let i = 0; i < sorted_list[0].timeOfMovie.length + 1; i++) {
+                sorted_list[0].timeOfMovie.map((movieTimeObj) => {
+                    let movieTimeHr = movieTimeObj.time.slice(0, 2);
+                    if (parseInt(movieTimeHr) <= currentHour) {
+                        sorted_list[0].timeOfMovie.shift();
+                        console.log(sorted_list[0].timeOfMovie)
+                    }
+                })
+            }
+
             console.log(sorted_list);
             return sorted_list;
         } else {
+            console.log(sorted_list);
             return sorted_list;
         }
     }
@@ -90,7 +93,6 @@ const ReleasedMovie = () => {
             "18": "danger",
             "TBC": "secondary"
         }
-        console.log(classList[classification]);
         return classList[classification]
     }
 
