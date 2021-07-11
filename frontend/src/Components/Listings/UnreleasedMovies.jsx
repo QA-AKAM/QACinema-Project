@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './ReleasedMovie.css';
+import Badge from 'react-bootstrap/Badge'
 
 const UnreleasedMovie = () => {
 
@@ -31,6 +32,19 @@ const UnreleasedMovie = () => {
         return oldImage.replace('._V1_SX300', '')
     }
 
+    const classification = (classification) => {
+        const classList = {
+            "U": "success",
+            "PG": "info",
+            "12A": "primary",
+            "12": "primary",
+            "15": "warning",
+            "18": "danger",
+            "TBC": "secondary"
+        }
+        return classList[classification]
+    }
+
     useEffect(() => {
         getMovies();
     }, []);
@@ -51,6 +65,7 @@ const UnreleasedMovie = () => {
                             <Col md={8}>
                                 <Card.Body>
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
+                                    <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification)}>Rating: {movieObj.classification}</Badge>
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
                                     <Card.Text className="cardMovieText">Released in {movieObj.year}</Card.Text>
                                     <Card.Subtitle className="cardMovieText">{movieObj.shortPlot}</Card.Subtitle>
