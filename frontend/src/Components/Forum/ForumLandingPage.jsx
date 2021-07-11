@@ -50,7 +50,7 @@ const DiscussionBoardMain = () => {
                             {movieList.map((movie) => (
                                 <Col lg={4} className="py-3">
                                     <Card className="bg-dark text-white cardHoverZoom">
-                                        <Card.Img src={imageUpdater(movie.imageURL)} height="200px" style={{ objectFit: "cover", opacity: 0.8 }} />
+                                        <Card.Img src={imageUpdater(movie.imageURL)} height="200px" style={{ objectFit: "cover", opacity: 0.8 }} alt={`${movie.title} Poster`} />
                                         <Card.Body>
                                             <Card.Text>Click the button below to talk about {movie.title}!</Card.Text>
                                             <Link to={`/comments/${movie._id}`}>
