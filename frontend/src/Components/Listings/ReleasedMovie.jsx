@@ -6,11 +6,11 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './ReleasedMovie.css';
+import Badge from 'react-bootstrap/Badge'
 
 const ReleasedMovie = () => {
 
     const { movie } = useParams();
-
     const [movieObj, setMovieObj] = useState([]);
     const [error, setError] = useState(null);
     const [loaded, setLoaded] = useState(false);
@@ -29,7 +29,7 @@ const ReleasedMovie = () => {
 
     const dateAssigner = (day) => {
         let dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-        let date = new Date();
+        let date = new Date(2021, 6, 11, 16, 30, 0, 0);
         let currentDayNum = date.getDay();
         if (currentDayNum === 0) {
             currentDayNum = 7;
@@ -41,7 +41,9 @@ const ReleasedMovie = () => {
                 let movieTime = movieTimeObj.time;
                 let movieTimeHr = movieTime.slice(0, 2);
                 if (parseInt(movieTimeHr) <= currentHour) {
-                    sorted_list[0].timeOfMovie.splice(0, 1);
+                    console.log(sorted_list[0].timeOfMovie);
+                    sorted_list[0].timeOfMovie.shift();
+                    console.log(sorted_list[0].timeOfMovie);
                 }
             })
             console.log(sorted_list);
@@ -63,13 +65,12 @@ const ReleasedMovie = () => {
     }
 
     const checkTimeAvailable = (timeArray) => {
-        console.log(timeArray)
         if (timeArray.length === 0) {
             return <td colSpan="12">No times available </td>
         } else {
             return (
-                timeArray.map((time) =>
-                (<td>{time.time}</td>
+                timeArray.map((time) => (
+                    <td>{time.time}</td>
                 ))
             )
         }
@@ -77,6 +78,20 @@ const ReleasedMovie = () => {
 
     const imageUpdater = (oldImage) => {
         return oldImage.replace('._V1_SX300', '')
+    }
+
+    const classification = (classification) => {
+        const classList = {
+            "U": "success",
+            "PG": "info",
+            "12A": "primary",
+            "12": "primary",
+            "15": "warning",
+            "18": "danger",
+            "TBC": "secondary"
+        }
+        console.log(classList[classification]);
+        return classList[classification]
     }
 
     useEffect(() => {
@@ -99,15 +114,15 @@ const ReleasedMovie = () => {
                             <Col md={8}>
                                 <Card.Body>
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
+                                    <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification)}>Rating: {movieObj.classification}</Badge>
+                                    <Card.Text className="cardMovieText">Runtime: {movieObj.runTime}</Card.Text>
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
                                     <Card.Text className="cardMovieText">Released: {movieObj.year}</Card.Text>
                                     <Card.Subtitle className="cardMovieText">{movieObj.shortPlot}</Card.Subtitle>
-                                    <br />
                                     <div>
-                                        <Card.Text className="cardMovieText">Cast</Card.Text>
                                         <Row>
                                             {movieObj.actors.map((details) => (
-                                                <Col lg={2} className="py-3">
+                                                <Col lg={2} md={3} sm={3} xs={5} className="py-3">
                                                     <Card className="bg-dark text-white">
                                                         <Card.Img class="cardImg" src={details.image} />
                                                         <Card.Body>
