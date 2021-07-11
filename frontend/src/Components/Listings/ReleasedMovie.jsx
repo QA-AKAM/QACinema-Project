@@ -27,18 +27,39 @@ const ReleasedMovie = () => {
             })
     }
 
+    const getDateForDay = (date, sortedList) => {
+        let dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        for (let i = 0; i < sortedList.length; i++) {
+            let resultDate = new Date(date.getTime());
+            let dayOfWeek = dayArray.indexOf(sortedList[i].day);
+            resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+            // sortedList[i].day = sortedList[i].day + ` - ${resultDate.getDate()}/${(resultDate.getMonth() + 1)}`;
+            console.log(`${sortedList[i].day} - ${resultDate.getDate()}/${(resultDate.getMonth() + 1)}`)
+        }
+    }
+
     const dateAssigner = (day) => {
-        let currentDayNum = new Date().getDay() - 1;
-        let currentHour = new Date().getHours()
-        let sorted_list = day.slice(currentDayNum).concat(day.slice(0, currentDayNum));
-        sorted_list[0].timeOfMovie.map((movieTimeObj) => {
-            let movieTime = movieTimeObj.time;
-            let movieTimeHr = movieTime.slice(0, 2);
-            if (parseInt(movieTimeHr) <= currentHour) {
-                sorted_list[0].timeOfMovie.splice(0, 1);
-            }
-        })
-        return sorted_list;
+        let dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        let date = new Date();
+        let currentDayNum = date.getDay();
+        if (currentDayNum === 0) {
+            currentDayNum = 7;
+        }
+        let currentHour = date.getHours()
+        let sorted_list = day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1));
+        getDateForDay(date, sorted_list);
+        if (sorted_list[0].day === dayArray[currentDayNum - 1]) {
+            sorted_list[0].timeOfMovie.map((movieTimeObj) => {
+                let movieTime = movieTimeObj.time;
+                let movieTimeHr = movieTime.slice(0, 2);
+                if (parseInt(movieTimeHr) <= currentHour) {
+                    sorted_list[0].timeOfMovie.splice(0, 1);
+                }
+            })
+            return sorted_list;
+        } else {
+            return sorted_list;
+        }
     }
 
     const imageUpdater = (oldImage) => {
@@ -97,7 +118,7 @@ const ReleasedMovie = () => {
                             <table class="table table-hover table-dark">
                                 <thead>
                                     <tr>
-                                        <th colspan="4" scope="colgroup">Showings</th>
+                                        <th colSpan="4" scope="colgroup">Showings</th>
                                     </tr>
                                 </thead>
                                 <tbody>
