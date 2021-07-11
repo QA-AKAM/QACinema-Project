@@ -27,17 +27,6 @@ const ReleasedMovie = () => {
             })
     }
 
-    const getDateForDay = (date, sortedList) => {
-        let dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        for (let i = 0; i < sortedList.length; i++) {
-            let resultDate = new Date(date.getTime());
-            let dayOfWeek = dayArray.indexOf(sortedList[i].day);
-            resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
-            // sortedList[i].day = sortedList[i].day + ` - ${resultDate.getDate()}/${(resultDate.getMonth() + 1)}`;
-            console.log(`${sortedList[i].day} - ${resultDate.getDate()}/${(resultDate.getMonth() + 1)}`)
-        }
-    }
-
     const dateAssigner = (day) => {
         let dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         let date = new Date();
@@ -46,8 +35,7 @@ const ReleasedMovie = () => {
             currentDayNum = 7;
         }
         let currentHour = date.getHours()
-        let sorted_list = day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1));
-        getDateForDay(date, sorted_list);
+        let sorted_list = getDateForDay(date, day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1)));
         if (sorted_list[0].day === dayArray[currentDayNum - 1]) {
             sorted_list[0].timeOfMovie.map((movieTimeObj) => {
                 let movieTime = movieTimeObj.time;
@@ -56,9 +44,34 @@ const ReleasedMovie = () => {
                     sorted_list[0].timeOfMovie.splice(0, 1);
                 }
             })
+            console.log(sorted_list);
             return sorted_list;
         } else {
             return sorted_list;
+        }
+    }
+
+    const getDateForDay = (date, sortedList) => {
+        let dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        for (let i = 0; i < sortedList.length; i++) {
+            let resultDate = new Date(date.getTime());
+            let dayOfWeek = dayArray.indexOf(sortedList[i].day);
+            resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+            sortedList[i].date = `${resultDate.getDate()}/${(resultDate.getMonth() + 1)}`;
+        }
+        return sortedList
+    }
+
+    const checkTimeAvailable = (timeArray) => {
+        console.log(timeArray)
+        if (timeArray.length === 0) {
+            return <td colSpan="12">No times available </td>
+        } else {
+            return (
+                timeArray.map((time) =>
+                (<td>{time.time}</td>
+                ))
+            )
         }
     }
 
@@ -118,16 +131,14 @@ const ReleasedMovie = () => {
                             <table class="table table-hover table-dark">
                                 <thead>
                                     <tr>
-                                        <th colSpan="4" scope="colgroup">Showings</th>
+                                        <th colSpan="12" scope="colgroup">Showing Times</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {dateAssigner(movieObj.dateTime).map((date) => (
                                         <tr>
-                                            <th scope="col">{date.day}</th>
-                                            {date.timeOfMovie.map((time) => (
-                                                <td scope="row">{time.time}</td>
-                                            ))}
+                                            <th scope="col">{date.day} - {date.date}</th>
+                                            {checkTimeAvailable(date.timeOfMovie)}
                                         </tr>
                                     ))}
                                 </tbody>
