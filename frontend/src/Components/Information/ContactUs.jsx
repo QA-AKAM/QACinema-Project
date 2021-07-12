@@ -45,7 +45,7 @@ const ContactUs = () => {
                             return setTopic(event.target.value);
                         }} value={topic}>
                             <option value='feedback'> Feedback </option>
-                            <option value='venue'> Venue Booking </option>
+                            <option value='booking'> Venue Booking </option>
                             <option value='message'> Other </option>
                         </select><br />
                         <label> Your Message </label><br />
