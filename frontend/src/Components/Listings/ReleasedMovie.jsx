@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, isValidElement } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './ReleasedMovie.css';
 import Badge from 'react-bootstrap/Badge'
+import { Link } from 'react-router-dom';
 
 const ReleasedMovie = () => {
 
@@ -14,6 +15,7 @@ const ReleasedMovie = () => {
     const [movieObj, setMovieObj] = useState([]);
     const [error, setError] = useState(null);
     const [loaded, setLoaded] = useState(false);
+    const [classLink, setClassLink] = useState("")
 
     const getMovies = () => {
         axios.get(`http://localhost:5000/movie/${movie}`)
@@ -36,22 +38,17 @@ const ReleasedMovie = () => {
         }
         let currentHour = date.getHours()
         let sorted_list = getDateForDay(date, day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1)));
-        console.log(sorted_list[0])
         if (sorted_list[0].day === dayArray[currentDayNum - 1]) {
             for (let i = 0; i < sorted_list[0].timeOfMovie.length + 1; i++) {
                 sorted_list[0].timeOfMovie.map((movieTimeObj) => {
                     let movieTimeHr = movieTimeObj.time.slice(0, 2);
                     if (parseInt(movieTimeHr) <= currentHour) {
                         sorted_list[0].timeOfMovie.shift();
-                        console.log(sorted_list[0].timeOfMovie)
                     }
                 })
             }
-
-            console.log(sorted_list);
             return sorted_list;
         } else {
-            console.log(sorted_list);
             return sorted_list;
         }
     }
@@ -83,17 +80,21 @@ const ReleasedMovie = () => {
         return oldImage.replace('._V1_SX300', '')
     }
 
-    const classification = (classification) => {
+    const classification = (classification, switchNum) => {
         const classList = {
             "U": "success",
             "PG": "info",
             "12A": "primary",
-            "12": "primary",
             "15": "warning",
             "18": "danger",
             "TBC": "secondary"
         }
-        return classList[classification]
+
+        if (switchNum === 1)
+            return classList[classification]
+        else {
+            return Object.keys(classList).indexOf(classification) - 2
+        }
     }
 
     useEffect(() => {
@@ -116,7 +117,9 @@ const ReleasedMovie = () => {
                             <Col md={8}>
                                 <Card.Body>
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
-                                    <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification)}>Rating: {movieObj.classification}</Badge>
+                                    <Link to={`/classification/${classification(movieObj.classification, 2)}`}>
+                                        <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification, 1)}>Rating: {movieObj.classification}</Badge>
+                                    </Link>
                                     <Card.Text className="cardMovieText">Runtime: {movieObj.runTime}</Card.Text>
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
                                     <Card.Text className="cardMovieText">Released: {movieObj.year}</Card.Text>
