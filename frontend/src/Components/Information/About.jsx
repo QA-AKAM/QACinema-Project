@@ -2,12 +2,14 @@
 import '../../CSS/Pages.css';
 import './About.css';
 import AboutUs from '../../Images/About Us.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const About = () => {
     return (
         <div class="background">
             <div class="container2">
-                {/* <h2 class='landing-text'>About Us</h2> */}
+                <h2 class='landing-text'>About Us</h2>
                 <img
                     src={AboutUs}
                     height="200px"
@@ -29,6 +31,23 @@ const About = () => {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    <div class='container' style={{ padding: '5rem' }}>
+                        <a href="https://www.youtube.com/c/qa-cinema"
+                            className="youtube social" style={{ padding: '3rem' }}>
+                            <FontAwesomeIcon icon={faYoutube} size="5x" />
+                        </a>
+                        <a href="https://www.facebook.com/qa-cinema/"
+                            className="facebook social" style={{ padding: '3rem' }}>
+                            <FontAwesomeIcon icon={faFacebook} size="5x" />
+                        </a>
+                        <a href="https://www.twitter.com/qa-cinema" className="twitter social" style={{ padding: '3rem' }}>
+                            <FontAwesomeIcon icon={faTwitter} size="5x" />
+                        </a>
+                        <a href="https://www.instagram.com/qa-cinema"
+                            className="instagram social" style={{ padding: '3rem' }}>
+                            <FontAwesomeIcon icon={faInstagram} size="5x" />
+                        </a>
                     </div>
                 </div>
             </div>
