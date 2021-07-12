@@ -58,7 +58,7 @@ const Tickets = () => {
                 <div class="container2">
                     <div class='container'>
                         <h1 class='landing-text'>Tickets</h1>
-                        <Card class="card text-white bg-dark">
+                        <Card className="text-white bg-dark">
                             <BookingDetails getBookingProp={getBooking} />
                         </Card>
                     </div>
@@ -71,7 +71,7 @@ const Tickets = () => {
                 <div class="container2">
                     <div class='container'>
                         <h1 class='landing-text'>Tickets</h1>
-                        <Card class='card'>
+                        <Card>
                             <Payment bookingProp={booking} getPaymentProp={getPayment} />
                         </Card>
                     </div>
