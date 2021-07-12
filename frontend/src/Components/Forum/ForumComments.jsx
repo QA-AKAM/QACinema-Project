@@ -17,6 +17,7 @@ const DiscussionBoard = () => {
     const [commentList, setCommentList] = useState([]);
     const [movieList, setMovieList] = useState({});
     const [error, setError] = useState(null);
+    const [validated, setValidated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [show, setShow] = useState(false);
 
@@ -50,9 +51,72 @@ const DiscussionBoard = () => {
     }
 
     const [movieID, setMovieID] = useState(movie);
-    const [author, setAuthor] = useState("");
+    const [author, setAuthor] = useState();
     const [rate, setRate] = useState("5");
     const [comment, setComment] = useState("");
+
+    const verifier = (e) => {
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+            setValidated(true);
+        } else {
+            const profanity = new Array("crap", "stupid", "ugly", "dumb", "die", "dead")
+            let profanityAlert = new Array;
+            let profanityCount = 0;
+
+            const resetProfanityCount = () => {
+                profanityCount = 0;
+            }
+
+            resetProfanityCount();
+            let compare_text = comment;
+            for (let i = 0; i < profanity.length; i++) {
+                for (let j = 0; j < (compare_text.length); j++) {
+                    if (profanity[i] == compare_text.substring(j, (j + profanity[i].length)).toLowerCase()) {
+                        profanityAlert[profanityCount] = compare_text.substring(j, (j + profanity[i].length));
+                        profanityCount++;
+                    }
+                }
+            }
+            let alertMsg = "";
+            for (let k = 1; k <= profanityCount; k++) {
+                alertMsg += "\n" + "(" + k + ")  " + profanityAlert[k - 1];
+            }
+
+            if (profanityCount > 0) {
+                alert("The message will not be sent because of inappropriate words:" + alertMsg);
+            } else {
+                e.preventDefault();
+                let commentBody = {
+                    movieID: movieID,
+                    author: author,
+                    rate: rate,
+                    comment: comment,
+                };
+
+                axios.post('http://localhost:5000/comment', commentBody, {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                })
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                        setError(error)
+                    });
+                setAuthor("");
+                setRate("5");
+                setComment("");
+                getComments();
+                handleClose();
+            }
+            window.onload = resetProfanityCount;
+        }
+    }
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -89,7 +153,7 @@ const DiscussionBoard = () => {
                             <Modal.Title>Add a comment</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Form>
+                            <Form onSubmit={verifier} noValidate validated={validated}>
                                 <Form.Group as={Row} controlId="formHorizontalAuthor">
                                     <Form.Label column sm={2}>
                                         Name:
@@ -120,15 +184,16 @@ const DiscussionBoard = () => {
                                     }} />
                                     <Form.Label>{140 - comment.length} Characters remaining.</Form.Label>
                                 </Form.Group>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <Button type="submit" variant="primary">
+                                    Post comment!
+                                </Button>
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary">
-                                Post comment!
-                            </Button>
+
                         </Modal.Footer>
                     </Modal>
                     <div>
