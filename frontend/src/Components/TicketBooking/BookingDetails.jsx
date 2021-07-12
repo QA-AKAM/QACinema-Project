@@ -73,6 +73,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     {/* render name */}
                     <Form.Label> Booking Name: </Form.Label>
                     <Form.Control type='text' id='name' class="form-control" placeholder="Jane Doe" onChange={(event) => {
+
                         setName(event.target.value);
                     }} />
                 </Form.Group>
@@ -130,6 +131,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     </Form.Group>
                 </Row>
                 {/* render no of tickets (adult, child, senior) */}
+
                 <h5> Tickets: </h5>
                 <Row className="mb-3">
                     <Form.Group as={Col}>

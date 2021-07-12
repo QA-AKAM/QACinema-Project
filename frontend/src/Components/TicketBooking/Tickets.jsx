@@ -9,9 +9,9 @@ import axios from 'axios';
 
 const Tickets = () => {
 
-    const [booking, setBooking] = useState([]);
+    const [booking, setBooking] = useState(null);
     const [booked, setBooked] = useState(false);
-    const [payment, setPayment] = useState('');
+    const [payment, setPayment] = useState(null);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState('');
 
@@ -25,30 +25,27 @@ const Tickets = () => {
         setPayment(paymentID);
     }
 
-    const constructBody = {
-        name: booking?.name,
-        MovieID: booking?.selectedMovie?._id,
-        day: booking?.selectedDay?.day,
-        time: booking?.selectedTime?.time,
-        noOfTickets: {
-            noOfAdult: booking?.adult,
-            noOfChild: booking?.child,
-            noOfConcession: booking?.senior
-        },
-        paymentID: payment
-    }
-
     useEffect(() => {
-        console.log(constructBody);
-        axios.post('http://localhost:5000/booking/', constructBody)
-            .then(() => {
-                setLoaded(true);
-                console.log('woop! woop!');
+        payment &&
+            axios.post('http://localhost:5000/booking', {
+                "name": booking?.name,
+                "movieID": booking?.selectedMovie?._id,
+                "day": booking?.selectedDay?.day,
+                "time": booking?.selectedTime?.time,
+                "noOfTickets": {
+                    "noOfAdult": booking?.adult,
+                    "noOfChild": booking?.child,
+                    "noOfConcession": booking?.senior
+                },
+                "paymentID": payment
             })
-            .catch((error) => {
-                setLoaded(true);
-                setError(error);
-            });
+                .then(() => {
+                    setLoaded(true);
+                })
+                .catch((error) => {
+                    setLoaded(true);
+                    setError(error);
+                });
     }, [payment]);
 
 
@@ -58,7 +55,7 @@ const Tickets = () => {
                 <div class="container2">
                     <div class='container'>
                         <h1 class='landing-text'>Tickets</h1>
-                        <Card class="card text-white bg-dark">
+                        <Card className="text-white bg-dark">
                             <BookingDetails getBookingProp={getBooking} />
                         </Card>
                     </div>
@@ -71,7 +68,7 @@ const Tickets = () => {
                 <div class="container2">
                     <div class='container'>
                         <h1 class='landing-text'>Tickets</h1>
-                        <Card class='card'>
+                        <Card>
                             <Payment bookingProp={booking} getPaymentProp={getPayment} />
                         </Card>
                     </div>

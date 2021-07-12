@@ -14,6 +14,15 @@ router.get('/movie', async (request, response) => {
     }
 });
 
+//search
+router.get('/movie/search', async (request, response) => {
+    const { s } = request.query;
+
+    const movie = await Movie.find({ $text: { $search: s } })
+
+    response.send(movie);
+})
+
 //get movie by id
 router.get('/movie/:id', async (request, response) => {
     try {
@@ -62,6 +71,7 @@ router.put('/movie/:id', async (request, response) => {
         movie.year = request.body.year;
         movie.runTime = request.body.runTime;
         movie.genre = request.body.genre;
+        movie.classification = request.body.classification
         movie.shortPlot = request.body.shortPlot;
         movie.imageURL = request.body.imageURL;
         movie.actors = request.body.actors;
