@@ -22,6 +22,10 @@ const movieSchema = new Schema({
         type: String,
         required: true
     },
+    classification: {
+        type: String,
+        required: true
+    },
     shortPlot: {
         type: String,
         required: true
@@ -37,6 +41,11 @@ const movieSchema = new Schema({
             minlength: 2
         },
         role: {
+            type: String,
+            required: true,
+            minlength: 2
+        },
+        image: {
             type: String,
             required: true,
             minlength: 2
