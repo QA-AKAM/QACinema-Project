@@ -200,7 +200,26 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-
+                        </div>
+                    </div>
+                    {selectedMovie &&
+                        <div class='col-sm'>
+                            <Card class='container' id='movie-card'>
+                                <Row>
+                                    <div class='col-sm-12 col-lg-4'>
+                                        <img src={selectedMovie?.imageURL} style={{ float: 'none' }} width='100%' justify-content='center' alt="movie poster" />
+                                    </div>
+                                    <div class='col-sm-12 col-lg-8' style={{ float: 'left', textAlign: 'left' }}>
+                                        <h5 style={{ color: 'gray' }}>{selectedMovie?.title}</h5>
+                                        <p style={{ color: 'gray' }}> Plot Synopsis: {selectedMovie?.shortPlot} </p>
+                                        <p style={{ color: 'gray' }}> Genre(s): {selectedMovie?.genre}</p>
+                                        <p style={{ color: 'gray' }}> Runtime: {selectedMovie?.runTime} </p>
+                                        <p style={{ color: 'gray' }}> Age Rating: {selectedMovie?.classification} </p>
+                                    </div>
+                                </Row>
+                            </Card>
+                        </div>
+                    }
                         </Form.Group>
                     </Row>
                     {/* submit*/}
