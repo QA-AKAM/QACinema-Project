@@ -8,6 +8,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ForumLandingPage.css';
 import Jumbotron from 'react-bootstrap/Jumbotron'
+import '../../CSS/Pages.css';
+
 
 const DiscussionBoardMain = () => {
 
@@ -49,12 +51,12 @@ const DiscussionBoardMain = () => {
                         <Row>
                             {movieList.map((movie) => (
                                 <Col lg={4} className="py-3">
-                                    <Card className="bg-dark text-white cardHoverZoom">
+                                    <Card className="text-white cardHoverZoom" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                         <Card.Img src={imageUpdater(movie.imageURL)} height="200px" style={{ objectFit: "cover", opacity: 0.8 }} alt={`${movie.title} Poster`} />
                                         <Card.Body>
                                             <Card.Text>Click the button below to talk about {movie.title}!</Card.Text>
                                             <Link to={`/comments/${movie._id}`}>
-                                                <Button value={movie._id}>View Comments...</Button>
+                                                <Button variant="outline-dark" className="text-white" value={movie._id}>View Comments...</Button>
                                             </Link>
                                         </Card.Body>
                                     </Card>

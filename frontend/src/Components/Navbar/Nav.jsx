@@ -8,7 +8,7 @@ import axios from 'axios'
 import Table from 'react-bootstrap/Table'
 import Logo from '../../Images/Logo.png';
 import { Link } from 'react-router-dom';
-
+import './NavBar.css';
 
 const NavBar = () => {
     const [show, setShow] = useState(false);
@@ -49,7 +49,7 @@ const NavBar = () => {
     }
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar className="NavBar" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand href="/Home">
                     <img
