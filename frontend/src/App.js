@@ -16,6 +16,8 @@ import Directions from './Components/Information/Directions/Directions'
 import Nearby from './Components/Information/Nearby/Nearby'
 import ReleasedMovie from './Components/Listings/ReleasedMovie';
 import Classifications from './Components/Information/Classifications';
+import UnreleasedMovie from './Components/Listings/UnreleasedMovies';
+
 
 function App() {
   return (
@@ -41,6 +43,10 @@ function App() {
 
           <Route path="/UpcomingMovies" >
             <UpcomingMovies />
+          </Route>
+
+          <Route path="/upcoming/:movie" >
+            <UnreleasedMovie />
           </Route>
 
           <Route path="/Tickets" >
