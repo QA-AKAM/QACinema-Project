@@ -62,6 +62,7 @@ router.put('/movie/:id', async (request, response) => {
         movie.year = request.body.year;
         movie.runTime = request.body.runTime;
         movie.genre = request.body.genre;
+        movie.classification = request.body.classification
         movie.shortPlot = request.body.shortPlot;
         movie.imageURL = request.body.imageURL;
         movie.actors = request.body.actors;
