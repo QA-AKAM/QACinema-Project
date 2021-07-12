@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Container, Row } from 'react-bootstrap';
 import axios from 'axios';
 import './BookingDetails.css';
 
@@ -13,7 +13,7 @@ const BookingDetails = ({ getBookingProp }) => {
     const [error, setError] = useState(null);
 
     //set selected movie & set days
-    const [selectedMovie, setSelectedMovie] = useState({});
+    const [selectedMovie, setSelectedMovie] = useState(null);
     const [days, setDays] = useState([]);
 
     //set selected day & set times
@@ -36,6 +36,25 @@ const BookingDetails = ({ getBookingProp }) => {
         getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
     }
 
+    //get prices
+    const [prices, setPrices] = useState({});
+
+    const getPrices = () => {
+        axios.get('http://localhost:5000/price')
+            .then((response) => {
+                setPrices(response.data[0]);
+                setLoaded(true);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            });
+    }
+
+    useEffect(() => {
+        getPrices();
+    }, [prices]);
+
     //get movies
     const getMovies = () => {
         axios.get('http://localhost:5000/released/true')
@@ -56,7 +75,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
     //set days
     useEffect(() => {
-        setDays(selectedMovie.dateTime);
+        setDays(selectedMovie?.dateTime);
     }, [selectedMovie])
 
     //set times
@@ -133,7 +152,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     <h5> Tickets: </h5>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label> Child </label>
+                            <label> Child (£{prices.child} Each) </label>
                             <select aria-label="ticket-select" id='child' class="form-control" value={child}
                                 onChange={(event) => {
                                     setChild(parseInt(event.target.value));
@@ -147,7 +166,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label> Adult </label>
+                            <label> Adult (£{prices.adult} Each) </label>
                             <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
@@ -161,7 +180,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label> Senior </label>
+                            <label> Senior (£{prices.senior} Each) </label>
                             <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
                                 onChange={(event) => {
                                     setSenior(parseInt(event.target.value));
@@ -175,22 +194,28 @@ const BookingDetails = ({ getBookingProp }) => {
                             </select>
                         </div>
                     </div>
+                    {selectedMovie &&
+                        <div class='col-sm'>
+                            <Card class='container' id='movie-card'>
+                                <Row>
+                                    <div class='col-sm-12 col-lg-4'>
+                                        <img src={selectedMovie?.imageURL} style={{ float: 'right' }} width='100%' justify-content='center' alt="movie poster" />
+                                    </div>
+                                    <div class='col-sm-12 col-lg-8' style={{ float: 'left', textAlign: 'left' }}>
+                                        <p style={{ color: 'gray' }}>Selected Movie: {selectedMovie?.title}</p>
+                                        <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
+                                        <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
+                                    </div>
+                                </Row>
+                            </Card>
+                        </div>
+                    }
                     {/* submit*/}
                     <Button type='submit' class='button btn-primary' id='submit'
                         onClick={handleSubmit}> To Payment </Button>
                 </div>
-
             </form>
-            <div class='col-sm'>
-                <Card>
 
-                    {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
-                    <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
-                    <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
-                    <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
-
-                </Card>
-            </div>
         </div >
 
     )

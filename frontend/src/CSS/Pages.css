@@ -15,9 +15,13 @@
  }
 
  .container2 {
-     height: 100vh;
+     min-height: 100vh;
  }
 
+#movie-card {
+    width: 700px;
+    margin: auto;
+}
 
 .center {
   padding: 70px 0;
