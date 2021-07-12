@@ -6,7 +6,7 @@ import AboutUs from '../../Images/About Us.png';
 const About = () => {
     return (
         <div class="background">
-            <div class="container2">
+            <div class="fullScreen">
                 {/* <h2 class='landing-text'>About Us</h2> */}
                 <img
                     src={AboutUs}

@@ -34,14 +34,14 @@ const ContactUs = () => {
         <div class='background'>
             <h1 class='landing-text'> Contact Us </h1>
             <Container className='bg-dark text-white'>
-                <Form>
+                <Form style={{ flex: 1, backgroundColor: '#A02626' }}>
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4"> Your E-mail </Form.Label>
                         <Form.Control type='email' id='email' placeholder="name@example.com" onChange={(event) => {
                             return setEmail(event.target.value);
                         }} value={email}></Form.Control>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3 pr-3" >
+                    <Form.Group as={Row} className="mb-3 pr-4" >
                         <Form.Label column sm="2" className="text-right pr-4"> Topic</Form.Label>
                         <Col sm="10">
                             <Form.Control as="select" name='subject' id='subject'
@@ -64,7 +64,7 @@ const ContactUs = () => {
                             }} value={message}></Form.Control>
                     </Form.Group>
 
-                    <Button class='button btn-primary' id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
+                    <Button variant="outline-dark" id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
 
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
