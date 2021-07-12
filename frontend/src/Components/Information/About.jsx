@@ -9,11 +9,10 @@ const About = () => {
     return (
         <div class="background">
             <div class="container2">
-                <h2 class='landing-text'>About Us</h2>
+                <h2 class='landing-text' style={{ padding: '5rem' }}>About Us</h2>
                 <img
                     src={AboutUs}
-                    height="200px"
-                    width="250px"
+                    width="300px"
                     alt="about Us img"
                 />
                 <div class="padding">
@@ -32,21 +31,21 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                    <div class='container' style={{ padding: '5rem' }}>
+                    <div class='container' style={{ padding: '5rem', backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
                         <a href="https://www.youtube.com/c/qa-cinema"
                             className="youtube social" style={{ padding: '3rem' }}>
-                            <FontAwesomeIcon icon={faYoutube} size="5x" />
+                            <FontAwesomeIcon icon={faYoutube} size="5x" color="#ff3333" />
                         </a>
                         <a href="https://www.facebook.com/qa-cinema/"
                             className="facebook social" style={{ padding: '3rem' }}>
-                            <FontAwesomeIcon icon={faFacebook} size="5x" />
+                            <FontAwesomeIcon icon={faFacebook} size="5x" color="#ff3333" />
                         </a>
                         <a href="https://www.twitter.com/qa-cinema" className="twitter social" style={{ padding: '3rem' }}>
-                            <FontAwesomeIcon icon={faTwitter} size="5x" />
+                            <FontAwesomeIcon icon={faTwitter} size="5x" color="#ff3333" />
                         </a>
                         <a href="https://www.instagram.com/qa-cinema"
                             className="instagram social" style={{ padding: '3rem' }}>
-                            <FontAwesomeIcon icon={faInstagram} size="5x" />
+                            <FontAwesomeIcon icon={faInstagram} size="5x" color="#ff3333" />
                         </a>
                     </div>
                 </div>
