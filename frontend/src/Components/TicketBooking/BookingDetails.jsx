@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
+import './BookingDetails.css';
 
 const BookingDetails = ({ getBookingProp }) => {
 
@@ -64,35 +65,37 @@ const BookingDetails = ({ getBookingProp }) => {
     }, [selectedDay])
 
     return (
-        <div class='container'>
+        <div class='container' className='bg-dark text-white'>
             <h3> Booking Details </h3>
-            <div class='row'>
-                <div class='col-sm'>
-                    <form>
-                        {/* render name */}
-                        <label> Booking Name: </label>
-                        <input type='text' id='name' onChange={(event) => {
-                            setName(event.target.value);
-                        }} />
-
-                        {/* render movies list */}
-                        <label> Movie of Choice: </label>
-                        <select aria-label="movie-select"
-                            onChange={e =>
-                                movieList.map(movie => {
-                                    movie._id === e.target.value &&
-                                        setSelectedMovie(movie)
-                                })
-                            }>
-                            <option selected disabled hidden> Select Movie </option>
-                            {movieList.map(movie => (
-                                <option value={movie._id}>{movie.title}</option>
-                            ))}
-                        </select >
-
+            <form className='container'>
+                <div class="form-group">
+                    {/* render name */}
+                    <label> Booking Name: </label>
+                    <input type='text' id='name' class="form-control" placeholder="Jane Doe" form-controlonChange={(event) => {
+                        setName(event.target.value);
+                    }} />
+                </div>
+                <div class="form-group">
+                    {/* render movies list */}
+                    <label> Movie of Choice: </label>
+                    <select aria-label="movie-select" class="form-control"
+                        onChange={e =>
+                            movieList.map(movie => {
+                                movie._id === e.target.value &&
+                                    setSelectedMovie(movie)
+                            })
+                        }>
+                        <option selected disabled hidden> Select Movie </option>
+                        {movieList.map(movie => (
+                            <option value={movie._id}>{movie.title}</option>
+                        ))}
+                    </select >
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         {/* render days */}
                         < label > Day: </label>
-                        <select aria-label="day-select"
+                        <select aria-label="day-select" class="form-control"
                             onChange={e =>
                                 days.map(day => {
                                     day._id === e.target.value &&
@@ -105,11 +108,12 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option value={day._id}>{day.day}</option>
                             ))}
                         </select >
-
-
+                    </div>
+                    <div class="form-group col-md-6">
                         {/* render times */}
                         < label > Time: </label>
-                        <select aria-label="time-select"
+                        <select aria-label="time-select" class="form-control"
+
                             onChange={e =>
                                 times.map(time => {
                                     time._id === e.target.value &&
@@ -122,41 +126,70 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option value={time._id}>{time.time}</option>
                             ))}
                         </select >
-
-                        {/* render no of tickets (adult, child, senior) */}
-                        <label> Tickets: </label><br />
-                        <label> Child </label>
-                        <input type="number" id='child' class='ticket-type' value={child}
-                            onChange={(event) => {
-                                setChild(event.target.value);
-                            }} min='0' />
-                        <label> Adult </label>
-                        <input type="number" id='adult' class='ticket-type' value={adult}
-                            onChange={(event) => {
-                                setAdult(event.target.value);
-                            }} min='0' />
-                        <label> Senior </label>
-                        <input type="number" id='senior' class='ticket-type' value={senior}
-                            onChange={(event) => {
-                                setSenior(event.target.value);
-                            }} min='0' />
-
-                        {/* submit*/}
-                        <button type='submit' class='button btn-primary' id='submit'
-                            onClick={handleSubmit}> To Payment </button>
-                    </form>
+                    </div>
                 </div>
-                <div class='col-sm'>
-                    <Card>
-
-                        {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
-                        <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
-                        <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
-                        <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
-
-
-                    </Card>
+                {/* render no of tickets (adult, child, senior) */}
+                <div class="container">
+                    <h5> Tickets: </h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label> Child </label>
+                            <select aria-label="ticket-select" id='child' class="form-control" value={child}
+                                onChange={(event) => {
+                                    setChild(event.target.value);
+                                }} min='0'>
+                                <option selected>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label> Adult </label>
+                            <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
+                                onChange={(event) => {
+                                    setAdult(event.target.value);
+                                }} min='0'>
+                                <option selected>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label> Senior </label>
+                            <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
+                                onChange={(event) => {
+                                    setSenior(event.target.value);
+                                }} min='0'>
+                                <option selected>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    {/* submit*/}
+                    <Button type='submit' class='button btn-primary' id='submit'
+                        onClick={handleSubmit}> To Payment </Button>
                 </div>
+
+            </form>
+            <div class='col-sm'>
+                <Card>
+
+                    {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
+                    <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
+                    <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
+                    <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
+
+                </Card>
             </div>
         </div >
 
