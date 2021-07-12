@@ -14,6 +14,15 @@ router.get('/movie', async (request, response) => {
     }
 });
 
+//search
+router.get('/movie/search', async (request, response) => {
+    const { s } = request.query;
+
+    const movie = await Movie.find({ $text: { $search: s } })
+
+    response.send(movie);
+})
+
 //get movie by id
 router.get('/movie/:id', async (request, response) => {
     try {
