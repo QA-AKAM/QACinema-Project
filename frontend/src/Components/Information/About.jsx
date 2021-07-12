@@ -8,8 +8,9 @@ import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free
 const About = () => {
     return (
         <div class="background">
-            <div class="container2">
-                <h2 class='landing-text' style={{ padding: '5rem' }}>About Us</h2>
+            <div class="fullScreen">
+                {/* <h2 class='landing-text'>About Us</h2> */}
+
                 <img
                     src={AboutUs}
                     width="300px"

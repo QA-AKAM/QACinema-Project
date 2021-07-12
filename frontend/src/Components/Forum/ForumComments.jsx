@@ -136,7 +136,7 @@ const DiscussionBoard = () => {
                 <Jumbotron className="bgBlur">
                     <Row>
                         <Col className="pt-2" lg={12}>
-                            <Card className="bg-dark text-white">
+                            <Card className="bg-dark text-white" >
                                 <Card.Img src={imageUpdater(movieList.imageURL)} height="500px" alt={`Poster for ${movieList.title}`} style={{ objectFit: "cover", opacity: 0.5, display: "block", }} />
                                 <Card.ImgOverlay className="d-flex flex-column justify-content-end">
                                     <div class="bgBlur">
@@ -150,7 +150,7 @@ const DiscussionBoard = () => {
                     </Row>
                     <Row>
                         <Col lg={12} className="pb-1">
-                            <Button variant="dark" size="lg" block onClick={handleShow}>Add a comment...</Button>
+                            <Button variant="dark" style={{ flex: 1, backgroundColor: '#912323' }} size="lg" block onClick={handleShow}>Add a comment...</Button>
                         </Col>
                     </Row>
                     <Modal show={show} onHide={handleClose}>
@@ -205,14 +205,14 @@ const DiscussionBoard = () => {
                         <Row>
                             {commentList.map((comment) => (
                                 <Col lg={12} className="py-1">
-                                    <Card className="bg-dark text-white">
+                                    <Card className=" text-white" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                         <Card.Body>
                                             <Card.Title>{
                                                 comment.comment
                                             }</Card.Title>
                                             <Card.Subtitle>User rating: {comment.rate}/10</Card.Subtitle>
                                         </Card.Body>
-                                        <Card.Footer>By {comment.author}</Card.Footer>
+                                        <Card.Footer style={{ flex: 1, backgroundColor: '#912323' }}>By {comment.author}</Card.Footer>
                                     </Card>
                                 </Col>
                             ))}

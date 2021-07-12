@@ -1,10 +1,9 @@
 'use strict';
 import '../../CSS/Pages.css';
-
 import { useEffect, useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
-import { Card } from 'react-bootstrap';
+import { Card, Jumbotron } from 'react-bootstrap';
 import axios from 'axios';
 
 const Tickets = () => {
@@ -52,27 +51,23 @@ const Tickets = () => {
     if (!booked) {
         return (
             <div class='background'>
-                <div class="container2">
-                    <div class='container'>
+                <div class='container'>
+                    <Jumbotron className="bgBlur text-white">
                         <h1 class='landing-text'>Tickets</h1>
-                        <Card className="text-white bg-dark">
-                            <BookingDetails getBookingProp={getBooking} />
-                        </Card>
-                    </div>
+                        <BookingDetails getBookingProp={getBooking} />
+                    </Jumbotron>
                 </div>
-            </div>
+            </div >
         )
     } else {
         return (
             <div class='background'>
-                <div class="container2">
-                    <div class='container'>
-                        <h1 class='landing-text'>Tickets</h1>
-                        <Card>
-                            <Payment bookingProp={booking} getPaymentProp={getPayment} />
-                        </Card>
-                    </div>
-                </div>
+                <Jumbotron className="bgBlur">
+                    <h1 class='landing-text'>Tickets</h1>
+                    <Card>
+                        <Payment bookingProp={booking} getPaymentProp={getPayment} />
+                    </Card>
+                </Jumbotron>
             </div>
         )
     }

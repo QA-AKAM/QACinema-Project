@@ -1,6 +1,6 @@
  .background {
-    background-image: linear-gradient(rgba(0,0,0,0),hsl(0,0%,0%, 1)),url("../Images/QA-Cinema BG.png");
-    background-color: #343A40;
+    background-image: linear-gradient(rgba(0,0,0,0),hsl(0,0%,0%, 1)),url("../Images/Updated BG2.png");
+    background-color: #212121;
     background-size: 50%;
     height: 100%;
  }
@@ -14,20 +14,30 @@
     vertical-align: middle; 
  }
 
- .container2 {
-     min-height: 100vh;
+ .fullScreen {
+     height: 100vh;
  }
+
+.colorScheme {
+    background-color: #A02626;
+}
+
 
 #movie-card {
     width: 700px;
     margin: auto;
-}
 
 .center {
   padding: 70px 0;
   text-align: center;
 }
+#tableBorder tr td {
+   border-top: 1px solid #A02626; /* Change the color you want to set */
+}
 
+#tableBorder tr th {
+   border-top: 1px solid #A02626; /* Change the color you want to set */
+}
 #name {
     width: 100%;
 
@@ -86,4 +96,9 @@ p1:hover {
     margin-bottom: 25px;
     justify-content: center;
     width: 75%;
+}
+
+.bgBlur{
+    background:transparent !important;
+    backdrop-filter: blur(3px);
 }

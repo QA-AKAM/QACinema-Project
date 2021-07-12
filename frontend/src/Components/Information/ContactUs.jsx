@@ -1,4 +1,4 @@
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Container, Form, Row, Col } from 'react-bootstrap'
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import '../../CSS/Pages.css';
@@ -36,46 +36,56 @@ const ContactUs = () => {
 
     return (
         <div class='background'>
-            <div class='container'>
-                <div class='container2'>
-                    <h1 class='landing-text'> Contact Us </h1>
-                    <Card>
-                        <form className="contact-form" onSubmit={handleSubmit}>
-                            <label> Your E-mail </label><br />
-                            <input type='email' id='email' name='email' onChange={(event) => {
-                                setEmail(event.target.value);
-                            }} value={email}></input><br />
-                            <label> Topic of your Message </label><br />
-                            <select name='subject' id='subject' onChange={(event) => {
-                                setTopic(event.target.value);
-                            }} value={topic}>
+            <h1 class='landing-text'> Contact Us </h1>
+            <Container className='bg-dark text-white'>
+                <Form style={{ flex: 1, backgroundColor: '#A02626' }}>
+                    <Form.Group as={Row} className="mb-3">
+                        <Form.Label column sm="2" className="text-right pr-4"> Your E-mail </Form.Label>
+                        <Form.Control type='email' id='email' placeholder="name@example.com" onChange={(event) => {
+                            return setEmail(event.target.value);
+                        }} value={email}></Form.Control>
+                    </Form.Group>
+                    <Form.Group as={Row} className="mb-3 pr-4" >
+                        <Form.Label column sm="2" className="text-right pr-4"> Topic</Form.Label>
+                        <Col sm="10">
+                            <Form.Control as="select" name='subject' id='subject'
+                                onChange={(event) => {
+                                    return setTopic(event.target.value);
+                                }} value={topic}>
                                 <option value='feedback'> Feedback </option>
                                 <option value='booking'> Venue Booking </option>
                                 <option value='message'> Other </option>
-                            </select><br />
-                            <label> Your Message </label><br />
-                            <textarea id='message' name='message' onChange={(event) => {
-                                setMessage(event.target.value);
-                            }} value={message}></textarea><br />
-                            <button class='button btn-primary' id='submit' type='submit'> Send </button>
+                            </Form.Control>
+                        </Col>
+                    </Form.Group>
 
-                            <Modal show={show} onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title> Thanks for your E-mail!</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary" onClick={handleClose}>
-                                        Close
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
-                        </form>
-                    </Card>
-                </div>
+                    <Form.Group as={Row} className="mb-3">
+                        <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
+                        <Form.Control
+                            as="textarea" id='message' placeholder="Leave a comment here"
+                            onChange={(event) => {
+                                return setMessage(event.target.value);
+                            }} value={message}></Form.Control>
+                    </Form.Group>
+
+                    <Button variant="outline-dark" id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
+
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title> Thanks for your E-mail!</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </Form>
+            </Container >
+            <div id="fixed">
             </div>
-        </div>
+        </div >
     )
 }
-
 export default ContactUs;
