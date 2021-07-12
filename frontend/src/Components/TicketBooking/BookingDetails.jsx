@@ -174,7 +174,7 @@ const BookingDetails = ({ getBookingProp }) => {
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label> Adult </Form.Label>
-                 <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
+                            <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
                                 }} min='0'>
@@ -200,8 +200,8 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-                        </div>
-                    </div>
+                        </Form.Group>
+                    </Row>
                     {selectedMovie &&
                         <div class='col-sm'>
                             <Card class='container' id='movie-card'>
@@ -218,25 +218,12 @@ const BookingDetails = ({ getBookingProp }) => {
                                     </div>
                                 </Row>
                             </Card>
-                        </div>
-                    }
-                        </Form.Group>
-                    </Row>
-                    {/* submit*/}
-                    <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
-                        onClick={handleSubmit}> To Payment </Button>
+                        </div>}
                 </Form>
-                <Col className="sm-3">
-                    <Card className='colorScheme'>
-
-                        {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
-                        <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
-                        <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
-                        <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
-
-                    </Card>
-                </Col>
+                <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
+                    onClick={handleSubmit}> To Payment </Button>
             </Container>
+            {/* submit*/}
         </Jumbotron>
 
     )
