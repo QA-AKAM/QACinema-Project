@@ -71,7 +71,7 @@ const BookingDetails = ({ getBookingProp }) => {
                 <div class="form-group">
                     {/* render name */}
                     <label> Booking Name: </label>
-                    <input type='text' id='name' class="form-control" placeholder="Jane Doe" form-controlonChange={(event) => {
+                    <input type='text' id='name' class="form-control" placeholder="Jane Doe" onChange={(event) => {
                         setName(event.target.value);
                     }} />
                 </div>
@@ -136,7 +136,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             <label> Child </label>
                             <select aria-label="ticket-select" id='child' class="form-control" value={child}
                                 onChange={(event) => {
-                                    setChild(event.target.value);
+                                    setChild(parseInt(event.target.value));
                                 }} min='0'>
                                 <option selected>0</option>
                                 <option>1</option>
@@ -150,7 +150,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             <label> Adult </label>
                             <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
-                                    setAdult(event.target.value);
+                                    setAdult(parseInt(event.target.value));
                                 }} min='0'>
                                 <option selected>0</option>
                                 <option>1</option>
@@ -164,7 +164,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             <label> Senior </label>
                             <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
                                 onChange={(event) => {
-                                    setSenior(event.target.value);
+                                    setSenior(parseInt(event.target.value));
                                 }} min='0'>
                                 <option selected>0</option>
                                 <option>1</option>
