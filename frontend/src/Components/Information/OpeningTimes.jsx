@@ -1,13 +1,13 @@
 'use strict';
 import '../../CSS/Pages.css';
-
+import { Container, Table } from 'react-bootstrap';
 const OpeningTimes = () => {
     return (
         <div class="background">
-            <div class="container2">
+            <div class="fullScreen">
                 <h1 class='landing-text'>Opening Times</h1>
-                <div class='container'>
-                    <table class="table table-hover table-dark">
+                <Container >
+                    <Table className="table-hover text-white " id="tableBorder" style={{ flex: 1, backgroundColor: '#A02626' }}>
                         <thead>
                             <tr>
                                 <th scope="col">Day of the Week</th>
@@ -60,8 +60,8 @@ const OpeningTimes = () => {
                                 <td>23:30</td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                    </Table>
+                </Container>
             </div>
         </div>
     )

@@ -1,8 +1,3 @@
-.bgBlur{
-    background:transparent !important;
-    backdrop-filter: blur(3px);
-}
-
 .card-wrapper{
     height: 400px;
     width: 300px;
@@ -46,5 +41,7 @@
 .alignBottom {
     position: absolute;
     bottom: 10px;
+    /* left: 50%; */
     margin-left: -55px;
 }
+

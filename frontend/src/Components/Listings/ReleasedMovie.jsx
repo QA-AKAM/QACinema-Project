@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import './ReleasedMovie.css';
 import Badge from 'react-bootstrap/Badge'
 import { Link } from 'react-router-dom';
+import { Table } from "react-bootstrap";
+import '../../CSS/Pages.css';
 
 const ReleasedMovie = () => {
 
@@ -109,13 +111,13 @@ const ReleasedMovie = () => {
         <div className="background">
             <Container fluid>
                 <div className="pt-5">
-                    <Card className="bg-dark text-white">
+                    <Card className="bg-dark text-white" >
                         <Row className="no-gutters">
                             <Col md={4}>
                                 <img src={imageUpdater(movieObj.imageURL)} width="100%" height="700px" style={{ objectFit: "cover" }} />
                             </Col>
                             <Col md={8}>
-                                <Card.Body>
+                                <Card.Body >
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
                                     <Link to={`/classification/${classification(movieObj.classification, 2)}`}>
                                         <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification, 1)}>Rating: {movieObj.classification}</Badge>
@@ -128,7 +130,7 @@ const ReleasedMovie = () => {
                                         <Row>
                                             {movieObj.actors.map((details) => (
                                                 <Col lg={2} md={3} sm={3} xs={5} className="py-3">
-                                                    <Card className="bg-dark text-white">
+                                                    <Card className=" text-white" style={{ flex: 1, backgroundColor: '#912323' }}>
                                                         <Card.Img class="cardImg" src={details.image} />
                                                         <Card.Body>
                                                             <Card.Subtitle>{details.name}</Card.Subtitle>
@@ -148,7 +150,7 @@ const ReleasedMovie = () => {
                     <Col lg={12}>
                         <h2>Book Now!</h2>
                         <div class="container">
-                            <table class="table table-hover table-dark">
+                            <Table className="table-hover text-white " id="tableBorder" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                 <thead>
                                     <tr>
                                         <th colSpan="12" scope="colgroup">Showing Times</th>
@@ -162,7 +164,7 @@ const ReleasedMovie = () => {
                                         </tr>
                                     ))}
                                 </tbody>
-                            </table>
+                            </Table>
                         </div>
                     </Col>
                 </Row>
