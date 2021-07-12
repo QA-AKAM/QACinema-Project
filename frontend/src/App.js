@@ -42,6 +42,10 @@ function App() {
             <UpcomingMovies />
           </Route>
 
+          <Route path="/upcoming/:movie" >
+            <ReleasedMovie />
+          </Route>
+
           <Route path="/Tickets" >
             <Tickets />
           </Route>
