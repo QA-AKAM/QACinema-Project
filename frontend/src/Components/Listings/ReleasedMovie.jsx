@@ -17,7 +17,6 @@ const ReleasedMovie = () => {
     const [movieObj, setMovieObj] = useState([]);
     const [error, setError] = useState(null);
     const [loaded, setLoaded] = useState(false);
-    const [classLink, setClassLink] = useState("")
 
     const getMovies = () => {
         axios.get(`http://localhost:5000/movie/${movie}`)
@@ -84,18 +83,25 @@ const ReleasedMovie = () => {
 
     const classification = (classification, switchNum) => {
         const classList = {
-            "U": "success",
-            "PG": "info",
-            "12A": "primary",
-            "15": "warning",
-            "18": "danger",
-            "TBC": "secondary"
+            "U": "#2ca434",
+            "PG": "#fcbc08",
+            "12A": "#ec7c14",
+            "15": "#ec5494",
+            "18": "#d40424",
+            "TBC": "grey"
         }
 
         if (switchNum === 1)
             return classList[classification]
         else {
-            return Object.keys(classList).indexOf(classification) - 2
+            const classList2 = {
+                "U": "0",
+                "PG": "1",
+                "12A": "2",
+                "15": "3",
+                "18": "4"
+            }
+            return classList2[classification]
         }
     }
 
@@ -120,7 +126,7 @@ const ReleasedMovie = () => {
                                 <Card.Body >
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
                                     <Link to={`/classifications/${classification(movieObj.classification, 2)}`}>
-                                        <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification, 1)}>Rating: {movieObj.classification}</Badge>
+                                        <Badge className="classificationBadge mb-3" variant="success" style={{ backgroundColor: `${classification(movieObj.classification, 1)}` }}>Rating: {movieObj.classification}</Badge>
                                     </Link>
                                     <Card.Text className="cardMovieText">Runtime: {movieObj.runTime}</Card.Text>
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
