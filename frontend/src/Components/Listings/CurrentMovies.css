@@ -25,12 +25,3 @@ h1.landing-text {
 .cardHoverZoom {
   transition: transform 0.2s ease;
 }
-
-.cardMovieTitle {
-    text-align: left;
-    font-size:36px !important;
-}
-
-.cardMovieText {
-    text-align: left;
-}
