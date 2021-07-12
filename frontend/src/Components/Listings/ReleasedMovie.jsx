@@ -117,7 +117,7 @@ const ReleasedMovie = () => {
                             <Col md={8}>
                                 <Card.Body>
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
-                                    <Link to={`/classification/${classification(movieObj.classification, 2)}`}>
+                                    <Link to={`/classifications/${classification(movieObj.classification, 2)}`}>
                                         <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification, 1)}>Rating: {movieObj.classification}</Badge>
                                     </Link>
                                     <Card.Text className="cardMovieText">Runtime: {movieObj.runTime}</Card.Text>
