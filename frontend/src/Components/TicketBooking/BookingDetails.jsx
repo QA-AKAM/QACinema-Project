@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 import axios from 'axios';
 import './BookingDetails.css';
+import Form from 'react-bootstrap/Form'
 
 const BookingDetails = ({ getBookingProp }) => {
 
@@ -65,19 +66,19 @@ const BookingDetails = ({ getBookingProp }) => {
     }, [selectedDay])
 
     return (
-        <div class='container' className='bg-dark text-white'>
+        <Container className='bg-dark text-white'>
             <h3> Booking Details </h3>
-            <form className='container'>
-                <div class="form-group">
+            <Form>
+                <Form.Group className="mb-3">
                     {/* render name */}
-                    <label> Booking Name: </label>
-                    <input type='text' id='name' class="form-control" placeholder="Jane Doe" form-controlonChange={(event) => {
+                    <Form.Label> Booking Name: </Form.Label>
+                    <Form.Control type='text' id='name' class="form-control" placeholder="Jane Doe" onChange={(event) => {
                         setName(event.target.value);
                     }} />
-                </div>
-                <div class="form-group">
+                </Form.Group>
+                <Form.Group className="mb-3">
                     {/* render movies list */}
-                    <label> Movie of Choice: </label>
+                    <Form.Label> Movie of Choice: </Form.Label>
                     <select aria-label="movie-select" class="form-control"
                         onChange={e =>
                             movieList.map(movie => {
@@ -90,11 +91,11 @@ const BookingDetails = ({ getBookingProp }) => {
                             <option value={movie._id}>{movie.title}</option>
                         ))}
                     </select >
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                </Form.Group>
+                <Row className="mb-3">
+                    <Form.Group as={Col}>
                         {/* render days */}
-                        < label > Day: </label>
+                        <Form.Label > Day: </Form.Label>
                         <select aria-label="day-select" class="form-control"
                             onChange={e =>
                                 days.map(day => {
@@ -108,10 +109,10 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option value={day._id}>{day.day}</option>
                             ))}
                         </select >
-                    </div>
-                    <div class="form-group col-md-6">
+                    </Form.Group>
+                    <Form.Group as={Col}>
                         {/* render times */}
-                        < label > Time: </label>
+                        <Form.Label > Time: </Form.Label>
                         <select aria-label="time-select" class="form-control"
 
                             onChange={e =>
@@ -126,62 +127,59 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option value={time._id}>{time.time}</option>
                             ))}
                         </select >
-                    </div>
-                </div>
+                    </Form.Group>
+                </Row>
                 {/* render no of tickets (adult, child, senior) */}
-                <div class="container">
-                    <h5> Tickets: </h5>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label> Child </label>
-                            <select aria-label="ticket-select" id='child' class="form-control" value={child}
-                                onChange={(event) => {
-                                    setChild(event.target.value);
-                                }} min='0'>
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label> Adult </label>
-                            <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
-                                onChange={(event) => {
-                                    setAdult(event.target.value);
-                                }} min='0'>
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label> Senior </label>
-                            <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
-                                onChange={(event) => {
-                                    setSenior(event.target.value);
-                                }} min='0'>
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    {/* submit*/}
-                    <Button type='submit' class='button btn-primary' id='submit'
-                        onClick={handleSubmit}> To Payment </Button>
-                </div>
-
-            </form>
-            <div class='col-sm'>
+                <h5> Tickets: </h5>
+                <Row className="mb-3">
+                    <Form.Group as={Col}>
+                        <Form.Label> Child </Form.Label>
+                        <select aria-label="ticket-select" id='child' class="form-control" value={child}
+                            onChange={(event) => {
+                                setChild(parseInt(event.target.value));
+                            }} min='0'>
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label> Adult </Form.Label>
+                        <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
+                            onChange={(event) => {
+                                setAdult(parseInt(event.target.value));
+                            }} min='0'>
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label> Senior </Form.Label>
+                        <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
+                            onChange={(event) => {
+                                setSenior(parseInt(event.target.value));
+                            }} min='0'>
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </Form.Group>
+                </Row>
+                {/* submit*/}
+                <Button type='submit' class='button btn-primary' id='submit' className="mb-3"
+                    onClick={handleSubmit}> To Payment </Button>
+            </Form>
+            <Col className="sm-3">
                 <Card>
 
                     {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
@@ -190,8 +188,8 @@ const BookingDetails = ({ getBookingProp }) => {
                     <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
 
                 </Card>
-            </div>
-        </div >
+            </Col>
+        </Container>
 
     )
 }
