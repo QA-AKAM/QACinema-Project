@@ -37,40 +37,42 @@ const ContactUs = () => {
     return (
         <div class='background'>
             <div class='container'>
-                <h1 class='landing-text'> Contact Us </h1>
-                <Card>
-                    <form className="contact-form" onSubmit={handleSubmit}>
-                        <label> Your E-mail </label><br />
-                        <input type='email' id='email' name='email' onChange={(event) => {
-                            setEmail(event.target.value);
-                        }} value={email}></input><br />
-                        <label> Topic of your Message </label><br />
-                        <select name='subject' id='subject' onChange={(event) => {
-                            setTopic(event.target.value);
-                        }} value={topic}>
-                            <option value='feedback'> Feedback </option>
-                            <option value='booking'> Venue Booking </option>
-                            <option value='message'> Other </option>
-                        </select><br />
-                        <label> Your Message </label><br />
-                        <textarea id='message' name='message' onChange={(event) => {
-                            setMessage(event.target.value);
-                        }} value={message}></textarea><br />
-                        <button class='button btn-primary' id='submit' type='submit'> Send </button>
+                <div class='container2'>
+                    <h1 class='landing-text'> Contact Us </h1>
+                    <Card>
+                        <form className="contact-form" onSubmit={handleSubmit}>
+                            <label> Your E-mail </label><br />
+                            <input type='email' id='email' name='email' onChange={(event) => {
+                                setEmail(event.target.value);
+                            }} value={email}></input><br />
+                            <label> Topic of your Message </label><br />
+                            <select name='subject' id='subject' onChange={(event) => {
+                                setTopic(event.target.value);
+                            }} value={topic}>
+                                <option value='feedback'> Feedback </option>
+                                <option value='booking'> Venue Booking </option>
+                                <option value='message'> Other </option>
+                            </select><br />
+                            <label> Your Message </label><br />
+                            <textarea id='message' name='message' onChange={(event) => {
+                                setMessage(event.target.value);
+                            }} value={message}></textarea><br />
+                            <button class='button btn-primary' id='submit' type='submit'> Send </button>
 
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title> Thanks for your E-mail!</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </form>
-                </Card>
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title> Thanks for your E-mail!</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </form>
+                    </Card>
+                </div>
             </div>
         </div>
     )
