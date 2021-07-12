@@ -75,7 +75,7 @@ function App() {
             <Nearby />
           </Route>
 
-          <Route path="/Classifications" >
+          <Route path="/Classifications/:classkey" >
             <Classifications />
           </Route>
 

@@ -14,7 +14,16 @@ import { useParams } from 'react-router-dom';
 
 const Classifications = () => {
 
+    const { classkey } = useParams();
     const [key, setKey] = useState("0");
+
+    const setter = () => {
+        setKey(classkey);
+    }
+
+    useEffect(() => {
+        setter();
+    }, []);
 
     return (
         <div className="background">
