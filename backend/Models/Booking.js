@@ -40,7 +40,7 @@ const bookingSchema = new Schema({
         }
     },
     paymentID: {
-        type: mongoose.Schema.Types.ObjectId
+        type: String
     }
 });
 

@@ -12,7 +12,6 @@ const mongoose = require('mongoose');
 //get routes
 const movieRouter = require('./Routes/MovieRoutes');
 const bookingRouter = require('./Routes/BookingRoutes');
-const paymentRouter = require('./Routes/PaymentRoutes');
 const priceRouter = require('./Routes/PriceRoutes');
 
 const commentRouter = require('./Routes/CommentRoutes');
@@ -25,7 +24,6 @@ mongoose.connect("mongodb+srv://akam:reactnode@cluster0.ihlmt.mongodb.net/cinema
         app.use(movieRouter);
         app.use(bookingRouter);
         app.use(priceRouter);
-        app.use(paymentRouter);
         app.use(priceRouter);
 
         app.use(commentRouter);

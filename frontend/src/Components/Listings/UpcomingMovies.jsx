@@ -1,11 +1,81 @@
 'use strict';
-import '../../CSS/Pages.css';
+import { useState, useEffect } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import './UpcomingMovies.css'
 
 const UpcomingMovies = () => {
+
+    const [movieList, setMovieList] = useState([]);
+    const [error, setError] = useState(null);
+    const [loaded, setLoaded] = useState(false);
+    const loadTime = 100;
+
+    const getMovies = () => {
+        axios.get('http://localhost:5000/released/false')
+            .then((response) => {
+                setLoaded(true);
+                setMovieList(response.data);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            });
+    }
+
+    useEffect(() => {
+        getMovies();
+    }, []);
+
+    const imageUpdater = (oldImage) => {
+        return oldImage.replace('._V1_SX300', '')
+    }
+
+    if (!loaded) {
+        return <p>Data is loading</p>
+    }
+
     return (
         <div class="background">
-            <h1 class='landing-text'>Upcoming Movies</h1>
-        </div>
+            <Container>
+                <Jumbotron className="bgBlur">
+                    <h1 class='landing-text'> Upcoming Movies </h1>
+                    <p class="lead">Here are some of the movies that we will be showing in our cinema in the near future!</p>
+                    <div>
+                        <Row>
+                            {movieList.map((movie) => (
+                                <Col lg={4} xs={12} md={6} className="p-2">
+                                    <div className="card-wrapper">
+                                        <div className="content">
+                                            <div className="face-front z-depth-2">
+                                                <img className="movieImage" src={imageUpdater(movie.imageURL)} alt={movie.title} />
+                                            </div>
+                                            <div className="face-back z-depth-2">
+                                                <Card.Body>
+                                                    <Card.Title>{movie.title}</Card.Title>
+                                                    <Card.Title>Directed by {movie.director}</Card.Title>
+                                                    <br />
+                                                    <Card.Subtitle>Released in {movie.year}</Card.Subtitle>
+                                                    <Link to={`/upcoming/${movie._id}`}>
+                                                        <Button className="alignBottom" value={movie._id} variant="dark">View more...</Button>
+                                                    </Link>
+                                                </Card.Body>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>
+                    </div>
+                </Jumbotron>
+            </Container>
+        </div >
     )
 }
 export default UpcomingMovies;

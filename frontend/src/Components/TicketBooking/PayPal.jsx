@@ -1,8 +1,12 @@
 import { useEffect, useRef } from "react";
 
-const PayPal = ({ totalProp, setPaidProp }) => {
+const PayPal = ({ totalProp, setPaidProp, setPaymentProp }) => {
 
-    const total = parseFloat(totalProp);
+    const total = totalProp;
+
+    const setPaid = setPaidProp;
+
+    const setPayment = setPaymentProp;
 
     const paypal = useRef();
 
@@ -25,10 +29,12 @@ const PayPal = ({ totalProp, setPaidProp }) => {
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
                 console.log(order);
-                setPaidProp(true);
+                setPaid(true);
+                setPayment('paid');
             },
             onError: (err) => {
                 console.log(err);
+                console.log(total);
             }
         }).render(paypal.current)
     }, [])
