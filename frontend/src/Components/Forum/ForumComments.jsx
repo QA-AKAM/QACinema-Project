@@ -19,11 +19,12 @@ const DiscussionBoard = () => {
     const [error, setError] = useState(null);
     const [validated, setValidated] = useState(false);
     const [loaded, setLoaded] = useState(false);
+    const [loadedMovie, setLoadedMovie] = useState(false);
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        getMovies();
         getComments();
+        getMovies();
     }, []);
 
     const getComments = () => {
@@ -42,10 +43,10 @@ const DiscussionBoard = () => {
         axios.get(`http://localhost:5000/movie/${movie}`)
             .then((response) => {
                 setMovieList(response.data);
-                setLoaded(true);
+                setLoadedMovie(true);
             })
             .catch((error) => {
-                setLoaded(true);
+                setLoadedMovie(true);
                 setError(error);
             });
     }
@@ -121,7 +122,11 @@ const DiscussionBoard = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    if (!loaded) {
+    const imageUpdater = (oldImage) => {
+        return oldImage.replace('._V1_SX300', '')
+    }
+
+    if (!loaded || !loadedMovie) {
         return <p>Data is loading</p>
     }
 
@@ -132,7 +137,7 @@ const DiscussionBoard = () => {
                     <Row>
                         <Col className="pt-2" lg={12}>
                             <Card className="bg-dark text-white">
-                                <Card.Img src={movieList.imageURL} height="500px" alt={`Poster for ${movieList.title}`} style={{ objectFit: "cover", opacity: 0.5, display: "block", }} />
+                                <Card.Img src={imageUpdater(movieList.imageURL)} height="500px" alt={`Poster for ${movieList.title}`} style={{ objectFit: "cover", opacity: 0.5, display: "block", }} />
                                 <Card.ImgOverlay className="d-flex flex-column justify-content-end">
                                     <div class="bgBlur">
                                         <Card.Title className="cardCommentMovieTitle">{movieList.title}</Card.Title>
