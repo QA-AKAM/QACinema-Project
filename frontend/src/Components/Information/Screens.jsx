@@ -7,7 +7,7 @@ const Screens = () => {
             <div class='background'>
                 <h1 class='landing-text'> Screens </h1>
                 <div class='container'>
-                    <Card>
+                    <Card className="bg-dark text-white">
                         <div class='row'>
                             <div class='col-sm'>
                                 <img src="./Images/StandardDecor.png" alt='Our Standard Cinema Screen Decor' width='500px' />
@@ -19,9 +19,9 @@ const Screens = () => {
                         </div>
                         <div class='container'>
                             <Accordion>
-                                <Card>
+                                <Card className="bg-secondary">
                                     <Card.Header>
-                                        <Accordion.Toggle as={Button} variant="text" eventKey="0">
+                                        <Accordion.Toggle as={Button} variant="text" eventKey="0" className="bg-secondary text-white">
                                             View Seating Plan
                                         </Accordion.Toggle>
                                     </Card.Header>
@@ -36,7 +36,7 @@ const Screens = () => {
                         <p />
                     </Card>
                     <p />
-                    <Card>
+                    <Card className="bg-dark text-white">
                         <div class='row'>
                             <div class='col-sm'>
                                 <h4> Deluxe Seating </h4>
@@ -48,9 +48,9 @@ const Screens = () => {
                         </div>
                         <div class='container'>
                             <Accordion>
-                                <Card>
+                                <Card className="bg-secondary">
                                     <Card.Header>
-                                        <Accordion.Toggle as={Button} variant="text" eventKey="0">
+                                        <Accordion.Toggle as={Button} variant="text" eventKey="0" className="bg-secondary text-white">
                                             View Seating Plan
                                         </Accordion.Toggle>
                                     </Card.Header>
