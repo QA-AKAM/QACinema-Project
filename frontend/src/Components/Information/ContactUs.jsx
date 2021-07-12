@@ -2,6 +2,7 @@ import { Modal, Button } from 'react-bootstrap'
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import '../../CSS/Pages.css';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
 
@@ -23,36 +24,39 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        sendMessage();
+        emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
+            .then((result) => {
+                handleShow();
+            }, (error) => {
+                alert("Something went wrong. We couldn't sent your message!")
+            });
     }
 
-    const sendMessage = () => {
-        handleShow();
-    }
+
 
     return (
         <div class='background'>
             <div class='container'>
                 <h1 class='landing-text'> Contact Us </h1>
                 <Card>
-                    <form>
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <label> Your E-mail </label><br />
-                        <input type='email' id='email' onChange={(event) => {
-                            return setEmail(event.target.value);
+                        <input type='email' id='email' name='email' onChange={(event) => {
+                            setEmail(event.target.value);
                         }} value={email}></input><br />
                         <label> Topic of your Message </label><br />
                         <select name='subject' id='subject' onChange={(event) => {
-                            return setTopic(event.target.value);
+                            setTopic(event.target.value);
                         }} value={topic}>
                             <option value='feedback'> Feedback </option>
                             <option value='booking'> Venue Booking </option>
                             <option value='message'> Other </option>
                         </select><br />
                         <label> Your Message </label><br />
-                        <textarea id='message' onChange={(event) => {
-                            return setMessage(event.target.value);
+                        <textarea id='message' name='message' onChange={(event) => {
+                            setMessage(event.target.value);
                         }} value={message}></textarea><br />
-                        <button class='button btn-primary' id='submit' type='submit' onClick={handleSubmit}> Send </button>
+                        <button class='button btn-primary' id='submit' type='submit'> Send </button>
 
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
