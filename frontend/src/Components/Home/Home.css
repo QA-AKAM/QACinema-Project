@@ -3,6 +3,12 @@
     width: 1140px;
     height: 700px;
 }
+.imgContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
 
 #home {
         display: table;
@@ -11,3 +17,7 @@
         background-size: cover;
         padding-bottom: 100px;
     }
+.bgBlur{
+    background:transparent !important;
+    backdrop-filter: blur(3px);
+}

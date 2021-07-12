@@ -7,10 +7,14 @@ import Tickets from './Components/TicketBooking/Tickets';
 import Screens from './Components/Information/Screens';
 import OpeningTimes from './Components/Information/OpeningTimes';
 import Forum from './Components/Information/Forum';
+import ContactUs from './Components/Information/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
 import About from './Components/Information/About';
 import './Resources/App.css';
+import Directions from './Components/Information/Directions/Directions'
+import Nearby from './Components/Information/Nearby/Nearby'
+import ReleasedMovie from './Components/Listings/ReleasedMovie';
 
 function App() {
   return (
@@ -30,8 +34,16 @@ function App() {
             <CurrentMovies />
           </Route>
 
+          <Route path="/released/:movie" >
+            <ReleasedMovie />
+          </Route>
+
           <Route path="/UpcomingMovies" >
             <UpcomingMovies />
+          </Route>
+
+          <Route path="/upcoming/:movie" >
+            <ReleasedMovie />
           </Route>
 
           <Route path="/Tickets" >
@@ -50,8 +62,20 @@ function App() {
             <Forum />
           </Route>
 
+          <Route path="/ContactUs">
+            <ContactUs />
+          </Route>
+
           <Route path="/About" >
             <About />
+          </Route>
+
+          <Route path="/Directions" >
+            <Directions />
+          </Route>
+
+          <Route path="/Nearby" >
+            <Nearby />
           </Route>
 
         </Switch>

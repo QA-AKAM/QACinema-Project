@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './BookingDetails.css';
+
 const BookingDetails = ({ getBookingProp }) => {
 
     const getBooking = getBookingProp;
@@ -112,6 +113,7 @@ const BookingDetails = ({ getBookingProp }) => {
                         {/* render times */}
                         < label > Time: </label>
                         <select aria-label="time-select" class="form-control"
+
                             onChange={e =>
                                 times.map(time => {
                                     time._id === e.target.value &&

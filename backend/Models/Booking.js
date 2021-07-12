@@ -2,31 +2,24 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ticketSchema = new Schema({
-    firstName: {
+const bookingSchema = new Schema({
+    name: {
         type: String,
         required: true,
         minlength: 2
-    },
-    surname: {
-        type: String,
-        required: true,
-        minlength: 2
-
     },
     movieID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Movies",
         required: true
     },
-    dayID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Movies',
+    day: {
+        type: String,
+        minlenght: "5",
         required: true
     },
-    timeID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Movies',
+    time: {
+        type: String,
         required: true
     },
     noOfTickets: {
@@ -47,8 +40,8 @@ const ticketSchema = new Schema({
         }
     },
     paymentID: {
-        type: mongoose.Schema.Types.ObjectId
+        type: String
     }
 });
 
-module.exports = mongoose.model("Tickets", ticketSchema);
+module.exports = mongoose.model("Bookings", bookingSchema);
