@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, Row, Col, Container, Jumbotron } from 'react-bootstrap';
+
 import axios from 'axios';
 import './BookingDetails.css';
 import '../../CSS/Pages.css';
@@ -15,7 +16,7 @@ const BookingDetails = ({ getBookingProp }) => {
     const [error, setError] = useState(null);
 
     //set selected movie & set days
-    const [selectedMovie, setSelectedMovie] = useState({});
+    const [selectedMovie, setSelectedMovie] = useState(null);
     const [days, setDays] = useState([]);
 
     //set selected day & set times
@@ -38,6 +39,25 @@ const BookingDetails = ({ getBookingProp }) => {
         getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
     }
 
+    //get prices
+    const [prices, setPrices] = useState({});
+
+    const getPrices = () => {
+        axios.get('http://localhost:5000/price')
+            .then((response) => {
+                setPrices(response.data[0]);
+                setLoaded(true);
+            })
+            .catch((error) => {
+                setLoaded(true);
+                setError(error);
+            });
+    }
+
+    useEffect(() => {
+        getPrices();
+    }, [prices]);
+
     //get movies
     const getMovies = () => {
         axios.get('http://localhost:5000/released/true')
@@ -58,7 +78,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
     //set days
     useEffect(() => {
-        setDays(selectedMovie.dateTime);
+        setDays(selectedMovie?.dateTime);
     }, [selectedMovie])
 
     //set times
@@ -138,6 +158,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label> Child </Form.Label>
+
                             <select aria-label="ticket-select" id='child' class="form-control" value={child}
                                 onChange={(event) => {
                                     setChild(parseInt(event.target.value));
@@ -149,10 +170,11 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
+
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label> Adult </Form.Label>
-                            <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
+                 <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
                                 }} min='0'>
@@ -166,6 +188,7 @@ const BookingDetails = ({ getBookingProp }) => {
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label> Senior </Form.Label>
+
                             <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
                                 onChange={(event) => {
                                     setSenior(parseInt(event.target.value));
@@ -177,6 +200,7 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
+
                         </Form.Group>
                     </Row>
                     {/* submit*/}

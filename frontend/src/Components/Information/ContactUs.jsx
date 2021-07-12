@@ -2,6 +2,7 @@ import { Modal, Button, Container, Form, Row, Col } from 'react-bootstrap'
 import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import '../../CSS/Pages.css';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
 
@@ -23,12 +24,15 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        sendMessage();
+        emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
+            .then((result) => {
+                handleShow();
+            }, (error) => {
+                alert("Something went wrong. We couldn't sent your message!")
+            });
     }
 
-    const sendMessage = () => {
-        handleShow();
-    }
+
 
     return (
         <div class='background'>
