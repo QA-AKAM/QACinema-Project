@@ -16,7 +16,7 @@ const NearbyVenue = ({ cardData }) => {
                         height='300px'
                         alt={cardData.title}
                         style={{ objectFit: 'cover' }} />
-                    <Card.Title title='venue title' className="c-w padd-3">{cardData.title}</Card.Title>
+                    <Card.Title title='venue title' className=" colorScheme c-w padd-3">{cardData.title}</Card.Title>
                     <br />
                     <Card.Subtitle title='venue description' className="c-w justify txt-area padd-1" style={{ lineHeight: '1.6' }}>{cardData.description}</Card.Subtitle>
                     <Card.Text title='QA Cinema related offers' className='c-r txt-area' label='QA Cinema Offers' >QA Cinema offers:</Card.Text>

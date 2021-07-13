@@ -7,6 +7,7 @@ import ParkingOutside from '../../../Images/parking_outside.jpg';
 import FromUnderground from '../../../Images/directions_from_underground.jpg';
 import FromBus from '../../../Images/directions_from_bus.jpg';
 import DirectionsCard from './DirectionsCard';
+import { Row } from 'react-bootstrap';
 
 import { Jumbotron, Container } from 'react-bootstrap';
 
@@ -55,9 +56,11 @@ const Directions = () => {
             <Container>
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'>Directions</h1>
-                    {cardData.map(item => (
-                        <DirectionsCard cardData={item} />
-                    ))};
+                    <Row>
+                        {cardData.map(item => (
+                            <DirectionsCard cardData={item} />
+                        ))};
+                    </Row>
                 </Jumbotron>
             </Container>
 
