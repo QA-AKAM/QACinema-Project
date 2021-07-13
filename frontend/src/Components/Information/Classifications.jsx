@@ -30,8 +30,8 @@ const Classifications = () => {
             <Container>
                 <Jumbotron className="bgBlur">
                     <h1 className="landing-text">Film Classifications</h1>
-                    <p className="lead">Film Classifications are used to make sure that the movie you are watching
-                        is suitable for you and your family. Scroll down to learn more about the classification system!</p>
+                    <h3 className="lead">Film Classifications are used to make sure that the movie you are watching
+                        is suitable for you and your family. Scroll down to learn more about the classification system!</h3>
                     <Row>
                         <Col lg={6} xs={6}>
                             <Tabs id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
