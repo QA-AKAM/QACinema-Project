@@ -78,7 +78,7 @@ const Home = () => {
                 <div id="fixed">
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default Home;
