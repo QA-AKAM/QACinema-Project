@@ -14,7 +14,7 @@ const Screens = () => {
                             </div>
                             <div class='col-sm'>
                                 <h4> Standard Seating </h4>
-                                <p> Look! Our seating is super bootiful! </p>
+                                <p> Our Standard movie screens offer comfortable and spacious seating with enough room to accomodate over 100 guests. You can view our floorplan seating below to pick out your best </p>
                             </div>
                         </div>
                         <div class='container'>
@@ -40,7 +40,7 @@ const Screens = () => {
                         <div class='row'>
                             <div class='col-sm'>
                                 <h4> Deluxe Seating </h4>
-                                <p> Look! Our seating is super bootiful! </p>
+                                <p> Our world-renown IMAX Screens are perfect for any film lover who wants to sit back enjoy in comfort. With leather reclinable chairs, our mission is to give you the comfort you deserve allowing you to focus solely on the movie. Find our seating plan attached below. </p>
                             </div>
                             <div class='col-sm'>
                                 <img src="./Images/DeluxeDecor.png" alt='Our Deluxe Cinema Screen Decor' width='500px' />
