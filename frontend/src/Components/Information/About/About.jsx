@@ -10,7 +10,7 @@ const About = () => {
     const [team, setTeam] = useState([
         {
             name: "Kevin",
-            role: "Product owner",
+            role: "Product Owner",
             projectMain: "Frontend, Jira, Github",
             projectSecondary: "Styling, Documentation",
             github: "https://github.com/thealinivan",
@@ -22,7 +22,7 @@ const About = () => {
         },
         {
             name: "Asshwin",
-            role: "Scrum master",
+            role: "Scrum Master",
             projectMain: "Backend, Databases, Frontend, Testing",
             projectSecondary: "Scrums, Styling, Documentation",
             github: "https://github.com/ashkl",
@@ -33,7 +33,7 @@ const About = () => {
         },
         {
             name: "Matthew Holmes",
-            role: "Software developer",
+            role: "Software Developer",
             projectMain: "Frontend, Testing",
             projectSecondary: "Styling, Documentation",
             github: "https://github.com/matayoh14",
@@ -44,7 +44,7 @@ const About = () => {
         },
         {
             name: "Alin",
-            role: "Software developer",
+            role: "Software Developer",
             projectMain: "Backend, Databases, Cloud, Testing",
             projectSecondary: "Frontend, API, Styling, Documentation",
             github: "https://github.com/thealinivan",
