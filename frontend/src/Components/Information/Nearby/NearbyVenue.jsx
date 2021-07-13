@@ -16,33 +16,33 @@ const NearbyVenue = ({ cardData }) => {
                         height='300px'
                         alt={cardData.title}
                         style={{ objectFit: 'cover' }} />
-                    <Card.Title className="c-w padd-3">{cardData.title}</Card.Title>
+                    <Card.Title title='venue title' className="c-w padd-3">{cardData.title}</Card.Title>
                     <br />
-                    <Card.Subtitle className="c-w justify txt-area padd-1" style={{ lineHeight: '1.6' }}>{cardData.description}</Card.Subtitle>
-                    <Card.Text className='c-r txt-area' >QA Cinema offers:</Card.Text>
+                    <Card.Subtitle title='venue description' className="c-w justify txt-area padd-1" style={{ lineHeight: '1.6' }}>{cardData.description}</Card.Subtitle>
+                    <Card.Text title='QA Cinema related offers' className='c-r txt-area' label='QA Cinema Offers' >QA Cinema offers:</Card.Text>
                     <div class='padd-1'>
                         {
                             cardData.offers.map(offer => (
-                                <Card.Text class='landing-text txt-area marg-1 c-w'>{offer}</Card.Text>
+                                <Card.Text title='single cinema offer item' class='landing-text txt-area marg-1 c-w'>{offer}</Card.Text>
                             ))
                         }
                     </div>
-                    <Card.Text class='landing-text txt-area c-w padd-3' style={{ borderTop: '1px solid white' }}>{cardData.address}</Card.Text>
+                    <Card.Text title='venue address' class='landing-text txt-area c-w padd-3' style={{ borderTop: '1px solid white' }}>{cardData.address}</Card.Text>
                     <Row>
                         <Col lg={6} xs={12} md={6}>
                             <Card.Text className='padd-1 txt-area'>
-                                <a href={`tel:${cardData.telephone}`}>
+                                <a title='venue telephone link' href={`tel:${cardData.telephone}`}>
                                     <FontAwesomeIcon className='social-icon padd-1' icon={faPhone} size="4x" color="#ff3333" />
                                 </a>
-                                <p className='txt-area'>Telephone</p>
+                                <p title='venue telephone label' className='txt-area'>Telephone</p>
                             </Card.Text>
                         </Col>
                         <Col lg={6} xs={12} md={6}>
                             <Card.Text className='padd-1 txt-area'>
-                                <a href={cardData.nav}>
+                                <a title='venue telephone link' href={cardData.nav}>
                                     <FontAwesomeIcon className='social-icon padd-1' icon={faMapMarkedAlt} size="4x" color="#ff3333" />
                                 </a>
-                                <p className='txt-area'>Directions</p>
+                                <p title='venue telephone label' className='txt-area'>Directions</p>
                             </Card.Text>
                         </Col>
                     </Row>
