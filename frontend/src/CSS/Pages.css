@@ -15,16 +15,13 @@
  }
 
  .fullScreen {
-     height: 100vh;
+     min-height: 100vh;
  }
 
 .colorScheme {
     background-color: #A02626;
 }
 
-.colorScheme2 {
-    background-color: #212121;
-}
 
 #movie-card {
     width: 75%;
@@ -84,7 +81,12 @@ p {
         padding-bottom: 200px;
     }
 
-.display-4, .lead, p1{  
+.display-4, .lead{
+    
+    color: white;
+}
+
+p1 {
     color: white;
 }
 p1:hover {
@@ -99,7 +101,7 @@ p1:hover {
 }
 
 .bgBlur{
-    /* background:transparent !important; */
+    background:transparent !important;
     backdrop-filter: blur(3px);
 }
 
@@ -132,11 +134,14 @@ p1:hover {
 .c-b{
     color: black;
 }
+.c-r {
+    color: #A02626;
+}
 .bg-t{
     background-color: rgba(0, 0, 0, 0.3);
 }
 .min-h {
-    min-height: 100px;
+    min-height: 120px;
 }
 .min-w {
     min-width: 100%;

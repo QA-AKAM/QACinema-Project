@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button, Row, Col, Container, Jumbotron, Modal, Alert } from 'react-bootstrap';
-import ReactDOM from 'react-dom';
+import { Card, Button, Row, Col, Container, Jumbotron, Alert } from 'react-bootstrap';
 
 import axios from 'axios';
 import './BookingDetails.css';
@@ -96,45 +95,6 @@ const BookingDetails = ({ getBookingProp }) => {
         setTimes(selectedDay.timeOfMovie);
     }, [selectedDay])
 
-    const VAlert = () => {
-        return (
-            <Alert variant='danger' onClose={() => { setError(false) }} dismissible='true' style={{ width: '70%', textAlign: 'left', marginLeft: 'auto', marginRight: 'auto' }}>
-                <Alert.Heading> It seems like something's not quite right... </Alert.Heading>
-                {setShow(false)}
-                <h6>
-                    Please fix the following problems with your booking:
-                </h6>
-                {
-                    (name.length < 4) &&
-                    <li> Your name needs to be a minimum of 4 characters long. {setShow(true)} </li>
-                }
-                {
-                    (adult + child + senior < 1) &&
-                    <li> You need to book at least 1 ticket. {setShow(true)} </li>
-                }
-                {
-                    (selectedMovie == null) &&
-                    <li> You need to select a movie to watch. {setShow(true)}</li>
-                }
-                {
-                    (selectedDay?.day == null) &&
-                    <li> You need to select a day to watch your movie. {setShow(true)} </li>
-                }
-                {
-                    (selectedTime?.time == null) &&
-                    <li> You need to select a time to watch your movie. {setShow(true)}</li>
-                }
-                {(selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
-                    && selectedMovie?.classification != 'PG') && child > 0) ?
-                    <li> Children are not permitted to watch this movie.  {setShow(true)} </li> :
-                    ((child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U') ?
-                        <li> Children need to be accompanied by an adult or senior for this movie. {setShow(true)}</li> : <></>)
-                }
-                {setError(show)}
-            </Alert >
-        )
-    }
-
     return (
         <Jumbotron className="bgBlur">
             <Container className='colorScheme'>
@@ -206,7 +166,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     <h5> Tickets: </h5>
                     <Row className="mb-3">
                         <Form.Group as={Col}>
-                            <Form.Label> Child </Form.Label>
+                            <Form.Label> Child (£{prices?.child} Each) </Form.Label>
 
                             <select aria-label="ticket-select" id='child' class="form-control" value={child}
                                 onChange={(event) => {
@@ -222,7 +182,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
                         </Form.Group>
                         <Form.Group as={Col}>
-                            <Form.Label> Adult </Form.Label>
+                            <Form.Label> Adult (£{prices?.adult} Each) </Form.Label>
                             <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
@@ -236,8 +196,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             </select>
                         </Form.Group>
                         <Form.Group as={Col}>
-                            <Form.Label> Senior </Form.Label>
-
+                            <Form.Label> Senior (£{prices?.senior} Each) </Form.Label>
                             <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
                                 onChange={(event) => {
                                     setSenior(parseInt(event.target.value));
@@ -269,8 +228,40 @@ const BookingDetails = ({ getBookingProp }) => {
                             </Card>
                         </div>}
                 </Form>
-                {error &&
-                    <VAlert />}
+                <Alert variant='danger' show={error} onClose={() => { setError(false) }} dismissible='true' style={{ width: '70%', textAlign: 'left', marginLeft: 'auto', marginRight: 'auto' }}>
+                    <Alert.Heading> It seems like something's not quite right... </Alert.Heading>
+                    {() => setShow(false)}
+                    <h6>
+                        Please fix the following problems with your booking:
+                    </h6>
+                    {
+                        (name.length < 4) &&
+                        <li> Your name needs to be a minimum of 4 characters long. {() => setShow(true)} </li>
+                    }
+                    {
+                        (adult + child + senior < 1) &&
+                        <li> You need to book at least 1 ticket. {() => setShow(true)} </li>
+                    }
+                    {
+                        (selectedMovie == null) &&
+                        <li> You need to select a movie to watch. {() => setShow(true)}</li>
+                    }
+                    {
+                        (selectedDay?.day == null) &&
+                        <li> You need to select a day to watch your movie. {() => setShow(true)} </li>
+                    }
+                    {
+                        (selectedTime?.time == null) &&
+                        <li> You need to select a time to watch your movie. {() => setShow(true)}</li>
+                    }
+                    {(selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
+                        && selectedMovie?.classification != 'PG') && child > 0) ?
+                        <li> Children are not permitted to watch this movie.  {() => setShow(true)} </li> :
+                        ((child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U') ?
+                            <li> Children need to be accompanied by an adult or senior for this movie. {() => setShow(true)}</li> : <></>)
+                    }
+                    {() => setError(show)}
+                </Alert >
                 <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
                     onClick={handleSubmit}> To Payment </Button>
             </Container>

@@ -33,3 +33,8 @@ h1.landing-text {
 .cardComementMovieText {
     text-align: left;
 }
+
+.commentModal .modal-content{
+    background-color: #A02626;
+    color: white;
+}
