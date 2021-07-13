@@ -9,27 +9,34 @@ const ContactUs = () => {
     const [email, setEmail] = useState('');
     const [topic, setTopic] = useState('feedback');
     const [message, setMessage] = useState('');
-
+    const [validated, setValidated] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
+
         setShow(false);
         setEmail('');
         setTopic('feedback');
-        setMessage('');
     }
 
     const handleShow = () => setShow(true);
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
-            .then((result) => {
-                handleShow();
-            }, (error) => {
-                alert("Something went wrong. We couldn't sent your message!")
-            });
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+            setValidated(true);
+            e.preventDefault();
+            emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
+                .then((result) => {
+                    handleShow();
+                }, (error) => {
+                    alert("Something went wrong. We couldn't sent your message!")
+                });
+        }
     }
 
 
@@ -38,17 +45,17 @@ const ContactUs = () => {
         <div class='background'>
             <h1 class='landing-text'> Contact Us </h1>
             <Container className="text-white">
-                <Form style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
+                <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
-                        <Form.Control type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
+                        <Form.Control required type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
                             return setEmail(event.target.value);
                         }} value={email}></Form.Control>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3 pr-4" >
                         <Form.Label column sm="2" className="text-right"> Topic</Form.Label>
                         <Col sm="10">
-                            <Form.Control as="select" name='subject' id='subject'
+                            <Form.Control required as="select" name='subject' id='subject'
                                 onChange={(event) => {
                                     return setTopic(event.target.value);
                                 }} value={topic}>
@@ -58,19 +65,15 @@ const ContactUs = () => {
                             </Form.Control>
                         </Col>
                     </Form.Group>
-
-
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
-                        <Form.Control
+                        <Form.Control required
                             as="textarea" id='message' placeholder="Leave a comment here"
                             onChange={(event) => {
                                 return setMessage(event.target.value);
                             }} value={message}></Form.Control>
                     </Form.Group>
-
-                    <Button variant="outline-dark" id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
-
+                    <Button variant="outline-dark" id='submit' type='submit' size="lg"> Send </Button>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title> Thanks for your E-mail!</Modal.Title>
