@@ -70,7 +70,7 @@ const NavBar = () => {
                         <Nav.Link href="/Tickets">Tickets</Nav.Link>
                         <Nav.Link href="/Screens">Screens</Nav.Link>
                         <Nav.Link href="/OpeningTimes">Opening Times</Nav.Link>
-                        <Nav.Link href="/Forum">Forum</Nav.Link>
+                        <Nav.Link className="nav-links" href="/Forum">Forum</Nav.Link>
                     </Nav>
                     <Form inline>
                         <Button variant="outline-danger" onClick={handleShow}>Search</Button>

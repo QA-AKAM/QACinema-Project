@@ -2,7 +2,7 @@
 import '../../../CSS/Pages.css';
 import NearbyVenue from './NearbyVenue';
 import { useState } from 'react';
-
+import { Container, Jumbotron } from 'react-bootstrap';
 import VenueCote from '../../../Images/venue_cote.jpg';
 import SlugLettuce from '../../../Images/venue_sluglettuce.jpg';
 import Emilia from '../../../Images/venue_emilia.jpg';
@@ -17,8 +17,8 @@ const Directions = () => {
         telephone: "+442074883668",
         offers: [
             "Free lunch for children",
-            "Dinner pay for 1 as a couple",
-            "Double for sigle price"
+            "Dinner 2 for 1 as a couple",
+            "Double for single price"
         ],
         nav: "https://www.google.co.uk/maps/place/Cote+-+St+Katherine's+Docks/@51.5082267,-0.0755847,17z/data=!4m5!3m4!1s0x48760348e2c50419:0x548a54f8679423f4!8m2!3d51.5082086!4d-0.0737684"
     },
@@ -49,16 +49,18 @@ const Directions = () => {
     ]);
 
     return (
-        <div className="background">
-            <div className='container'>
-                <div className="bgBlur">
-                    <h1 className='landing-text'>Nearby Venues</h1>
+        <div class="background">
+            <Container>
+                <Jumbotron className="bgBlur">
+                    <h1 class='landing-text'>Nearby Venues</h1>
+                    {console.log("in PArent")}
+                    {console.log(cardData)}
                     {cardData.map(item => (
                         <NearbyVenue cardData={item} />
                     ))};
-                </div>
-            </div>
-        </div >
+                </Jumbotron>
+            </Container >
+        </div>
 
     )
 }

@@ -22,6 +22,9 @@
     background-color: #A02626;
 }
 
+.colorScheme2 {
+    background-color: #212121;
+}
 
 #movie-card {
     width: 75%;
@@ -100,7 +103,10 @@ p1:hover {
 }
 
 
-
+.rounded {
+  padding: 10px;
+  border-radius: 50px;
+}
 .padd-1{
     padding: 1rem;
 }
@@ -133,4 +139,3 @@ p1:hover {
 h2{
     color: white;
 }
-

@@ -25,3 +25,6 @@
     50%{background-position:100% 66%}
     100%{background-position:0% 35%}
 }
+.nav-links:hover {
+  color: red;
+}

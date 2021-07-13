@@ -1,3 +1,6 @@
+'use strict'
+import { Button } from 'react-bootstrap';
+
 import '../../../CSS/Pages.css';
 import Jumbotron from 'react-bootstrap/esm/Jumbotron';
 import { Button, SplitButton } from 'react-bootstrap';
@@ -5,7 +8,7 @@ import { Button, SplitButton } from 'react-bootstrap';
 const NearbyVenue = ({ cardData }) => {
 
     return (
-        <div className="colorScheme padd-1 marg-1">
+        <div class="container" style={{ backgroundColor: 'rgba(160, 38, 38, 0.7)', marginTop: '5rem', paddingBottom: '4rem' }}>
 
             {/* img */}
             <img src={cardData.img}
@@ -29,14 +32,19 @@ const NearbyVenue = ({ cardData }) => {
             }
 
             {/* address */}
-            <h5 className='landing-text padd-3 c-w' style={{ borderTop: '1px solid gray' }}>{cardData.address}</h5>
-
-            {/* buttons */}
-            <Button variant="outline-dark"
-                className='main-btn marg-1 padd-5'
-                href={`tel:${cardData.telephone}`}
-                type="tel"
-            >Call this venue</Button>
+            <h4 class='landing-text' style={{ color: 'white', margin: '30px', padding: '2rem', borderTop: '1px solid white' }}>{cardData.address}</h4>
+            {/* telephone */}
+            <Button variant="dark" href={`tel:${cardData.telephone}`} type="tel" class='landing-text' style={{ color: 'white', margin: '30px' }}
+                style={{
+                    padding: '1rem',
+                    margin: '20px'
+                }}>Call this venue</Button>
+            {/* directions */}
+            <Button variant="dark" href={cardData.nav}
+                style={{
+                    padding: '1rem',
+                }
+                }> Directions</Button >
 
             <Button variant="outline-dark"
                 className='main-btn marg-1 padd-5'
