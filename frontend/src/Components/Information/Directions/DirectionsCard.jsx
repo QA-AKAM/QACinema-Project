@@ -1,4 +1,3 @@
-'use strict'
 import { Col, Card, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkedAlt, faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -23,13 +22,12 @@ const DirectionsCard = ({ cardData }) => {
                         width="100%"
                         alt="cinema front entrance"
                         style={{ objectFit: 'cover' }} />
+
                     : cardData.map}
             </Card.Body>
 
 
         </Col >
-
-
     );
 }
 

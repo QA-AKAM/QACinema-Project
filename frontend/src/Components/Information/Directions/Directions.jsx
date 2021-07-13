@@ -1,4 +1,3 @@
-'use strict'
 import '../../../CSS/Pages.css';
 import { useState } from 'react';
 import CinemaOutside from '../../../Images/cinema_outside.jpeg';

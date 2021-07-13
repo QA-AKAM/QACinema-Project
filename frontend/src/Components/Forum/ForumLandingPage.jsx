@@ -47,7 +47,7 @@ const DiscussionBoardMain = () => {
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'> Forum </h1>
                     <h3 class="lead">Discuss about your movie experiences here!</h3>
-                    <div>
+                    <Container>
                         <Row>
                             {movieList.map((movie) => (
                                 <Col lg={4} className="py-3">
@@ -63,7 +63,7 @@ const DiscussionBoardMain = () => {
                                 </Col>
                             ))}
                         </Row>
-                    </div>
+                    </Container>
                 </Jumbotron>
             </Container>
         </div>

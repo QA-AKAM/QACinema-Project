@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PayPal from "./PayPal";
-import { Card, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import axios from 'axios';
 
 import './BookingDetails.css';
@@ -55,13 +55,13 @@ const Payment = ({ bookingProp, getPaymentProp }) => {
                 <h2 class='landing-text'>Order Confirmation</h2>
                 <div class='confirm'>
                     <Card>
-                        <h3> {ticketNo} {(ticketNo == 1) ? 'Ticket' : 'Tickets'} to see {selectedMovie.title} </h3>
+                        <h3> {ticketNo} {(ticketNo === 1) ? 'Ticket' : 'Tickets'} to see {selectedMovie.title} </h3>
                         <h3>on {selectedDay.day} at {selectedTime.time}</h3>
                         <h5> Booker: {name} </h5>
                         <h5> Tickets: </h5>
-                        <h5> {child} child {(child == 1) ? 'ticket' : 'tickets'} - £{round(prices.child * child)} </h5>
-                        <h5> {adult} adult {(adult == 1) ? 'ticket' : 'tickets'} - £{round(prices.adult * adult)} </h5>
-                        <h5> {senior} senior {(senior == 1) ? 'ticket' : 'tickets'} - £{round(prices.senior * senior)} </h5>
+                        <h5> {child} child {(child === 1) ? 'ticket' : 'tickets'} - £{round(prices.child * child)} </h5>
+                        <h5> {adult} adult {(adult === 1) ? 'ticket' : 'tickets'} - £{round(prices.adult * adult)} </h5>
+                        <h5> {senior} senior {(senior === 1) ? 'ticket' : 'tickets'} - £{round(prices.senior * senior)} </h5>
                         <h5> Total - £{round(total)} </h5>
                     </Card>
                 </div>

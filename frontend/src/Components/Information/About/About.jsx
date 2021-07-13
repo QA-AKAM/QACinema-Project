@@ -1,10 +1,11 @@
-'use strict';
 import '../../../CSS/Pages.css';
 import './About.css';
 import AboutUs from '../../../Images/About Us.png';
 import { useState } from 'react';
 import Member from './Member';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Container } from 'react-bootstrap';
 
 const About = () => {
     const [team, setTeam] = useState([
@@ -57,45 +58,46 @@ const About = () => {
     return (
         <div className="background">
             <div className="bgBlur">
-                <div className="padd-3">
+                <Container className="pt-5">
                     <img
                         src={AboutUs}
                         width="300px"
                         alt="about Us img"
                     />
-                    <div className="padding">
-                        <div className="container">
-                            <div className="row">
-                                <div className="spec col-sm-6">
+                    <Container className="padding">
+                        <Container>
+                            <Row>
+                                <Col className="spec col-sm-6">
                                     <h2 className="display-4 padd-1">About us</h2>
                                     <p className="lead justify marg-1">
                                         QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
-                                </div>
-                                <div className="spec col-sm-6">
+                                </Col>
+                                <Col className="spec col-sm-6">
                                     <h2 className="display-4 padd-1">About Team AKAM</h2>
-
                                     <p className="lead justify marg-1">
-                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Kevin, Asshwin, Matthew, Alin</b>.
+                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Scott Stevens and Amandeep Bassi</b>.
 
                                     </p>
-                                </div>
-                                <div className="spec col-sm-12 text-center padd-3">
+                                </Col>
+                                <Col className="spec col-sm-12 text-center padd-3">
                                     <h2 className="display-4 padd-1">Scrum description</h2>
                                     <p className="lead justify">
                                         QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='txt-area padd-1 c-w'>
-                    <h2 className="padd-3">Team</h2>
-                    <Row>
-                        {team.map(member => (
-                            <Member member={member} />
-                        ))}
-                    </Row>
-                </div>
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Container className='txt-area padd-3 c-w'>
+                            <h2 className="padd-3">Team</h2>
+                            <Row>
+                                {team.map(member => (
+                                    <Member member={member} />
+                                ))}
+                            </Row>
+                        </Container>
+
+                    </Container>
+                </Container>
+
             </div >
         </div >
 

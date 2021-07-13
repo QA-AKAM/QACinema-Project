@@ -70,7 +70,7 @@ const DiscussionBoard = () => {
             let compare_text = comment;
             for (let i = 0; i < profanity.length; i++) {
                 for (let j = 0; j < (compare_text.length); j++) {
-                    if (profanity[i] == compare_text.substring(j, (j + profanity[i].length)).toLowerCase()) {
+                    if (profanity[i] === compare_text.substring(j, (j + profanity[i].length)).toLowerCase()) {
                         profanityAlert[profanityCount] = compare_text.substring(j, (j + profanity[i].length));
                         profanityCount++;
                     }
@@ -202,23 +202,23 @@ const DiscussionBoard = () => {
 
                         </Modal.Footer>
                     </Modal>
-                    <div>
+                    <Container>
                         <Row>
                             {commentList.map((comment) => (
                                 <Col lg={12} className="py-1">
-                                    <Card className=" text-white" style={{ flex: 1, backgroundColor: '#A02626' }}>
+                                    <Card className=" text-white" style={{ backgroundColor: '#A02626' }}>
                                         <Card.Body>
                                             <Card.Title>{
                                                 comment.comment
                                             }</Card.Title>
                                             <Card.Subtitle>User rating: {comment.rate}/10</Card.Subtitle>
                                         </Card.Body>
-                                        <Card.Footer style={{ flex: 1, backgroundColor: '#912323' }}>By {comment.author}</Card.Footer>
+                                        <Card.Footer style={{ backgroundColor: '#912323' }}>By {comment.author}</Card.Footer>
                                     </Card>
                                 </Col>
                             ))}
                         </Row>
-                    </div>
+                    </Container>
                 </Jumbotron>
             </Container >
         </div>

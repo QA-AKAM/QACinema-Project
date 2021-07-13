@@ -1,4 +1,3 @@
-'use strict';
 import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,8 +7,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import './UpcomingMovies.css'
-
+import './Movies.css';
 const UpcomingMovies = () => {
 
     const [movieList, setMovieList] = useState([]);
