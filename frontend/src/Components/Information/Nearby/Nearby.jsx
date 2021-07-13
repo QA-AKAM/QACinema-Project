@@ -49,15 +49,14 @@ const Directions = () => {
     ]);
 
     return (
-        <div class="background">
-            <div class="container">
-                <div class="container"></div>
-                <h1 class='landing-text'>Nearby Venues</h1>
-                {console.log("in PArent")}
-                {console.log(cardData)}
-                {cardData.map(item => (
-                    <NearbyVenue cardData={item} />
-                ))};
+        <div className="background">
+            <div className='container'>
+                <div className="bgBlur">
+                    <h1 className='landing-text'>Nearby Venues</h1>
+                    {cardData.map(item => (
+                        <NearbyVenue cardData={item} />
+                    ))};
+                </div>
             </div>
         </div >
 
