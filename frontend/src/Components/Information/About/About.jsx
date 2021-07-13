@@ -74,7 +74,7 @@ const About = () => {
                                 <div className="spec col-sm-6 text-center">
                                     <h2 className="display-4 padd-1">About Team AKAM</h2>
                                     <p className="lead">
-                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Kevin, Asshwin, Matthew, Alin</b>.
+                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Scott Stevens, Amandeep Bassi.</b>.
                                     </p>
                                 </div>
                                 <div className="spec col-sm-12 text-center padd-1">
