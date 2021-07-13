@@ -69,13 +69,13 @@ const Home = () => {
                         </Col>
                         <Col className="col-md-6">
                             <Container>
-                                <img src={IMAX} alt="Imax Logo" class="imgDiv" />
+                                <img src={IMAX} alt="Imax Logo" class="imaxContainer center" />
                             </Container>
                         </Col>
                     </Row>
-                    <div>
+                    <Container>
                         <img src={IMAXScreen} alt="Imax Screen img" class="imgContainer" />
-                    </div>
+                    </Container>
                 </div>
                 <div id="fixed">
                 </div>

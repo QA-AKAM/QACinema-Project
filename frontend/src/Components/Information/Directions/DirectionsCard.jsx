@@ -1,6 +1,6 @@
-import { Col, Card, Row } from 'react-bootstrap';
+import { Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkedAlt, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 
 const DirectionsCard = ({ cardData }) => {
     return (

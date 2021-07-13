@@ -1,6 +1,5 @@
-import { Modal, Button, Container, Form, Row, Col } from 'react-bootstrap'
+import { Modal, Button, Container, Form, Row, Col, Jumbotron } from 'react-bootstrap'
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
 import '../../CSS/Pages.css';
 import emailjs from 'emailjs-com';
 
@@ -44,8 +43,10 @@ const ContactUs = () => {
 
     return (
         <div class='background'>
-            <h1 class='landing-text'> Contact Us </h1>
             <Container className="text-white">
+                <Jumbotron className="bgBlur">
+                    <h1 class='landing-text'> Contact Us </h1>
+
                 <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
@@ -87,6 +88,8 @@ const ContactUs = () => {
                         </Modal.Footer>
                     </Modal>
                 </Form>
+                </Jumbotron>
+
             </Container >
             <div id="fixed">
             </div>
