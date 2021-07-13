@@ -51,13 +51,13 @@ const Tickets = () => {
     if (!booked) {
         return (
             <div class='background'>
-                <div class='fullscreen'>
-                    <Container>
+                <div class='fullScreen'>
+                    <div class='container'>
                         <Jumbotron className="bgBlur text-white">
                             <h1 class='landing-text'>Tickets</h1>
                             <BookingDetails getBookingProp={getBooking} />
                         </Jumbotron>
-                    </Container>
+                    </div>
                 </div>
             </div >
         )
