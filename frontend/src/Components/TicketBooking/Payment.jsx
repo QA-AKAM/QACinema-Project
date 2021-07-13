@@ -46,16 +46,16 @@ const Payment = ({ bookingProp, getPaymentProp }) => {
             <h1> Payment Successful! </h1>
             :
             <div>
-                <h1>Order Confirmation</h1>
+                <h1 >Order Confirmation</h1>
                 <div class='confirm'>
-                    <Card>
-                        <h3> {ticketNo} {(ticketNo == 1) ? 'Ticket' : 'Tickets'} to see {selectedMovie.title} </h3>
-                        <h4>On {selectedDay.day} at {selectedTime.time}</h4>
-                        <h4> Booker: {name} </h4>
-                        <h4> Tickets: </h4>
-                        <h5> {child} child {(child == 1) ? 'ticket' : 'tickets'} - £{round(prices.child * child)} </h5>
-                        <h5> {adult} adult {(adult == 1) ? 'ticket' : 'tickets'} - £{round(prices.adult * adult)} </h5>
-                        <h5> {senior} senior {(senior == 1) ? 'ticket' : 'tickets'} - £{round(prices.senior * senior)} </h5>
+                    <Card style={{ backgroundColor: '#912323' }} className="card text-center">
+                        <h3 style={{ color: '#212121' }}> {ticketNo} {(ticketNo == 1) ? 'Ticket' : 'Tickets'} to see {selectedMovie.title} </h3>
+                        <h5>On {selectedDay.day} at {selectedTime.time}</h5>
+                        <h5> Booker: {name} </h5>
+                        <h3 style={{ color: '#212121' }}> Tickets: </h3>
+                        <h6> {child} child {(child == 1) ? 'ticket' : 'tickets'} - £{round(prices.child * child)} </h6>
+                        <h6> {adult} adult {(adult == 1) ? 'ticket' : 'tickets'} - £{round(prices.adult * adult)} </h6>
+                        <h6> {senior} senior {(senior == 1) ? 'ticket' : 'tickets'} - £{round(prices.senior * senior)} </h6>
                         <h5> Total - £{round(total)} </h5>
                     </Card>
                 </div>

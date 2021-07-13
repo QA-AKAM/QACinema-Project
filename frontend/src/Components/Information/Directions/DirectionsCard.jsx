@@ -6,7 +6,7 @@ const DirectionsCard = ({ cardData }) => {
         <div class="container" style={{ backgroundColor: 'rgba(160, 38, 38, 0.7)', marginTop: '3rem', paddingBottom: '4rem' }}>
             <h2 class='landing-text'>{cardData.title}</h2>
             <h3 class='landing-text' style={{ color: '0,0,0', margin: '30px' }}>{cardData.description}</h3>
-            <Button variant="dark" href={cardData.nav}
+            <Button variant="outline-dark text-white" href={cardData.nav}
                 style={{
                     padding: '1rem',
                 }}>{cardData.btn}</Button>
