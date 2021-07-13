@@ -51,13 +51,14 @@ const Directions = () => {
     }
     ]);
     return (
-        <div class="background">
-            <div class="container">
-                <div class="container"></div>
-                <h1 class='landing-text'>Directions</h1>
-                {cardData.map(item => (
-                    <DirectionsCard cardData={item} />
-                ))};
+        <div className="background">
+            <div className="container">
+                <div className="bgBlur">
+                    <h1 className='landing-text'>Directions</h1>
+                    {cardData.map(item => (
+                        <DirectionsCard cardData={item} />
+                    ))};
+                </div>
             </div>
         </div >
 
