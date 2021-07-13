@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import PayPal from "./PayPal";
-import { Card } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import axios from 'axios';
+
+import './BookingDetails.css';
+import '../../CSS/Pages.css';
 
 const Payment = ({ bookingProp, getPaymentProp }) => {
 
@@ -43,16 +46,19 @@ const Payment = ({ bookingProp, getPaymentProp }) => {
 
     return (
         paid ?
-            <h1> Payment Successful! </h1>
-            :
-            <div>
-                <h1>Order Confirmation</h1>
+            <div class='colorScheme' style={{ padding: '10px' }}>
+                <h1 class='landing-text'> Payment Successful! </h1>
+                <h3 class='landing-text'> Thank you for choosing QA Cinema! </h3>
+                <h3 class='landing-text'> Please enjoy your film! </h3>
+            </div> :
+            <div class='colorScheme'>
+                <h2 class='landing-text'>Order Confirmation</h2>
                 <div class='confirm'>
                     <Card>
                         <h3> {ticketNo} {(ticketNo == 1) ? 'Ticket' : 'Tickets'} to see {selectedMovie.title} </h3>
-                        <h4>On {selectedDay.day} at {selectedTime.time}</h4>
-                        <h4> Booker: {name} </h4>
-                        <h4> Tickets: </h4>
+                        <h3>on {selectedDay.day} at {selectedTime.time}</h3>
+                        <h5> Booker: {name} </h5>
+                        <h5> Tickets: </h5>
                         <h5> {child} child {(child == 1) ? 'ticket' : 'tickets'} - £{round(prices.child * child)} </h5>
                         <h5> {adult} adult {(adult == 1) ? 'ticket' : 'tickets'} - £{round(prices.adult * adult)} </h5>
                         <h5> {senior} senior {(senior == 1) ? 'ticket' : 'tickets'} - £{round(prices.senior * senior)} </h5>
