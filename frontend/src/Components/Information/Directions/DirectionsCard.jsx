@@ -11,7 +11,7 @@ const DirectionsCard = ({ cardData }) => {
                 <Card.Title title='location title' className=" colorScheme c-w padd-1">{cardData.title}</Card.Title>
                 <Card.Subtitle title='location address description' className="c-w min-h-70 padd-1">{cardData.description}</Card.Subtitle>
                 <Card.Text className='padd-1 txt-area'>
-                    <a title='directions map link' href={`tel:${cardData.nav}`}>
+                    <a title='directions map link' href={cardData.nav}>
                         <FontAwesomeIcon className='social-icon padd-1' icon={faMapMarkedAlt} size="4x" color="#ff3333" />
                     </a>
                     <p title='directions map label' className='txt-area'>{cardData.btn}</p>
