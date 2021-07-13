@@ -97,6 +97,7 @@ const About = () => {
 
                     </Container>
                 </Container>
+
             </div >
         </div >
 

@@ -1,29 +1,33 @@
-import { Button, Container } from "react-bootstrap";
+import { Col, Card, Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkedAlt, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const DirectionsCard = ({ cardData }) => {
     return (
-        <Container style={{ backgroundColor: 'rgba(160, 38, 38, 0.7)', marginTop: '3rem', paddingBottom: '4rem' }}>
-            <h2 class='landing-text'>{cardData.title}</h2>
-            <h3 class='landing-text' style={{ color: '0,0,0', margin: '30px' }}>{cardData.description}</h3>
-            <Button variant="outline-dark text-white" href={cardData.nav}
-                style={{
-                    padding: '1rem',
-                }}>{cardData.btn}</Button>
-            <Container style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                marginTop: '3rem',
-                overflow: 'hidden'
-            }}>
+        <Col lg={6} xs={12} md={6} className="p-2">
 
+            <Card.Body className="bg-t">
+
+                <Card.Title title='location title' className=" colorScheme c-w padd-1">{cardData.title}</Card.Title>
+                <Card.Subtitle title='location address description' className="c-w min-h-70 padd-1">{cardData.description}</Card.Subtitle>
+                <Card.Text className='padd-1 txt-area'>
+                    <a title='directions map link' href={`tel:${cardData.nav}`}>
+                        <FontAwesomeIcon className='social-icon padd-1' icon={faMapMarkedAlt} size="4x" color="#ff3333" />
+                    </a>
+                    <p title='directions map label' className='txt-area'>{cardData.btn}</p>
+                </Card.Text>
                 {cardData.img ?
                     <img src={cardData.img}
+                        height='300px'
                         width="100%"
                         alt="cinema front entrance"
                         style={{ objectFit: 'cover' }} />
-                    : cardData.map
-                }
-            </Container>
-        </Container >
+
+                    : cardData.map}
+            </Card.Body>
+
+
+        </Col >
     );
 }
 
