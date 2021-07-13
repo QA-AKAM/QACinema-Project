@@ -25,3 +25,8 @@
     50%{background-position:100% 66%}
     100%{background-position:0% 35%}
 }
+
+.searchModal .modal-content{
+    background-color: #A02626;
+    color: white;
+}
