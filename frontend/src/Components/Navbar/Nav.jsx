@@ -65,9 +65,10 @@ const NavBar = () => {
                         <Nav.Link href="/Screens">Screens</Nav.Link>
                         <Nav.Link href="/OpeningTimes">Opening Times</Nav.Link>
                         <Nav.Link href="/Forum">Forum</Nav.Link>
+                        <Nav.Link href="/Classifications/0">Classifications</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <Button variant="outline-danger" onClick={handleShow}>Search</Button>
+                        <Button variant="outline-danger" onClick={handleShow} block>Search</Button>
                         <Modal show={show} onHide={handleClose} className="bgBlur searchModal">
                             <Modal.Header className="searchModalHeader" closeButton>
                                 <Modal.Title>Search for something!</Modal.Title>
@@ -75,7 +76,7 @@ const NavBar = () => {
                             <Modal.Body>
                                 <Form.Control type="text" placeholder="Search Term" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                                 <div className="pt-2">
-                                    {movieList.map((movie, i) => (
+                                    {movieList.map((movie) => (
                                         releasedChecker(movie.released, movie.title, movie._id)
                                     ))}
                                 </div>
