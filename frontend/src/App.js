@@ -11,7 +11,7 @@ import ForumPage from './Components/Forum/ForumComments'
 import ContactUs from './Components/Information/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
-import About from './Components/Information/About';
+import About from './Components/Information/About/About';
 import './Resources/App.css';
 import Directions from './Components/Information/Directions/Directions'
 import Nearby from './Components/Information/Nearby/Nearby'
@@ -71,7 +71,7 @@ function App() {
           <Route path="/ContactUs">
             <ContactUs />
           </Route>
-    
+
           <Route path="/About" >
             <About />
           </Route>
