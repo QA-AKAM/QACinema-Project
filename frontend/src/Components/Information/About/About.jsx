@@ -10,7 +10,7 @@ const About = () => {
     const [team, setTeam] = useState([
         {
             name: "Kevin",
-            role: "Product owner",
+            role: "Product Owner",
             projectMain: "Frontend, Jira, Github",
             projectSecondary: "Styling, Documentation",
             github: "https://github.com/thealinivan",
@@ -22,29 +22,29 @@ const About = () => {
         },
         {
             name: "Asshwin",
-            role: "Scrum master",
+            role: "Scrum Master",
             projectMain: "Backend, Databases, Frontend, Testing",
-            projectSecondary: "Scrums, Documentation",
-            github: "https://github.com/thealinivan",
-            linkedin: "https://linkedin.com/in/thealinivan",
-            email: "aivan@qa.com",
-            telephone: "+447481925997"
+            projectSecondary: "Scrums, Styling, Documentation",
+            github: "https://github.com/ashkl",
+            linkedin: "https://www.linkedin.com/in/asshwin-mugundharajah-71218a104/",
+            email: "AMugundharajah@qa.com",
+            telephone: "+447450073483"
 
         },
         {
-            name: "Matthew",
-            role: "Software developer",
-            projectMain: "Fronend, Testing",
+            name: "Matthew Holmes",
+            role: "Software Developer",
+            projectMain: "Frontend, Testing",
             projectSecondary: "Styling, Documentation",
-            github: "https://github.com/thealinivan",
-            linkedin: "https://linkedin.com/in/thealinivan",
-            email: "aivan@qa.com",
-            telephone: "+447481925997"
+            github: "https://github.com/matayoh14",
+            linkedin: "https://www.linkedin.com/in/matthew-holmes-69958a1b1/",
+            email: "MHolmes1@academytrainee.com",
+            telephone: "+447770339873"
 
         },
         {
             name: "Alin",
-            role: "Software developer",
+            role: "Software Developer",
             projectMain: "Backend, Databases, Cloud, Testing",
             projectSecondary: "Frontend, API, Styling, Documentation",
             github: "https://github.com/thealinivan",
