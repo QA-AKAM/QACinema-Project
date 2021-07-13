@@ -1,7 +1,7 @@
 import { Col, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn, faWpforms, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 const Member = ({ member }) => {
     return (
         <Col lg={4} xs={12} md={6} className="p-2">
@@ -22,10 +22,10 @@ const Member = ({ member }) => {
                         <FontAwesomeIcon className='social-icon padd-1' icon={faLinkedinIn} size="4x" color="#ff3333" />
                     </a>
                     <a href={`mailto:${member.email}`}>
-                        <FontAwesomeIcon className='social-icon padd-1' icon={faWpforms} size="4x" color="#ff3333" />
+                        <FontAwesomeIcon className='social-icon padd-1' icon={faEnvelope} size="4x" color="#ff3333" />
                     </a>
                     <a href={`tel:${member.telephone}`}>
-                        <FontAwesomeIcon className='social-icon padd-1' icon={faWhatsapp} size="4x" color="#ff3333" />
+                        <FontAwesomeIcon className='social-icon padd-1' icon={faPhone} size="4x" color="#ff3333" />
                     </a>
                 </Card.Body>
 
