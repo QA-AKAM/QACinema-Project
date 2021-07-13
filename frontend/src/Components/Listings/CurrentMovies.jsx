@@ -56,8 +56,8 @@ const CurrentMovies = () => {
                                             <div className="face-front z-depth-2">
                                                 <img className="movieImage" src={imageUpdater(movie.imageURL)} alt={movie.title} />
                                             </div>
-                                            <div className="face-back z-depth-2">
-                                                <Card.Body>
+                                            <div className="face-back z-depth-2 colorScheme">
+                                                <Card.Body >
                                                     <Card.Title>{movie.title}</Card.Title>
                                                     <Card.Title>Directed by {movie.director}</Card.Title>
                                                     <br />

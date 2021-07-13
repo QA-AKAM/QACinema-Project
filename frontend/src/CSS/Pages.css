@@ -22,11 +22,14 @@
     background-color: #A02626;
 }
 
+.colorScheme2 {
+    background-color: #212121;
+}
 
 #movie-card {
     width: 700px;
     margin: auto;
-
+}
 .center {
   padding: 70px 0;
   text-align: center;
@@ -101,4 +104,9 @@ p1:hover {
 .bgBlur{
     background:transparent !important;
     backdrop-filter: blur(3px);
+}
+
+.rounded {
+  padding: 10px;
+  border-radius: 50px;
 }
