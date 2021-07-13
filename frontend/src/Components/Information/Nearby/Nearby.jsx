@@ -1,4 +1,3 @@
-'use strict'
 import '../../../CSS/Pages.css';
 import NearbyVenue from './NearbyVenue';
 import { useState } from 'react';
@@ -6,7 +5,6 @@ import { Container, Jumbotron, Row } from 'react-bootstrap';
 import VenueCote from '../../../Images/venue_cote.jpg';
 import SlugLettuce from '../../../Images/venue_sluglettuce.jpg';
 import Emilia from '../../../Images/venue_emilia.jpg';
-import v4 from '../../../Images/directions_from_underground.jpg';
 
 const Directions = () => {
     const [cardData, setCardData] = useState([{

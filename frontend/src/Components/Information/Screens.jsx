@@ -6,7 +6,7 @@ const Screens = () => {
         <div>
             <div class='background'>
                 <h1 class='landing-text'> Screens </h1>
-                <div class='container'>
+                <Container>
                     <Card style={{ flex: 1, backgroundColor: '#A02626' }}>
                         <div class='row'>
                             <div class='col-sm'>
@@ -64,7 +64,7 @@ const Screens = () => {
                         </div>
                         <p />
                     </Card>
-                </div>
+                </Container>
             </div>
         </div>
     )

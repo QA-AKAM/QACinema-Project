@@ -1,4 +1,3 @@
-'use strict';
 import '../../CSS/Pages.css';
 import { useEffect, useState } from 'react';
 import BookingDetails from "./BookingDetails";
@@ -52,12 +51,12 @@ const Tickets = () => {
         return (
             <div class='background'>
                 <div class='fullScreen'>
-                    <div class='container'>
+                    <Container>
                         <Jumbotron className="bgBlur text-white">
                             <h1 class='landing-text'>Tickets</h1>
                             <BookingDetails getBookingProp={getBooking} />
                         </Jumbotron>
-                    </div>
+                    </Container>
                 </div>
             </div >
         )
@@ -65,12 +64,12 @@ const Tickets = () => {
         return (
             <div class='background'>
                 <div class='fullScreen'>
-                    <div class='container'>
+                    <Container>
                         <Jumbotron className="bgBlur">
                             <h1 class='landing-text'>Tickets</h1>
                             <Payment bookingProp={booking} getPaymentProp={getPayment} />
                         </Jumbotron>
-                    </div>
+                    </Container>
                 </div>
             </div>
         )

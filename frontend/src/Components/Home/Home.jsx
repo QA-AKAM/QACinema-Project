@@ -1,5 +1,5 @@
-'use strict';
-import { Carousel, Alert, Container, Col, Row } from 'react-bootstrap';
+
+import { Carousel, Container, Col, Row } from 'react-bootstrap';
 import InTheHeights from '../../Images/In-The-Heights.jpg';
 import BlackWidow from '../../Images/Black-Widow.jpg';
 import F9 from '../../Images/Fast9.jpg';

@@ -132,7 +132,7 @@ const ReleasedMovie = () => {
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
                                     <Card.Text className="cardMovieText">Released: {movieObj.year}</Card.Text>
                                     <Card.Subtitle className="cardMovieText">{movieObj.shortPlot}</Card.Subtitle>
-                                    <div>
+                                    <Container>
                                         <Row>
                                             {movieObj.actors.map((details) => (
                                                 <Col lg={2} md={3} sm={3} xs={5} className="py-3">
@@ -146,7 +146,7 @@ const ReleasedMovie = () => {
                                                 </Col>
                                             ))}
                                         </Row>
-                                    </div>
+                                    </Container>
                                 </Card.Body>
                             </Col>
                         </Row>

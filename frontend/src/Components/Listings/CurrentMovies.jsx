@@ -8,7 +8,8 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import './CurrentMovies.css';
+import './Movies.css';
+import '../../CSS/Pages.css';
 
 const CurrentMovies = () => {
 

@@ -38,10 +38,10 @@ const BookingDetails = ({ getBookingProp }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name.length < 4 || child + adult + senior < 1 || selectedDay?.day == null || selectedTime?.time == null
-            || (selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
-                && selectedMovie?.classification != 'PG') && child > 0)
-            || (child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U')) {
+        if (name.length < 4 || child + adult + senior < 1 || selectedDay?.day === null || selectedTime?.time === null
+            || (selectedMovie !== null && (selectedMovie?.classification !== 'U' && selectedMovie?.classification !== '12A'
+                && selectedMovie?.classification !== 'PG') && child > 0)
+            || (child > 0 && adult + senior < 1 && selectedMovie?.classification !== 'U')) {
             setError(true);
         } else {
             getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
@@ -254,10 +254,10 @@ const BookingDetails = ({ getBookingProp }) => {
                         (selectedTime?.time == null) &&
                         <li> You need to select a time to watch your movie. {() => setShow(true)}</li>
                     }
-                    {(selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
-                        && selectedMovie?.classification != 'PG') && child > 0) ?
+                    {(selectedMovie !== null && (selectedMovie?.classification !== 'U' && selectedMovie?.classification !== '12A'
+                        && selectedMovie?.classification !== 'PG') && child > 0) ?
                         <li> Children are not permitted to watch this movie.  {() => setShow(true)} </li> :
-                        ((child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U') ?
+                        ((child > 0 && adult + senior < 1 && selectedMovie?.classification !== 'U') ?
                             <li> Children need to be accompanied by an adult or senior for this movie. {() => setShow(true)}</li> : <></>)
                     }
                     {() => setError(show)}

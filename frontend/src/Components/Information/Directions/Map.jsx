@@ -1,4 +1,4 @@
-'use strict'
+
 import GoogleMaps from "simple-react-google-maps"
 
 const Map = ({ coord }) => {

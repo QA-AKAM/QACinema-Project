@@ -1,6 +1,6 @@
-import { Col, Card, Button } from 'react-bootstrap';
+import { Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedinIn, faWpforms, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 const Member = ({ member }) => {
     return (
@@ -10,7 +10,6 @@ const Member = ({ member }) => {
                 <Card.Body className="bg-t">
                     <Card.Title className="padd-1 colorScheme">{member.name}</Card.Title>
                     <Card.Title className="padd-1 main-border">{member.role}</Card.Title>
-                    <br />
                     <h5>Main contributions</h5>
                     <Card.Subtitle className="padd-1 min-h">{member.projectMain}</Card.Subtitle>
                     <h5>Secondary contributions</h5>

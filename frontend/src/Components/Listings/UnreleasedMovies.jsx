@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -55,7 +55,7 @@ const UnreleasedMovie = () => {
 
     return (
         <div className="background">
-            <div class="fullScreen">
+            <div className="fullScreen">
                 <Container fluid>
                     <div className="py-3">
                         <Card style={{ flex: 1, backgroundColor: '#212121' }} className="text-white">

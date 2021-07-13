@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube, faFacebook, faTwitter, faInstagram, faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
     return (
         <div class='Footer'>
@@ -31,7 +31,6 @@ const Footer = () => {
                     </Col>
                 </Row>
                 <Row>
-
                     <Col>
                         <a href="https://www.youtube.com/c/qa-cinema"
                             className="youtube social ">
@@ -40,8 +39,7 @@ const Footer = () => {
                     </Col>
 
                     <Col>
-                        <a href="https://www.facebook.com/qa-cinema/"
-                            className="facebook social ">
+                        <a href="https://www.facebook.com/qa-cinema/" className="facebook social ">
                             <FontAwesomeIcon className='social-icon padd-1' icon={faFacebook} size="5x" color="#ff3333" />
                         </a>
                     </Col>
@@ -53,8 +51,7 @@ const Footer = () => {
                     </Col>
 
                     <Col>
-                        <a href="https://www.instagram.com/qa-cinema padd-3"
-                            className="instagram social padd-1">
+                        <a href="https://www.instagram.com/qa-cinema padd-3" className="instagram social padd-1">
                             <FontAwesomeIcon className='social-icon padd-1' icon={faInstagram} size="5x" color="#ff3333" />
                         </a>
                     </Col>
@@ -63,7 +60,6 @@ const Footer = () => {
                     <p2> QA Cinema 2021 &copy; </p2>
                 </Col>
             </Container>
-
         </div>
     )
 }

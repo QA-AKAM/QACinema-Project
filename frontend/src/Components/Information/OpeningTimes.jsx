@@ -1,4 +1,3 @@
-'use strict';
 import '../../CSS/Pages.css';
 import { Container, Table } from 'react-bootstrap';
 const OpeningTimes = () => {

@@ -1,8 +1,4 @@
-.carouselImg {
-    margin: auto;
-    width: 1140px;
-    height: 650px;
-}
+
 .imgContainer {
     display: block;
     margin-left: auto;
@@ -17,7 +13,3 @@
         background-size: cover;
         padding-bottom: 25px;
     }
-.bgBlur{
-    background:transparent !important;
-    backdrop-filter: blur(3px);
-}
