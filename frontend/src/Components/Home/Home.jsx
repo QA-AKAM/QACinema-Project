@@ -22,6 +22,7 @@ const Home = () => {
                             alt="In the heights img"
                             href="/Forum"
                             height="625"
+                            style={{ objectFit: 'cover' }}
 
                         />
                         {/* </a> */}
@@ -32,7 +33,7 @@ const Home = () => {
                             src={BlackWidow}
                             alt="Black Widow img"
                             height="625"
-
+                            style={{ objectFit: 'cover' }}
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={8000}>
@@ -41,7 +42,7 @@ const Home = () => {
                             src={DemonSlayer}
                             alt="Demon Slayer img"
                             height="625"
-
+                            style={{ objectFit: 'cover' }}
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={8000}>
@@ -50,6 +51,7 @@ const Home = () => {
                             src={F9}
                             alt="Fast and Furious img"
                             height="625"
+                            style={{ objectFit: 'cover' }}
                         />
                     </Carousel.Item>
                 </Carousel>
@@ -61,15 +63,15 @@ const Home = () => {
                 </div>
                 <div class="container">
                     <Row>
-                        <Col className="col-md-6 text-center">
+                        <Col className="justify" sm={12} md={6}>
                             <h2 class="display-4">Unrivaled Quality</h2>
-                            <p class="lead">
+                            <p class="lead justify">
                                 Immerse yourself completely in the big screen experience with QA Cinemas IMAX. Every aspect of our IMAX Screens is designed to pull you into the film. Indulge in the journey that tickles your senses and brings them back to life. Transporting yourself into a new reality with our super-sized screens pulling you into the film, ear-tingling audio environment to ensure you can even hear a pin drop and where within the film as well as breath-taking imagery, watching movies on your computer will never be the same again.
                             </p>
                         </Col>
-                        <Col className="col-md-6">
+                        <Col className="justify" sm={12} md={6}>
                             <Container>
-                                <img src={IMAX} alt="Imax Logo" class="imaxContainer center" />
+                                <img src={IMAX} alt="Imax Logo" class="imaxContainer" style={{ objectFit: 'cover' }} />
                             </Container>
                         </Col>
                     </Row>
