@@ -16,6 +16,7 @@ const ContactUs = () => {
 
         setShow(false);
         setEmail('');
+        setMessage('');
         setTopic('feedback');
     }
 
@@ -31,10 +32,10 @@ const ContactUs = () => {
             setValidated(true);
             e.preventDefault();
             emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
-                .then((result) => {
+                .then(() => {
                     handleShow();
                 }, (error) => {
-                    alert("Something went wrong. We couldn't sent your message!")
+                    alert(`Something went wrong. We couldn't sent your message! ${error}`)
                 });
         }
     }
@@ -48,8 +49,8 @@ const ContactUs = () => {
                 <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
-                        <Form.Control required type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
-                            return setEmail(event.target.value);
+                        <Form.Control required name="email" type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
+                            setEmail(event.target.value);
                         }} value={email}></Form.Control>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3 pr-4" >
@@ -57,7 +58,7 @@ const ContactUs = () => {
                         <Col sm="10">
                             <Form.Control required as="select" name='subject' id='subject'
                                 onChange={(event) => {
-                                    return setTopic(event.target.value);
+                                    setTopic(event.target.value);
                                 }} value={topic}>
                                 <option value='feedback'> Feedback </option>
                                 <option value='booking'> Venue Booking </option>
@@ -68,9 +69,9 @@ const ContactUs = () => {
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
                         <Form.Control required
-                            as="textarea" id='message' placeholder="Leave a comment here"
+                            name="message" as="textarea" id='message' placeholder="Leave a comment here"
                             onChange={(event) => {
-                                return setMessage(event.target.value);
+                                setMessage(event.target.value);
                             }} value={message}></Form.Control>
                     </Form.Group>
                     <Button variant="outline-dark" id='submit' type='submit' size="lg"> Send </Button>
