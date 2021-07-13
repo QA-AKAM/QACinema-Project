@@ -6,10 +6,19 @@
     width: 80%;
 }
 
+.imaxContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150%;
+    height: 200%;
+    padding-right: 150px;
+}
+
 #home {
-        display: table;
-        position: relative;
-        width: 100%;
-        background-size: cover;
-        padding-bottom: 25px;
-    }
+    display: table;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    padding-bottom: 25px;
+}

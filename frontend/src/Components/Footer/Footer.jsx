@@ -1,4 +1,5 @@
 import './Footer.css';
+import '../../CSS/Pages.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -6,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
     return (
-        <div class='Footer'>
+        <div class='Footer padd-1'>
             <Container>
                 <Row>
                     <Col>

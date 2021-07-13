@@ -61,7 +61,7 @@ const UnreleasedMovie = () => {
                         <Card style={{ flex: 1, backgroundColor: '#212121' }} className="text-white">
                             <Row className="no-gutters">
                                 <Col md={4}>
-                                    <img src={imageUpdater(movieObj.imageURL)} width="100%" height="700px" style={{ objectFit: "cover" }} />
+                                    <img src={imageUpdater(movieObj.imageURL)} alt="Movie image" width="100%" height="700px" style={{ objectFit: "cover" }} />
                                 </Col>
                                 <Col md={8}>
                                     <Card.Body>
