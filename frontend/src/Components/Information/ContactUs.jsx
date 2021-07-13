@@ -37,16 +37,16 @@ const ContactUs = () => {
     return (
         <div class='background'>
             <h1 class='landing-text'> Contact Us </h1>
-            <Container className='bg-dark text-white'>
-                <Form style={{ flex: 1, backgroundColor: '#A02626' }}>
+            <Container className="text-white">
+                <Form style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
                     <Form.Group as={Row} className="mb-3">
-                        <Form.Label column sm="2" className="text-right pr-4"> Your E-mail </Form.Label>
-                        <Form.Control type='email' id='email' placeholder="name@example.com" onChange={(event) => {
+                        <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
+                        <Form.Control type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
                             return setEmail(event.target.value);
                         }} value={email}></Form.Control>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3 pr-4" >
-                        <Form.Label column sm="2" className="text-right pr-4"> Topic</Form.Label>
+                        <Form.Label column sm="2" className="text-right"> Topic</Form.Label>
                         <Col sm="10">
                             <Form.Control as="select" name='subject' id='subject'
                                 onChange={(event) => {
@@ -58,6 +58,7 @@ const ContactUs = () => {
                             </Form.Control>
                         </Col>
                     </Form.Group>
+
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>

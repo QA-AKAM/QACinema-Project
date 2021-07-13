@@ -117,7 +117,7 @@ const ReleasedMovie = () => {
         <div className="background">
             <Container fluid>
                 <div className="pt-5">
-                    <Card className="bg-dark text-white" >
+                    <Card style={{ flex: 1, backgroundColor: '#212121' }} className=" text-white" >
                         <Row className="no-gutters">
                             <Col md={4}>
                                 <img src={imageUpdater(movieObj.imageURL)} width="100%" height="700px" style={{ objectFit: "cover" }} />
@@ -136,7 +136,7 @@ const ReleasedMovie = () => {
                                         <Row>
                                             {movieObj.actors.map((details) => (
                                                 <Col lg={2} md={3} sm={3} xs={5} className="py-3">
-                                                    <Card className=" text-white" style={{ flex: 1, backgroundColor: '#912323' }}>
+                                                    <Card className="actorCard text-white" style={{ flex: 1, backgroundColor: '#912323' }}>
                                                         <Card.Img class="cardImg" src={details.image} />
                                                         <Card.Body>
                                                             <Card.Subtitle>{details.name}</Card.Subtitle>

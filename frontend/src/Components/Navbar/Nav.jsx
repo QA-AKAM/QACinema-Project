@@ -1,11 +1,9 @@
-'use strict';
 import { useState, useEffect } from "react";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { Form, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal'
 import axios from 'axios'
-import Table from 'react-bootstrap/Table'
 import Logo from '../../Images/Logo.png';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
@@ -31,19 +29,15 @@ const NavBar = () => {
     const releasedChecker = (released, title, id) => {
         if (released) {
             return (
-                <tr >
-                    <Link to={`/released/${id}`} onClick={handleClose}>
-                        <td>{title}</td>
-                    </Link>
-                </tr>
+                <Link to={`/released/${id}`} onClick={handleClose} style={{ color: "white" }}>
+                    <h5>{title}</h5>
+                </Link>
             )
         } else if (!released) {
             return (
-                <tr >
-                    <Link to={`/upcoming/${id}`} onClick={handleClose}>
-                        <td>{title}</td>
-                    </Link>
-                </tr>
+                <Link to={`/upcoming/${id}`} onClick={handleClose} style={{ color: "white" }}>
+                    <h5>{title}</h5>
+                </Link>
             )
         }
     }
@@ -70,31 +64,25 @@ const NavBar = () => {
                         <Nav.Link href="/Tickets">Tickets</Nav.Link>
                         <Nav.Link href="/Screens">Screens</Nav.Link>
                         <Nav.Link href="/OpeningTimes">Opening Times</Nav.Link>
-                        <Nav.Link href="/Forum">Forum</Nav.Link>
+                        <Nav.Link className="nav-links" href="/Forum">Forum</Nav.Link>
+                        <Nav.Link href="/Classifications/0">Classifications</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <Button variant="outline-danger" onClick={handleShow}>Search</Button>
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
+                        <Button variant="outline-danger" onClick={handleShow} block>Search</Button>
+                        <Modal show={show} onHide={handleClose} className="bgBlur searchModal">
+                            <Modal.Header className="searchModalHeader" closeButton>
                                 <Modal.Title>Search for something!</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Form.Control type="text" placeholder="Search Term" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-
-                                <Table flush>
-                                    <thead>
-                                        <tr>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {movieList.map((movie, i) => (
-                                            releasedChecker(movie.released, movie.title, movie._id)
-                                        ))}
-                                    </tbody>
-                                </Table>
+                                <div className="pt-2">
+                                    {movieList.map((movie) => (
+                                        releasedChecker(movie.released, movie.title, movie._id)
+                                    ))}
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
+                                <Button variant="outline-light" onClick={handleClose}>
                                     Close
                                 </Button>
                             </Modal.Footer>
