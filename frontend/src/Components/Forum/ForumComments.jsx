@@ -154,7 +154,7 @@ const DiscussionBoard = () => {
                             <Button variant="dark" style={{ flex: 1, backgroundColor: '#912323' }} size="lg" block onClick={handleShow}>Add a comment...</Button>
                         </Col>
                     </Row>
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal show={show} onHide={handleClose} className="bgBlur commentModal">
                         <Modal.Header closeButton>
                             <Modal.Title>Add a comment</Modal.Title>
                         </Modal.Header>
@@ -190,10 +190,10 @@ const DiscussionBoard = () => {
                                     }} />
                                     <Form.Label>{140 - comment.length} Characters remaining.</Form.Label>
                                 </Form.Group>
-                                <Button variant="secondary" onClick={handleClose}>
+                                <Button variant="outline-light" onClick={handleClose}>
                                     Close
                                 </Button>
-                                <Button type="submit" variant="primary">
+                                <Button className="postComButton float-right" type="submit" variant="outline-light">
                                     Post comment!
                                 </Button>
                             </Form>

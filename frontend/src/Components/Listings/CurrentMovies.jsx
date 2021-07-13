@@ -46,7 +46,7 @@ const CurrentMovies = () => {
             <Container>
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'>Current Movies </h1>
-                    <h3 class="landing-text" >Come to our cinema and watch these films right now!</h3>
+                    <h3 class="lead" >Come to our cinema and watch these films right now!</h3>
                     <div>
                         <Row>
                             {movieList.map((movie) => (

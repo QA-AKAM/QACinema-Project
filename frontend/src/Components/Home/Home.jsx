@@ -61,13 +61,13 @@ const Home = () => {
                 </div>
                 <div class="container">
                     <Row>
-                        <Col class="spec col-lg-6 text-center">
+                        <Col class="col-md-6 text-center">
                             <h2 class="display-4">Unrivaled Quality</h2>
                             <p class="lead">
                                 Immerse yourself completely in the big screen experience with QA Cinemas IMAX. Every aspect of our IMAX Screens is designed to pull you into the film. Indulge in the journey that tickles your senses and brings them back to life. Transporting yourself into a new reality with our super-sized screens pulling you into the film, ear-tingling audio environment to ensure you can even hear a pin drop and where within the film as well as breath-taking imagery, watching movies on your computer will never be the same again.
                             </p>
                         </Col>
-                        <Col class="col-sm-6">
+                        <Col class="col-md-6">
                             <Container>
                                 <img src={IMAX} alt="Imax Logo" class="imgDiv" />
                             </Container>
