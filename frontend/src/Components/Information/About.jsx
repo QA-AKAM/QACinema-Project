@@ -8,7 +8,7 @@ import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free
 const About = () => {
     return (
         <div className="background">
-            <div className="fullScreen padd-3">
+            <div className="padd-3">
                 <img
                     src={AboutUs}
                     width="300px"
