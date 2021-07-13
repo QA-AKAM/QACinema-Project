@@ -134,11 +134,14 @@ p1:hover {
 .c-b{
     color: black;
 }
+.c-r {
+    color: #A02626;
+}
 .bg-t{
     background-color: rgba(0, 0, 0, 0.3);
 }
 .min-h {
-    min-height: 100px;
+    min-height: 120px;
 }
 .min-w {
     min-width: 100%;
