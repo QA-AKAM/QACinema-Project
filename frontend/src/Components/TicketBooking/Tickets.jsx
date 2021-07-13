@@ -64,15 +64,13 @@ const Tickets = () => {
     } else {
         return (
             <div class='background'>
-                <div class='fullscreen'>
-                    <Container>
+                <div class='fullScreen'>
+                    <div class='container'>
                         <Jumbotron className="bgBlur">
                             <h1 class='landing-text'>Tickets</h1>
-                            <Card style={{ flex: 1, backgroundColor: '#A02626' }} className="text-white">
-                                <Payment bookingProp={booking} getPaymentProp={getPayment} />
-                            </Card>
+                            <Payment bookingProp={booking} getPaymentProp={getPayment} />
                         </Jumbotron>
-                    </Container>
+                    </div>
                 </div>
             </div>
         )

@@ -166,7 +166,7 @@ const BookingDetails = ({ getBookingProp }) => {
                     <h5> Tickets: </h5>
                     <Row className="mb-3">
                         <Form.Group as={Col}>
-                            <Form.Label> Child </Form.Label>
+                            <Form.Label> Child (£{prices?.child} Each) </Form.Label>
 
                             <select aria-label="ticket-select" id='child' class="form-control" value={child}
                                 onChange={(event) => {
@@ -182,7 +182,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
                         </Form.Group>
                         <Form.Group as={Col}>
-                            <Form.Label> Adult </Form.Label>
+                            <Form.Label> Adult (£{prices?.adult} Each) </Form.Label>
                             <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
@@ -196,8 +196,7 @@ const BookingDetails = ({ getBookingProp }) => {
                             </select>
                         </Form.Group>
                         <Form.Group as={Col}>
-                            <Form.Label> Senior </Form.Label>
-
+                            <Form.Label> Senior (£{prices?.senior} Each) </Form.Label>
                             <select aria-label="ticket-select" id='senior' class="form-control" value={senior}
                                 onChange={(event) => {
                                     setSenior(parseInt(event.target.value));
