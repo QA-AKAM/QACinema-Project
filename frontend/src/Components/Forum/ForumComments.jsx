@@ -22,11 +22,6 @@ const DiscussionBoard = () => {
     const [loadedMovie, setLoadedMovie] = useState(false);
     const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        getComments();
-        getMovies();
-    }, []);
-
     const getComments = () => {
         axios.get(`http://localhost:5000/comment/${movie}`)
             .then((response) => {
@@ -114,6 +109,7 @@ const DiscussionBoard = () => {
                 setComment("");
                 getComments();
                 handleClose();
+                window.location.reload();
             }
             window.onload = resetProfanityCount;
         }
@@ -125,6 +121,11 @@ const DiscussionBoard = () => {
     const imageUpdater = (oldImage) => {
         return oldImage.replace('._V1_SX300', '')
     }
+
+    useEffect(() => {
+        getComments();
+        getMovies();
+    }, []);
 
     if (!loaded || !loadedMovie) {
         return <p>Data is loading</p>
