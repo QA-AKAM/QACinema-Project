@@ -38,3 +38,6 @@
 a.dropdown-item { 
     color: white; 
 }
+.nav-links:hover {
+  color: red;
+}

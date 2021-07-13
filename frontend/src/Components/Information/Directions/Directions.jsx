@@ -8,7 +8,7 @@ import FromUnderground from '../../../Images/directions_from_underground.jpg';
 import FromBus from '../../../Images/directions_from_bus.jpg';
 import DirectionsCard from './DirectionsCard';
 
-
+import { Jumbotron, Container } from 'react-bootstrap';
 
 const Directions = () => {
     const locationCoord = { lat: 51.50756760758714, lng: -0.07379247123104038 }
@@ -52,13 +52,15 @@ const Directions = () => {
     ]);
     return (
         <div class="background">
-            <div class="container">
-                <div class="container"></div>
-                <h1 class='landing-text'>Directions</h1>
-                {cardData.map(item => (
-                    <DirectionsCard cardData={item} />
-                ))};
-            </div>
+            <Container>
+                <Jumbotron className="bgBlur">
+                    <h1 class='landing-text'>Directions</h1>
+                    {cardData.map(item => (
+                        <DirectionsCard cardData={item} />
+                    ))};
+                </Jumbotron>
+            </Container>
+
         </div >
 
     )

@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import './ReleasedMovie.css';
 import Badge from 'react-bootstrap/Badge'
+import { Link } from 'react-router-dom';
 import { Table } from "react-bootstrap";
 import '../../CSS/Pages.css';
 
@@ -38,22 +39,17 @@ const ReleasedMovie = () => {
         }
         let currentHour = date.getHours()
         let sorted_list = getDateForDay(date, day.slice(currentDayNum - 1).concat(day.slice(0, currentDayNum - 1)));
-        console.log(sorted_list[0])
         if (sorted_list[0].day === dayArray[currentDayNum - 1]) {
             for (let i = 0; i < sorted_list[0].timeOfMovie.length + 1; i++) {
                 sorted_list[0].timeOfMovie.map((movieTimeObj) => {
                     let movieTimeHr = movieTimeObj.time.slice(0, 2);
                     if (parseInt(movieTimeHr) <= currentHour) {
                         sorted_list[0].timeOfMovie.shift();
-                        console.log(sorted_list[0].timeOfMovie)
                     }
                 })
             }
-
-            console.log(sorted_list);
             return sorted_list;
         } else {
-            console.log(sorted_list);
             return sorted_list;
         }
     }
@@ -85,17 +81,28 @@ const ReleasedMovie = () => {
         return oldImage.replace('._V1_SX300', '')
     }
 
-    const classification = (classification) => {
+    const classification = (classification, switchNum) => {
         const classList = {
-            "U": "success",
-            "PG": "info",
-            "12A": "primary",
-            "12": "primary",
-            "15": "warning",
-            "18": "danger",
-            "TBC": "secondary"
+            "U": "#2ca434",
+            "PG": "#fcbc08",
+            "12A": "#ec7c14",
+            "15": "#ec5494",
+            "18": "#d40424",
+            "TBC": "grey"
         }
-        return classList[classification]
+
+        if (switchNum === 1)
+            return classList[classification]
+        else {
+            const classList2 = {
+                "U": "0",
+                "PG": "1",
+                "12A": "2",
+                "15": "3",
+                "18": "4"
+            }
+            return classList2[classification]
+        }
     }
 
     useEffect(() => {
@@ -110,7 +117,7 @@ const ReleasedMovie = () => {
         <div className="background">
             <Container fluid>
                 <div className="pt-5">
-                    <Card className="bg-dark text-white" >
+                    <Card style={{ flex: 1, backgroundColor: '#212121' }} className=" text-white" >
                         <Row className="no-gutters">
                             <Col md={4}>
                                 <img src={imageUpdater(movieObj.imageURL)} width="100%" height="700px" style={{ objectFit: "cover" }} />
@@ -118,7 +125,9 @@ const ReleasedMovie = () => {
                             <Col md={8}>
                                 <Card.Body >
                                     <Card.Title className="cardMovieTitle">{movieObj.title}</Card.Title>
-                                    <Badge className="classificationBadge mb-3" variant={classification(movieObj.classification)}>Rating: {movieObj.classification}</Badge>
+                                    <Link to={`/classifications/${classification(movieObj.classification, 2)}`}>
+                                        <Badge className="classificationBadge mb-3" variant="success" style={{ backgroundColor: `${classification(movieObj.classification, 1)}` }}>Rating: {movieObj.classification}</Badge>
+                                    </Link>
                                     <Card.Text className="cardMovieText">Runtime: {movieObj.runTime}</Card.Text>
                                     <Card.Text className="cardMovieText">Directed by {movieObj.director}</Card.Text>
                                     <Card.Text className="cardMovieText">Released: {movieObj.year}</Card.Text>
@@ -127,7 +136,7 @@ const ReleasedMovie = () => {
                                         <Row>
                                             {movieObj.actors.map((details) => (
                                                 <Col lg={2} md={3} sm={3} xs={5} className="py-3">
-                                                    <Card className=" text-white" style={{ flex: 1, backgroundColor: '#912323' }}>
+                                                    <Card className="actorCard text-white" style={{ flex: 1, backgroundColor: '#912323' }}>
                                                         <Card.Img class="cardImg" src={details.image} />
                                                         <Card.Body>
                                                             <Card.Subtitle>{details.name}</Card.Subtitle>
