@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Card, Button, Row, Col, Container, Jumbotron } from 'react-bootstrap';
+import { Card, Button, Row, Col, Container, Jumbotron, Modal, Alert } from 'react-bootstrap';
+import ReactDOM from 'react-dom';
 
 import axios from 'axios';
 import './BookingDetails.css';
@@ -13,7 +14,9 @@ const BookingDetails = ({ getBookingProp }) => {
     //set movies list
     const [movieList, setMovieList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
+
+    const [show, setShow] = useState(false);
 
     //set selected movie & set days
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -36,7 +39,14 @@ const BookingDetails = ({ getBookingProp }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
+        if (name.length < 4 || child + adult + senior < 1 || selectedDay?.day == null || selectedTime?.time == null
+            || (selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
+                && selectedMovie?.classification != 'PG') && child > 0)
+            || (child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U')) {
+            setError(true);
+        } else {
+            getBooking({ name: name, child: child, adult: adult, senior: senior, selectedDay: selectedDay, selectedTime: selectedTime, selectedMovie: selectedMovie, paymentID: null });
+        }
     }
 
     //get prices
@@ -85,6 +95,45 @@ const BookingDetails = ({ getBookingProp }) => {
     useEffect(() => {
         setTimes(selectedDay.timeOfMovie);
     }, [selectedDay])
+
+    const VAlert = () => {
+        return (
+            <Alert variant='danger' onClose={() => { setError(false) }} dismissible='true' style={{ width: '70%', textAlign: 'left', marginLeft: 'auto', marginRight: 'auto' }}>
+                <Alert.Heading> It seems like something's not quite right... </Alert.Heading>
+                {setShow(false)}
+                <h6>
+                    Please fix the following problems with your booking:
+                </h6>
+                {
+                    (name.length < 4) &&
+                    <li> Your name needs to be a minimum of 4 characters long. {setShow(true)} </li>
+                }
+                {
+                    (adult + child + senior < 1) &&
+                    <li> You need to book at least 1 ticket. {setShow(true)} </li>
+                }
+                {
+                    (selectedMovie == null) &&
+                    <li> You need to select a movie to watch. {setShow(true)}</li>
+                }
+                {
+                    (selectedDay?.day == null) &&
+                    <li> You need to select a day to watch your movie. {setShow(true)} </li>
+                }
+                {
+                    (selectedTime?.time == null) &&
+                    <li> You need to select a time to watch your movie. {setShow(true)}</li>
+                }
+                {(selectedMovie != null && (selectedMovie?.classification != 'U' && selectedMovie?.classification != '12A'
+                    && selectedMovie?.classification != 'PG') && child > 0) ?
+                    <li> Children are not permitted to watch this movie.  {setShow(true)} </li> :
+                    ((child > 0 && adult + senior < 1 && selectedMovie?.classification != 'U') ?
+                        <li> Children need to be accompanied by an adult or senior for this movie. {setShow(true)}</li> : <></>)
+                }
+                {setError(show)}
+            </Alert >
+        )
+    }
 
     return (
         <Jumbotron className="bgBlur">
@@ -220,11 +269,13 @@ const BookingDetails = ({ getBookingProp }) => {
                             </Card>
                         </div>}
                 </Form>
+                {error &&
+                    <VAlert />}
                 <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
                     onClick={handleSubmit}> To Payment </Button>
             </Container>
-            {/* submit*/}
-        </Jumbotron>
+        </Jumbotron >
+
 
     )
 }
