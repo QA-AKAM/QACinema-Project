@@ -60,6 +60,7 @@ const Directions = () => {
                     ))};
                 </Jumbotron>
             </Container>
+
         </div >
 
     )

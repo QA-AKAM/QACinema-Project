@@ -59,32 +59,34 @@ const ContactUs = () => {
                         </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row} className="mb-3">
-                        <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
-                        <Form.Control
-                            as="textarea" id='message' placeholder="Leave a comment here"
-                            onChange={(event) => {
-                                return setMessage(event.target.value);
-                            }} value={message}></Form.Control>
-                    </Form.Group>
 
-                    <Button variant="outline-dark" id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
+                        <Form.Group as={Row} className="mb-3">
+                            <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
+                            <Form.Control
+                                as="textarea" id='message' placeholder="Leave a comment here"
+                                onChange={(event) => {
+                                    return setMessage(event.target.value);
+                                }} value={message}></Form.Control>
+                        </Form.Group>
 
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title> Thanks for your E-mail!</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
-                </Form>
-            </Container >
-            <div id="fixed">
-            </div>
+                        <Button variant="outline-dark" id='submit' type='submit' size="lg" onClick={handleSubmit}> Send </Button>
+
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title> Thanks for your E-mail!</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>We appreciate your {topic} and will get back you as soon as we can. You can expect a reply from us sent to {email} within the next 5 working days.</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </Form>
+                </Container >
+                <div id="fixed">
+                </div>
+            </div >
         </div >
     )
 }

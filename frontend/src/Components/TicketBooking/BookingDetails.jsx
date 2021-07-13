@@ -174,7 +174,7 @@ const BookingDetails = ({ getBookingProp }) => {
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label> Adult </Form.Label>
-                 <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
+                            <select aria-label="ticket-select" id='adult' class="form-control" value={adult}
                                 onChange={(event) => {
                                     setAdult(parseInt(event.target.value));
                                 }} min='0'>
@@ -200,24 +200,30 @@ const BookingDetails = ({ getBookingProp }) => {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-
                         </Form.Group>
                     </Row>
-                    {/* submit*/}
-                    <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
-                        onClick={handleSubmit}> To Payment </Button>
+                    {selectedMovie &&
+                        <div class='col-sm'>
+                            <Card class='container' id='movie-card'>
+                                <Row>
+                                    <div class='col-sm-12 col-lg-4'>
+                                        <img src={selectedMovie?.imageURL} style={{ float: 'none' }} width='100%' justify-content='center' alt="movie poster" />
+                                    </div>
+                                    <div class='col-sm-12 col-lg-8' style={{ float: 'left', textAlign: 'left' }}>
+                                        <h5 style={{ color: 'gray' }}>{selectedMovie?.title}</h5>
+                                        <p style={{ color: 'gray' }}> Plot Synopsis: {selectedMovie?.shortPlot} </p>
+                                        <p style={{ color: 'gray' }}> Genre(s): {selectedMovie?.genre}</p>
+                                        <p style={{ color: 'gray' }}> Runtime: {selectedMovie?.runTime} </p>
+                                        <p style={{ color: 'gray' }}> Age Rating: {selectedMovie?.classification} </p>
+                                    </div>
+                                </Row>
+                            </Card>
+                        </div>}
                 </Form>
-                <Col className="sm-3">
-                    <Card className='colorScheme'>
-
-                        {/* <img src={selectedMovie?.imgURL} style={{ witdh: '100px', height: '200px' }} alt="movie poster" /> */}
-                        <p style={{ color: 'gray' }}>I found the movie: {selectedMovie.title}</p>
-                        <p style={{ color: 'gray' }}>Viewing day: {selectedDay.day}</p>
-                        <p style={{ color: 'gray' }}>Viewing time: {selectedTime.time}</p>
-
-                    </Card>
-                </Col>
+                <Button variant="outline-dark" type='submit' id='submit' className="mb-3 text-white"
+                    onClick={handleSubmit}> To Payment </Button>
             </Container>
+            {/* submit*/}
         </Jumbotron>
 
     )

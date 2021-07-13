@@ -27,9 +27,10 @@
 }
 
 #movie-card {
-    width: 700px;
+    width: 75%;
     margin: auto;
 }
+
 .center {
   padding: 70px 0;
   text-align: center;
@@ -82,12 +83,7 @@ p {
         padding-bottom: 200px;
     }
 
-.display-4, .lead{
-    
-    color: white;
-}
-
-p1 {
+.display-4, .lead, p1{  
     color: white;
 }
 p1:hover {
@@ -102,11 +98,44 @@ p1:hover {
 }
 
 .bgBlur{
-    background:transparent !important;
+    /* background:transparent !important; */
     backdrop-filter: blur(3px);
 }
+
 
 .rounded {
   padding: 10px;
   border-radius: 50px;
+}
+.padd-1{
+    padding: 1rem;
+}
+.padd-3{
+    padding: 3rem;
+}
+.marg-1 {
+    margin: 1rem;
+}
+.marg-3 {
+    margin: 3rem;
+}
+.txt-area{
+    text-align: justify;
+}
+.c-w{
+    color: white;
+}
+.c-g{
+    color: #212121;
+}
+.c-b{
+    color: black;
+}
+.bg-t{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+h2{
+    color: white;
 }

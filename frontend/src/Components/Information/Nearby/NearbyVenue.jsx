@@ -1,11 +1,15 @@
 'use strict'
 import { Button } from 'react-bootstrap';
+
 import '../../../CSS/Pages.css';
+import Jumbotron from 'react-bootstrap/esm/Jumbotron';
+import { Button, SplitButton } from 'react-bootstrap';
 
 const NearbyVenue = ({ cardData }) => {
 
     return (
         <div class="container" style={{ backgroundColor: 'rgba(160, 38, 38, 0.7)', marginTop: '5rem', paddingBottom: '4rem' }}>
+
             {/* img */}
             <img src={cardData.img}
                 width="100%"
@@ -14,17 +18,19 @@ const NearbyVenue = ({ cardData }) => {
                 style={{ objectFit: 'cover' }} />
 
             {/* venue title */}
-            <h2 class='landing-text' style={{
+            <h2 className='landing-text' style={{
                 padding: '3rem'
             }}>{cardData.title}</h2>
+
             {/* description */}
-            <h3 class='landing-text' style={{ color: 'white', margin: '30px', textAlign: 'justify' }}>{cardData.description}</h3>
-            <h4 class='landing-text' style={{ color: 'red', margin: '30px' }}>QA Cinema offers:</h4>
+            <h5 className='landing-text txt-area c-w '>{cardData.description}</h5>
+            <h3 className='landing-text c-g marg-3'>QA Cinema offers:</h3>
             {
                 cardData.offers.map(offer => (
-                    <h5 class='landing-text' style={{ color: 'white', margin: '30px' }}>{offer}</h5>
+                    <h5 class='landing-text marg-1 c-w'>{offer}</h5>
                 ))
             }
+
             {/* address */}
             <h4 class='landing-text' style={{ color: 'white', margin: '30px', padding: '2rem', borderTop: '1px solid white' }}>{cardData.address}</h4>
             {/* telephone */}
@@ -40,6 +46,10 @@ const NearbyVenue = ({ cardData }) => {
                 }
                 }> Directions</Button >
 
+            <Button variant="outline-dark"
+                className='main-btn marg-1 padd-5'
+                href={cardData.nav}
+            >Directions</Button>
         </div >
 
     )

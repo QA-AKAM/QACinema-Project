@@ -1,4 +1,8 @@
-b {
-    size: 5;
-    color: red;
+.social-icon {
+    size: 5x;
+    color: white;
+}
+.social-icon:hover{
+    color: #ff3333;
+    size: 5x;
 }

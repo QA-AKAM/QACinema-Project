@@ -15,6 +15,7 @@ const DirectionsCard = ({ cardData }) => {
                 marginTop: '3rem',
                 overflow: 'hidden'
             }}>
+
                 {cardData.img ?
                     <img src={cardData.img}
                         width="100%"
@@ -23,7 +24,7 @@ const DirectionsCard = ({ cardData }) => {
                     : cardData.map
                 }
             </div>
-        </div>
+        </div >
     );
 }
 
