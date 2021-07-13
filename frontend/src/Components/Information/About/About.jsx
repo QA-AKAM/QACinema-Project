@@ -14,10 +14,10 @@ const About = () => {
             role: "Product Owner",
             projectMain: "Frontend, Jira, Github",
             projectSecondary: "Styling, Documentation",
-            github: "https://github.com/thealinivan",
-            linkedin: "https://linkedin.com/in/thealinivan",
-            email: "aivan@qa.com",
-            telephone: "+447481925997"
+            github: "https://github.com/KevinD-QA",
+            linkedin: "https://www.linkedin.com/in/kevin-kcdoan/",
+            email: "Kdoan@qa.com",
+            telephone: "+447542962985"
 
 
         },
@@ -67,12 +67,12 @@ const About = () => {
                     <Container className="padding">
                         <Container>
                             <Row>
-                                <Col className="spec col-sm-6">
+                                <Col className="spec col-sm-6" sm={12} lg={6} md={6}>
                                     <h2 className="display-4 padd-1">About us</h2>
                                     <p className="lead justify marg-1">
                                         QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
                                 </Col>
-                                <Col className="spec col-sm-6">
+                                <Col className="spec col-sm-6" sm={12} lg={6} md={6}>
                                     <h2 className="display-4 padd-1">About Team AKAM</h2>
                                     <p className="lead justify marg-1">
                                         Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Scott Stevens and Amandeep Bassi</b>.
