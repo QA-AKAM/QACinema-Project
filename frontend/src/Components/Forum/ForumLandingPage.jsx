@@ -46,7 +46,7 @@ const DiscussionBoardMain = () => {
             <Container>
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'> Forum </h1>
-                    <p class="lead">Discuss about your movie experiences here!</p>
+                    <h3 class="lead">Discuss about your movie experiences here!</h3>
                     <div>
                         <Row>
                             {movieList.map((movie) => (
