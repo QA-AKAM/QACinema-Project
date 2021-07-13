@@ -66,20 +66,20 @@ const About = () => {
                     <div className="padding">
                         <div className="container">
                             <div className="row">
-                                <div className="spec col-sm-6 text-center">
+                                <div className="spec col-sm-6">
                                     <h2 className="display-4 padd-1">About us</h2>
-                                    <p className="lead">
+                                    <p className="lead justify marg-1">
                                         QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
                                 </div>
-                                <div className="spec col-sm-6 text-center">
+                                <div className="spec col-sm-6">
                                     <h2 className="display-4 padd-1">About Team AKAM</h2>
-                                    <p className="lead">
+                                    <p className="lead justify marg-1">
                                         Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Kevin, Asshwin, Matthew, Alin</b>.
                                     </p>
                                 </div>
-                                <div className="spec col-sm-12 text-center padd-1">
+                                <div className="spec col-sm-12 text-center padd-3">
                                     <h2 className="display-4 padd-1">Scrum description</h2>
-                                    <p className="lead">
+                                    <p className="lead justify">
                                         QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
                                 </div>
                             </div>
