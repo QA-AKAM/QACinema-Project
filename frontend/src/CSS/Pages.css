@@ -103,3 +103,10 @@ p1:hover {
     background:transparent !important;
     backdrop-filter: blur(3px);
 }
+
+Modal#validation{
+    background-color: tomato;
+}
+Modal.Header{
+    background-color: red;
+}
