@@ -86,16 +86,15 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='txt-area padd-3 c-w'>
-                            <h2 className="padd-3">Team</h2>
-                            <Row>
-                                {team.map(member => (
-                                    <Member member={member} />
-                                ))}
-                            </Row>
-                        </div>
-
                     </div>
+                </div>
+                <div className='txt-area padd-1 c-w'>
+                    <h2 className="padd-3">Team</h2>
+                    <Row>
+                        {team.map(member => (
+                            <Member member={member} />
+                        ))}
+                    </Row>
                 </div>
             </div >
         </div >
