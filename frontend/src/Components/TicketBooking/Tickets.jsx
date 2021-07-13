@@ -3,7 +3,7 @@ import '../../CSS/Pages.css';
 import { useEffect, useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
-import { Card, Jumbotron } from 'react-bootstrap';
+import { Card, Jumbotron, Container } from 'react-bootstrap';
 import axios from 'axios';
 
 const Tickets = () => {
@@ -51,23 +51,29 @@ const Tickets = () => {
     if (!booked) {
         return (
             <div class='background'>
-                <div class='container'>
-                    <Jumbotron className="bgBlur text-white">
-                        <h1 class='landing-text'>Tickets</h1>
-                        <BookingDetails getBookingProp={getBooking} />
-                    </Jumbotron>
+                <div class='fullscreen'>
+                    <Container>
+                        <Jumbotron className="bgBlur text-white">
+                            <h1 class='landing-text'>Tickets</h1>
+                            <BookingDetails getBookingProp={getBooking} />
+                        </Jumbotron>
+                    </Container>
                 </div>
             </div >
         )
     } else {
         return (
             <div class='background'>
-                <Jumbotron className="bgBlur">
-                    <h1 class='landing-text'>Tickets</h1>
-                    <Card>
-                        <Payment bookingProp={booking} getPaymentProp={getPayment} />
-                    </Card>
-                </Jumbotron>
+                <div class='fullscreen'>
+                    <Container>
+                        <Jumbotron className="bgBlur">
+                            <h1 class='landing-text'>Tickets</h1>
+                            <Card style={{ flex: 1, backgroundColor: '#A02626' }} className="text-white">
+                                <Payment bookingProp={booking} getPaymentProp={getPayment} />
+                            </Card>
+                        </Jumbotron>
+                    </Container>
+                </div>
             </div>
         )
     }
