@@ -45,11 +45,11 @@
 }
 
 h1.landing-text {
-        color: white;
-        font-size: 500%;
-        font-weight: 700;
-        -webkit-text-stroke: 2px black;
-        justify-content: center;
+    color: white;
+    font-size: 500%;
+    font-weight: 700;
+    -webkit-text-stroke: 2px black;
+    justify-content: center;
     }
 
 h2.landing-text  {
@@ -65,6 +65,7 @@ h3.landing-text {
         text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     }
 
+    
 p {
     color: black;
         justify-content: center;
@@ -102,4 +103,51 @@ p1:hover {
 .bgBlur{
     background:transparent !important;
     backdrop-filter: blur(3px);
+}
+
+.rounded {
+  padding: 10px;
+  border-radius: 50px;
+}
+.padd-1{
+    padding: 1rem;
+}
+.padd-3{
+    padding: 3rem;
+}
+.marg-1 {
+    margin: 1rem;
+}
+.marg-3 {
+    margin: 3rem;
+}
+.txt-area{
+    text-align: justify;
+    text-align:center;
+}
+.c-w{
+    color: white;
+}
+.c-g{
+    color: #212121;
+}
+.c-b{
+    color: black;
+}
+.bg-t{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.min-h {
+    min-height: 100px;
+}
+.min-w {
+    min-width: 100%;
+}
+.main-border {
+    border: 1px solid #A02626;
+}
+
+
+h2{
+    color: white;
 }

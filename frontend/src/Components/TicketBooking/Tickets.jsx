@@ -3,7 +3,7 @@ import '../../CSS/Pages.css';
 import { useEffect, useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
-import { Card, Jumbotron } from 'react-bootstrap';
+import { Card, Jumbotron, Container } from 'react-bootstrap';
 import axios from 'axios';
 
 const Tickets = () => {
@@ -51,11 +51,13 @@ const Tickets = () => {
     if (!booked) {
         return (
             <div class='background'>
-                <div class='container'>
-                    <Jumbotron className="bgBlur text-white">
-                        <h1 class='landing-text'>Tickets</h1>
-                        <BookingDetails getBookingProp={getBooking} />
-                    </Jumbotron>
+                <div class='fullscreen'>
+                    <Container>
+                        <Jumbotron className="bgBlur text-white">
+                            <h1 class='landing-text'>Tickets</h1>
+                            <BookingDetails getBookingProp={getBooking} />
+                        </Jumbotron>
+                    </Container>
                 </div>
             </div >
         )
