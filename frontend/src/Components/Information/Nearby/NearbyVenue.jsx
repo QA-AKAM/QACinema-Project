@@ -1,7 +1,6 @@
 'use strict'
+import { Button } from 'react-bootstrap';
 import '../../../CSS/Pages.css';
-import Jumbotron from 'react-bootstrap/esm/Jumbotron';
-import { Button, SplitButton } from 'react-bootstrap';
 
 const NearbyVenue = ({ cardData }) => {
 
