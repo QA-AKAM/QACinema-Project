@@ -32,14 +32,14 @@ const About = () => {
 
         },
         {
-            name: "Matthew",
+            name: "Matthew Holmes",
             role: "Software developer",
-            projectMain: "Fronend, Testing",
+            projectMain: "Frontend, Testing",
             projectSecondary: "Styling, Documentation",
-            github: "https://github.com/thealinivan",
-            linkedin: "https://linkedin.com/in/thealinivan",
-            email: "aivan@qa.com",
-            telephone: "+447481925997"
+            github: "https://github.com/matayoh14",
+            linkedin: "https://www.linkedin.com/in/matthew-holmes-69958a1b1/",
+            email: "MHolmes1@academytrainee.com",
+            telephone: "+447770339873"
 
         },
         {
