@@ -24,11 +24,11 @@ const About = () => {
             name: "Asshwin",
             role: "Scrum master",
             projectMain: "Backend, Databases, Frontend, Testing",
-            projectSecondary: "Scrums, Documentation",
-            github: "https://github.com/thealinivan",
-            linkedin: "https://linkedin.com/in/thealinivan",
-            email: "aivan@qa.com",
-            telephone: "+447481925997"
+            projectSecondary: "Scrums, Styling, Documentation",
+            github: "https://github.com/ashkl",
+            linkedin: "https://www.linkedin.com/in/asshwin-mugundharajah-71218a104/",
+            email: "AMugundharajah@qa.com",
+            telephone: "+447450073483"
 
         },
         {
