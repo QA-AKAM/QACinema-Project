@@ -2,15 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Accordion from 'react-bootstrap/Accordion'
 import './Classifications.css'
 import { useEffect, useState } from 'react';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import Nav from 'react-bootstrap/Nav'
 import { useParams } from 'react-router-dom';
+import '../../CSS/Pages.css';
+
 
 const Classifications = () => {
 
@@ -163,7 +163,7 @@ const Classifications = () => {
                         </Col>
                         <Col lg={6} xs={6}>
                             <Accordion activeKey={key} onSelect={(k) => setKey(k)}>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="0">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/BBFC_U_2019.svg" alt="U" width="15%" />
                                     </Accordion.Toggle>
@@ -175,7 +175,7 @@ const Classifications = () => {
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="1">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/BBFC_PG_2019.svg" alt="PG" width="15%" />
                                     </Accordion.Toggle>
@@ -186,7 +186,7 @@ const Classifications = () => {
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="2">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/BBFC_12A_2019.svg" alt="12A" width="15%" />
                                     </Accordion.Toggle>
@@ -197,7 +197,7 @@ const Classifications = () => {
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="3">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/BBFC_15_2019.svg" alt="15" width="15%" />
                                     </Accordion.Toggle>
@@ -208,7 +208,7 @@ const Classifications = () => {
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="4">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/BBFC_18_2019.svg" alt="18" width="15%" />
                                     </Accordion.Toggle>
@@ -219,7 +219,7 @@ const Classifications = () => {
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
-                                <Card bg="dark" text="light">
+                                <Card text="light" style={{ flex: 1, backgroundColor: '#A02626' }}>
                                     <Accordion.Toggle as={Card.Header} eventKey="5">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/BBFC_R18_2019.svg" alt="R18" width="15%" />
                                     </Accordion.Toggle>
@@ -231,6 +231,23 @@ const Classifications = () => {
                                     </Accordion.Collapse>
                                 </Card>
                             </Accordion>
+                        </Col>
+                        <Col>
+                            <h2>More information...</h2>
+                            <div className="link">
+                                <p className="lead">If you would like to read up more about the classifications and the guidelines, check out these resources below:</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.bbfc.co.uk/about-classification/classification-guidelines">British Board of Film Classification (BBFC) - Classification Guidelines</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.screenonline.org.uk/film/id/592611/index.html">Screenonline - List of Classifications</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://en.wikipedia.org/wiki/British_Board_of_Film_Classification">BBFC Wikipedia</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </Col>
                     </Row>
                 </Jumbotron>

@@ -95,9 +95,10 @@ p1:hover {
 }
 
 .bgBlur{
-    background:transparent !important;
+    /* background:transparent !important; */
     backdrop-filter: blur(3px);
 }
+
 
 
 .padd-1{
@@ -126,5 +127,10 @@ p1:hover {
 }
 .bg-t{
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+h2{
+    color: white;
 }
 
