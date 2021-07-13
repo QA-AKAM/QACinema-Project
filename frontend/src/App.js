@@ -13,6 +13,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer';
 import About from './Components/Information/About';
 import './Resources/App.css';
+import Directions from './Components/Information/Directions/Directions'
+import Nearby from './Components/Information/Nearby/Nearby'
+import ReleasedMovie from './Components/Listings/ReleasedMovie';
+import Classifications from './Components/Information/Classifications';
+import UnreleasedMovie from './Components/Listings/UnreleasedMovies';
+
 
 function App() {
   return (
@@ -32,8 +38,16 @@ function App() {
             <CurrentMovies />
           </Route>
 
+          <Route path="/released/:movie" >
+            <ReleasedMovie />
+          </Route>
+
           <Route path="/UpcomingMovies" >
             <UpcomingMovies />
+          </Route>
+
+          <Route path="/upcoming/:movie" >
+            <UnreleasedMovie />
           </Route>
 
           <Route path="/Tickets" >
@@ -57,8 +71,21 @@ function App() {
           <Route path="/ContactUs">
             <ContactUs />
           </Route>
+    
           <Route path="/About" >
             <About />
+          </Route>
+
+          <Route path="/Directions" >
+            <Directions />
+          </Route>
+
+          <Route path="/Nearby" >
+            <Nearby />
+          </Route>
+
+          <Route path="/Classifications" >
+            <Classifications />
           </Route>
 
         </Switch>
