@@ -1,10 +1,11 @@
 'use strict'
+import { Button } from 'react-bootstrap';
 import '../../../CSS/Pages.css';
 
 const NearbyVenue = ({ cardData }) => {
 
     return (
-        <div class="container" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', marginTop: '5rem', paddingBottom: '4rem' }}>
+        <div class="container" style={{ backgroundColor: 'rgba(160, 38, 38, 0.7)', marginTop: '5rem', paddingBottom: '4rem' }}>
             {/* img */}
             <img src={cardData.img}
                 width="100%"
@@ -27,20 +28,17 @@ const NearbyVenue = ({ cardData }) => {
             {/* address */}
             <h4 class='landing-text' style={{ color: 'white', margin: '30px', padding: '2rem', borderTop: '1px solid white' }}>{cardData.address}</h4>
             {/* telephone */}
-            <a href={`tel:${cardData.telephone}`} type="tel" class='landing-text' style={{ color: 'white', margin: '30px' }}
+            <Button variant="dark" href={`tel:${cardData.telephone}`} type="tel" class='landing-text' style={{ color: 'white', margin: '30px' }}
                 style={{
-                    border: '1px solid red',
                     padding: '1rem',
-                    color: 'red',
                     margin: '20px'
-                }}>Call this venue</a>
+                }}>Call this venue</Button>
             {/* directions */}
-            <a href={cardData.nav}
+            <Button variant="dark" href={cardData.nav}
                 style={{
-                    border: '1px solid red',
                     padding: '1rem',
-                    color: 'red'
-                }}>Directions</a>
+                }
+                }> Directions</Button >
 
         </div >
 
