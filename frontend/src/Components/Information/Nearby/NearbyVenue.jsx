@@ -1,4 +1,3 @@
-'use strict'
 import '../../../CSS/Pages.css';
 import Jumbotron from 'react-bootstrap/esm/Jumbotron';
 import { Button, SplitButton } from 'react-bootstrap';

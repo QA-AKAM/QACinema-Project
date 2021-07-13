@@ -124,4 +124,7 @@ p1:hover {
 .c-b{
     color: black;
 }
+.bg-t{
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
