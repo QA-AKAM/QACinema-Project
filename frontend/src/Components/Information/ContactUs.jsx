@@ -48,7 +48,7 @@ const ContactUs = () => {
                 <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
-                        <Form.Control required type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
+                        <Form.Control required name="email" type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
                             return setEmail(event.target.value);
                         }} value={email}></Form.Control>
                     </Form.Group>
@@ -68,7 +68,7 @@ const ContactUs = () => {
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
                         <Form.Control required
-                            as="textarea" id='message' placeholder="Leave a comment here"
+                            name="subject" as="textarea" id='message' placeholder="Leave a comment here"
                             onChange={(event) => {
                                 return setMessage(event.target.value);
                             }} value={message}></Form.Control>
