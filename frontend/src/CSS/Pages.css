@@ -99,14 +99,12 @@ p1:hover {
     backdrop-filter: blur(3px);
 }
 
+
 .padd-1{
     padding: 1rem;
 }
 .padd-3{
-      padding: 3rem;
-}
-padd-5{
-    padding:5rem;
+    padding: 3rem;
 }
 .marg-1 {
     margin: 1rem;
