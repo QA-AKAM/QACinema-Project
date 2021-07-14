@@ -22,6 +22,8 @@ describe(`Testing all comment routes`, () => {
         comment: 'This is a updated test comment.'
     })
 
+    let commentID = "";
+
     it(`Should return all the comments`, (done) => {
         chai.request(app)
             .get("/comment")
@@ -54,14 +56,25 @@ describe(`Testing all comment routes`, () => {
                     comment.movieID.map((movieDetails) => {
                         expect(movieDetails._id).to.contain(movieID);
                     })
-
                 })
                 done();
             })
     })
 
-    it(`Should return a object when a comment is created`, () => {
+    it(`should respond with comment does not exist`, (done) => {
+        chai.request(app)
+            .get(`/comment/7345y8374`)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(404);
+                expect(response.body.error).to.contain("comment does not exist");
+                done();
+            })
+    })
 
+    it(`Should return a object when a comment is created`, (done) => {
         chai.request(app)
             .post(`/comment/`)
             .send(createComment)
@@ -69,7 +82,66 @@ describe(`Testing all comment routes`, () => {
                 if (error) {
                     done(error);
                 }
+                expect(response).to.have.status(200);
+                expect(response.body).to.contain.key("_id")
+                expect(response.body.movieID).to.contain('60e4211a7a5d6042284b2f7e');
+                commentID = response.body._id;
+                done();
             })
+    })
 
+    it(`Should return a object when a comment is created`, (done) => {
+        chai.request(app)
+            .put(`/comment/${commentID}`)
+            .send(updateComment)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body.movieID).to.contain('60e4211a7a5d6042284b2f7e');
+                expect(response.body.author).to.contain('updated_test_author');
+                done();
+            })
+    })
+
+    it(`should respond with error when wrong ID is entered`, (done) => {
+        chai.request(app)
+            .put(`/comment/53535`)
+            .send(updateComment)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(404);
+                expect(response.body.error).to.contain("comment does not exist");
+                done();
+            })
+    })
+
+    it(`should respond with the deleted comment`, (done) => {
+        chai.request(app)
+            .delete(`/comment/${commentID}`)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body.author).to.contain("updated_test_author");
+                done();
+            })
+    })
+
+    it(`should respond with error with a wrong ID`, (done) => {
+        chai.request(app)
+            .delete(`/comment/34534534`)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(404);
+                expect(response.body.error).to.contain("comment does not exist");
+                done();
+            })
     })
 })
