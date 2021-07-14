@@ -58,7 +58,6 @@ describe(`Testing all comment routes`, () => {
                     })
                 })
                 done();
-
             })
     })
 
@@ -73,8 +72,25 @@ describe(`Testing all comment routes`, () => {
                 expect(response).to.have.status(200);
                 expect(response.body).to.contain.key("_id")
                 expect(response.body.movieID).to.contain('60e4211a7a5d6042284b2f7e');
-                done()
+                commentID = response.body._id;
+                done();
             })
-
     })
+
+    it(`Should return a object when a comment is created`, (done) => {
+        chai.request(app)
+            .put(`/comment/${commentID}`)
+            .send(updateComment)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body.movieID).to.contain('60e4211a7a5d6042284b2f7e');
+                expect(response.body.author).to.contain('updated_test_author');
+                done();
+            })
+    })
+
+
 })
