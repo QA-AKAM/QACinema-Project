@@ -45,17 +45,6 @@ router.get('/released/:released', async (request, response) => {
     }
 });
 
-//get movie show days
-router.get('/movie/day/:id', async (request, response) => {
-    try {
-        const movie = await Movie.findById(request.params.id)
-        response.send(movie.dateTime);
-    } catch {
-        response.status(404);
-        response.send({ error: 'movie does not exist' })
-    }
-});
-
 //create movie using form
 router.post('/movie', async (request, response) => {
     const movie = new Movie(request.body);
