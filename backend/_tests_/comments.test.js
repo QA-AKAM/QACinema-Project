@@ -22,6 +22,8 @@ describe(`Testing all comment routes`, () => {
         comment: 'This is a updated test comment.'
     })
 
+    let commentID = "";
+
     it(`Should return all the comments`, (done) => {
         chai.request(app)
             .get("/comment")
@@ -54,14 +56,13 @@ describe(`Testing all comment routes`, () => {
                     comment.movieID.map((movieDetails) => {
                         expect(movieDetails._id).to.contain(movieID);
                     })
-
                 })
                 done();
+
             })
     })
 
-    it(`Should return a object when a comment is created`, () => {
-
+    it(`Should return a object when a comment is created`, (done) => {
         chai.request(app)
             .post(`/comment/`)
             .send(createComment)
@@ -69,6 +70,10 @@ describe(`Testing all comment routes`, () => {
                 if (error) {
                     done(error);
                 }
+                expect(response).to.have.status(200);
+                expect(response.body).to.contain.key("_id")
+                expect(response.body.movieID).to.contain('60e4211a7a5d6042284b2f7e');
+                done()
             })
 
     })
