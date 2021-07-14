@@ -1,6 +1,5 @@
 import BookingDetails from "../Components/TicketBooking/BookingDetails";
 import { create } from 'react-test-renderer';
-import { faItalic } from "@fortawesome/free-solid-svg-icons";
 
 describe('Booking Tickets testing with props', () => {
 
@@ -30,7 +29,7 @@ describe('Booking Tickets testing with props', () => {
 
         //Arrange + Act
         //Create h3 variable, it is euqal to the first h3 in component
-        const h3 = testComponent.findByType('h3');
+        const cardTitle = testComponent.findByType();
 
         //Assert
         expect(h3.children[0]).toEqual('Booking Details');

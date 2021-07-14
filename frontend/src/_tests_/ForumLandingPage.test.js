@@ -33,9 +33,5 @@ describe(`Forum landing page testing`, () => {
         expect(h3.children[0]).toEqual('Discuss about your movie experiences here!');
     })
 
-    it(`should redner the forum topic card`, () => {
-
-    })
-
 })
 

@@ -28,13 +28,11 @@ const PayPal = ({ totalProp, setPaidProp, setPaymentProp }) => {
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
-                console.log(order);
                 setPaid(true);
                 setPayment('paid');
             },
             onError: (err) => {
                 console.log(err);
-                console.log(total);
             }
         }).render(paypal.current)
     }, [])

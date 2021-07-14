@@ -12,7 +12,7 @@ import { Jumbotron, Container } from 'react-bootstrap';
 
 const Directions = () => {
     const locationCoord = { lat: 51.50756760758714, lng: -0.07379247123104038 }
-    const LocationMap = < Map coord={locationCoord} />;
+    const LocationMap = <Map coord={locationCoord} />;
     const [cardData, setCardData] = useState([{
         title: "QA Cinema",
         description: "3rd Floor, International House, 1 St Katharine's Way, London E1W 1UN",
@@ -56,8 +56,8 @@ const Directions = () => {
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'>Directions</h1>
                     <Row>
-                        {cardData.map(item => (
-                            <DirectionsCard cardData={item} />
+                        {cardData.map((item, i) => (
+                            <DirectionsCard key={i} cardData={item} />
                         ))};
                     </Row>
                 </Jumbotron>
