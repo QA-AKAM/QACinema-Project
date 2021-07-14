@@ -23,7 +23,7 @@ const Home = () => {
                             src={InTheHeights}
                             alt="In the heights img"
                             href="/Forum"
-                            height="800"
+                            height="900"
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={4000}>
@@ -31,7 +31,7 @@ const Home = () => {
                             style={{ width: "100%", objectFit: "cover" }}
                             src={BlackWidow}
                             alt="Black Widow img"
-                            height="800"
+                            height="900"
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={4000}>
@@ -39,7 +39,7 @@ const Home = () => {
                             style={{ width: "100%", objectFit: "cover" }}
                             src={DemonSlayer}
                             alt="Demon Slayer img"
-                            height="800"
+                            height="900"
                         />
                     </Carousel.Item>
                     <Carousel.Item interval={4000}>
@@ -47,7 +47,7 @@ const Home = () => {
                             style={{ width: "100%", objectFit: "cover" }}
                             src={F9}
                             alt="Fast and Furious img"
-                            height="800"
+                            height="900"
                         />
                     </Carousel.Item>
                 </Carousel>
