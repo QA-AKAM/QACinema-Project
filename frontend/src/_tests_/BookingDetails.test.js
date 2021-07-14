@@ -1,6 +1,7 @@
 import BookingDetails from "../Components/TicketBooking/BookingDetails";
 import { create } from 'react-test-renderer';
 import { faItalic } from "@fortawesome/free-solid-svg-icons";
+import { act } from "react-dom/test-utils";
 
 describe('Booking Tickets testing with props', () => {
 
@@ -35,4 +36,14 @@ describe('Booking Tickets testing with props', () => {
         //Assert
         expect(h3.children[0]).toEqual('Booking Details');
     });
+    // it('Should render alert when incorrect data entered', () => {
+    //     //Arrange + Act
+    //     const button = testComponent.findByType('button');
+    //     act(() => {
+    //         button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    //     });
+    //     const alert = testComponent.findByType('Alert');
+    //     //Assert
+    //     expect(alert).toBe();
+    // })
 })
