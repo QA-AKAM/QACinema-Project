@@ -104,7 +104,6 @@ const BookingDetails = ({ getBookingProp }) => {
                         {/* render name */}
                         <Form.Label> Booking Name: </Form.Label>
                         <Form.Control type='text' id='name' class="form-control" placeholder="Jane Doe" onChange={(event) => {
-
                             setName(event.target.value);
                         }} />
                     </Form.Group>
