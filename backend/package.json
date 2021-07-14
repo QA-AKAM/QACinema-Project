@@ -4,7 +4,8 @@
   "description": "This is the backend server for the QACinema Project.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha _tests_"
+    "test": "mocha _tests_ --exit",
+    "coverage": "nyc npm test"
   },
   "author": "QA Group 3",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "express": "^4.17.1",
     "mocha": "^9.0.2",
     "mongoose": "^5.13.2",
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "nyc": "^15.1.0"
   }
 }
