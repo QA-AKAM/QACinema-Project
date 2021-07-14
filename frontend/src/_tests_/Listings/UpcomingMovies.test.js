@@ -1,9 +1,9 @@
-import ForumLandingPage from "../Components/Forum/ForumLandingPage";
+import UpcomingMovies from '../../Components/Listings/UpcomingMovies'
 import { create } from 'react-test-renderer';
 import { BrowserRouter } from "react-router-dom";
 import React from 'react';
 
-describe(`Forum landing page testing`, () => {
+describe(`Upcoming landing page testing`, () => {
 
     let creator;
     let testComponent;
@@ -110,7 +110,7 @@ describe(`Forum landing page testing`, () => {
     }]
 
     beforeEach(() => {
-        const TestInstance = create(<ForumLandingPage />)
+        const TestInstance = create(<UpcomingMovies />)
         testComponent = TestInstance.root;
     })
 
@@ -126,21 +126,17 @@ describe(`Forum landing page testing`, () => {
             .mockImplementationOnce(() => realUseState(movieObjs))
             .mockImplementationOnce(() => realUseState(null))
             .mockImplementationOnce(() => realUseState(true))
-        creator = create(<BrowserRouter><ForumLandingPage /></BrowserRouter >)
+        creator = create(<BrowserRouter><UpcomingMovies /></BrowserRouter >)
         testComponent = creator.root
 
         const h1 = testComponent.findByType('h1');
-        expect(h1.children[0]).toEqual(' Forum ');
+        expect(h1.children[0]).toEqual('Upcoming Movies');
 
         const h3 = testComponent.findByType('h3');
-        expect(h3.children[0]).toEqual('Discuss about your movie experiences here!');
-
-        const cardText = testComponent.findByType('p');
-        expect(cardText.children[0]).toEqual('Click the button below to talk about ');
+        expect(h3.children[0]).toEqual('Here are some of the movies that we will be showing in our cinema in the near future!');
 
         const tree = creator.toJSON();
         expect(tree).toMatchSnapshot();
     })
 
 })
-

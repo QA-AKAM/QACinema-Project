@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Forum landing page testing should render forum landing page 1`] = `
+exports[`Upcoming landing page testing should render forum landing page 1`] = `
 <div
   class="background"
 >
@@ -12,13 +12,18 @@ exports[`Forum landing page testing should render forum landing page 1`] = `
     >
       <h1
         className="landing-text"
+        style={
+          Object {
+            "fontSize": "400%",
+          }
+        }
       >
-        Current Movies 
+        Upcoming Movies
       </h1>
       <h3
         className="lead"
       >
-        Come to our cinema and watch these films right now!
+        Here are some of the movies that we will be showing in our cinema in the near future!
       </h3>
       <div>
         <div
@@ -63,11 +68,11 @@ exports[`Forum landing page testing should render forum landing page 1`] = `
                     <div
                       className="card-subtitle h6"
                     >
-                      Released: 
+                      Released in 
                       2021
                     </div>
                     <a
-                      href="/released/undefined"
+                      href="/upcoming/undefined"
                       onClick={[Function]}
                     >
                       <button
