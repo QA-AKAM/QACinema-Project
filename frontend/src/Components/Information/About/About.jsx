@@ -12,13 +12,12 @@ const About = () => {
         {
             name: "Kevin",
             role: "Product Owner",
-            projectMain: "Frontend, Jira, Github",
+            projectMain: "Frontend, Jira, Github, Routing",
             projectSecondary: "Styling, Documentation",
             github: "https://github.com/KevinD-QA",
             linkedin: "https://www.linkedin.com/in/kevin-kcdoan/",
             email: "Kdoan@qa.com",
             telephone: "+447542962985"
-
 
         },
         {
