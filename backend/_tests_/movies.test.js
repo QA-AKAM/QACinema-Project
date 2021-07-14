@@ -331,10 +331,10 @@ describe(`Testing all the movie routes`, () => {
             })
     })
 
-    it(`should respond with error when all fields are not entered`, (done) => {
+    it(`should respond with error when wrong ID is entered`, (done) => {
         chai.request(app)
-            .put(`/movie/${testMovieID}`)
-            .send({ title: 'updated_again_test_movie' })
+            .put(`/movie/6565677`)
+            .send(updatedMovie)
             .end((error, response) => {
                 if (error) {
                     done(error);
