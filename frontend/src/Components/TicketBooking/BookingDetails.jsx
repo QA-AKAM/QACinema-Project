@@ -88,23 +88,22 @@ const BookingDetails = ({ getBookingProp }) => {
     //set days
     useEffect(() => {
         setDays(selectedMovie?.dateTime);
-    }, [selectedMovie])
+    }, [selectedMovie]);
 
     //set times
     useEffect(() => {
         setTimes(selectedDay.timeOfMovie);
-    }, [selectedDay])
+    }, [selectedDay]);
 
     return (
         <Jumbotron className="bgBlur">
             <Container className='colorScheme'>
-                <h3> Booking Details </h3>
+                <h3>Booking Details</h3>
                 <Form>
                     <Form.Group className="mb-3">
                         {/* render name */}
                         <Form.Label> Booking Name: </Form.Label>
                         <Form.Control type='text' id='name' class="form-control" placeholder="Jane Doe" onChange={(event) => {
-
                             setName(event.target.value);
                         }} />
                     </Form.Group>
