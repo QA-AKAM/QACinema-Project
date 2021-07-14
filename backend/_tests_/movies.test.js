@@ -1,11 +1,112 @@
 const { expect } = require('chai');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const Movie = require('../Models/Movie');
 chai.use(chaiHttp);
 
 const app = require('../index')
 
 describe(`Testing all the movie routes`, () => {
+    const createMovie = new Movie({
+        title: 'test_movie',
+        year: '2021',
+        runTime: '90 mins',
+        genre: 'Action, Adventure, Comedy',
+        shortPlot: 'This is a short plot of the film.',
+        imageURL: 'image.jpg',
+        actors: [
+            {
+                name: 'actor_one',
+                role: 'role_one',
+                image: 'one.jpg'
+            },
+            {
+                name: 'actor_two',
+                role: 'role_two',
+                image: 'two.jpg'
+            },
+            {
+                name: 'actor_three',
+                role: 'role_three',
+                image: 'three.jpg'
+            }
+        ],
+        director: 'director_name',
+        dateTime: [
+            {
+                day: 'Monday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Tuesday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Wednesday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Thursday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Friday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+        ],
+        released: false,
+        classification: 'U'
+    })
 
     it(`Should return all the movies`, (done) => {
 
@@ -95,6 +196,21 @@ describe(`Testing all the movie routes`, () => {
                 expect(response).to.have.status(404);
                 expect(response).to.not.be.null;
                 expect(response.body.error).to.contain("movie does not exist");
+                done();
+            })
+    })
+
+    it(`should respond with the movie object when its created`, (done) => {
+
+        chai.request(app)
+            .post(`/movie`)
+            .send(createMovie)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body).to.contain.key("_id");
                 done();
             })
     })
