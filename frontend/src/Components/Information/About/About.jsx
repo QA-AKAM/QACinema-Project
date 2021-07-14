@@ -19,7 +19,6 @@ const About = () => {
             email: "Kdoan@qa.com",
             telephone: "+447542962985"
 
-
         },
         {
             name: "Asshwin",

@@ -26,7 +26,17 @@ describe('Payment testing with props', () => {
         const TestInstance = create(<Payment bookingProp={paymentData} getPaymentProp={paymentType} />)
         testComponent = TestInstance.root;
     });
-    it('Should render the third h3 with number of tickets.', () => {
+
+    it('Should render the h3 with number of tickets.', () => {
+        //Arrange + Act
+        //Create h3 variable, it is euqal to the first h3 in component
+        const h3 = testComponent.findAllByType('h3')[0];
+        //Assert
+        //Expecting to receive a string to equal Ticket no.
+        expect(h3.children[1]).toEqual((paymentData.child + paymentData.adult + paymentData.senior).toString());
+    });
+
+    it('Should render the h3 with number of tickets.', () => {
         //Arrange + Act
         //Create h3 variable, it is euqal to the first h3 in component
         const h3 = testComponent.findAllByType('h3')[0];

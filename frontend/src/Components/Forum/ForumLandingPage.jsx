@@ -11,7 +11,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import '../../CSS/Pages.css';
 
 
-const DiscussionBoardMain = () => {
+const ForumCommentsMain = () => {
 
     const [movieList, setMovieList] = useState([]);
     const [error, setError] = useState(null);
@@ -70,4 +70,4 @@ const DiscussionBoardMain = () => {
     );
 }
 
-export default DiscussionBoardMain;
+export default ForumCommentsMain;

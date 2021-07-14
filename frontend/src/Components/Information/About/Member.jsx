@@ -2,13 +2,13 @@ import { Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+
 const Member = ({ member }) => {
     return (
         <Col lg={4} xs={12} md={6} className="p-2">
             <div className="content">
-
                 <Card.Body className="bg-t">
-                    <Card.Title className="padd-1 colorScheme">{member.name}</Card.Title>
+                    <Card.Title className="padd-1 colorScheme" id='memberName'>{member.name} </Card.Title>
                     <Card.Title className="padd-1 main-border">{member.role}</Card.Title>
                     <h5>Main contributions</h5>
                     <Card.Subtitle className="padd-1 min-h">{member.projectMain}</Card.Subtitle>
