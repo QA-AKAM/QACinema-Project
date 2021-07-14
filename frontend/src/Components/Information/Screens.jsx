@@ -11,7 +11,7 @@ const Screens = () => {
                         <Card style={{ flex: 1, backgroundColor: '#A02626' }}>
                             <div class='row'>
                                 <div class='col-sm'>
-                                    <img src="./Images/StandardDecor.png" alt='Our Standard Cinema Screen Decor' width='500px' />
+                                    <img src="./Images/StandardDecor.png" alt='Our Standard Cinema Screen Decor' width='100%' />
                                 </div>
                                 <div class='col-sm'>
                                     <h4> Standard Seating </h4>
@@ -44,7 +44,7 @@ const Screens = () => {
                                     <p> Our world-renown IMAX Screens are perfect for any film lover who wants to sit back enjoy in comfort. With leather reclinable chairs, our mission is to give you the comfort you deserve allowing you to focus solely on the movie. Find our seating plan attached below. </p>
                                 </div>
                                 <div class='col-sm'>
-                                    <img src="./Images/DeluxeDecor.png" alt='Our Deluxe Cinema Screen Decor' width='500px' />
+                                    <img src="./Images/DeluxeDecor.png" alt='Our Deluxe Cinema Screen Decor' width='100%' />
                                 </div>
                             </div>
                             <div class='container'>
