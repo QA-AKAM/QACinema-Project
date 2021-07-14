@@ -107,6 +107,108 @@ describe(`Testing all the movie routes`, () => {
         released: false,
         classification: 'U'
     })
+    const updatedMovie = new Movie({
+        title: 'updated_test_movie',
+        year: '2022',
+        runTime: '100 mins',
+        genre: 'Action, Adventure, Horror',
+        shortPlot: 'This is a updated short plot of the film.',
+        imageURL: 'updated image.jpg',
+        actors: [
+            {
+                name: 'updated actor_one',
+                role: 'role_one',
+                image: 'one.jpg'
+            },
+            {
+                name: 'actor_two',
+                role: 'role_two',
+                image: 'two.jpg'
+            },
+            {
+                name: 'actor_three',
+                role: 'role_three',
+                image: 'three.jpg'
+            }
+        ],
+        director: 'updated director_name',
+        dateTime: [
+            {
+                day: 'updated Monday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Tuesday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Wednesday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Thursday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+            {
+                day: 'Friday',
+                timeOfMovie: [
+                    {
+                        time: '11:00'
+                    },
+                    {
+                        time: '13:00'
+                    },
+                    {
+                        time: '15:00'
+                    }
+                ]
+            },
+        ],
+        released: false,
+        classification: 'U'
+    })
+
+    let testMovieID = "";
 
     it(`Should return all the movies`, (done) => {
 
@@ -201,7 +303,6 @@ describe(`Testing all the movie routes`, () => {
     })
 
     it(`should respond with the movie object when its created`, (done) => {
-
         chai.request(app)
             .post(`/movie`)
             .send(createMovie)
@@ -211,10 +312,63 @@ describe(`Testing all the movie routes`, () => {
                 }
                 expect(response).to.have.status(200);
                 expect(response.body).to.contain.key("_id");
+                testMovieID = response.body._id;
                 done();
             })
     })
 
+    it(`should respond with the updated changes`, (done) => {
+        chai.request(app)
+            .put(`/movie/${testMovieID}`)
+            .send(updatedMovie)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body.title).to.contain("updated_test_movie");
+                done();
+            })
+    })
 
+    it(`should respond with error when all fields are not entered`, (done) => {
+        chai.request(app)
+            .put(`/movie/${testMovieID}`)
+            .send({ title: 'updated_again_test_movie' })
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(404);
+                expect(response.body.error).to.contain("movie does not exist");
+                done();
+            })
+    })
+
+    it(`should respond with the deleted movie`, (done) => {
+        chai.request(app)
+            .delete(`/movie/${testMovieID}`)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(200);
+                expect(response.body.title).to.contain("updated_test_movie");
+                done();
+            })
+    })
+
+    it(`should respond with error with a wrong ID`, (done) => {
+        chai.request(app)
+            .delete(`/movie/34534534`)
+            .end((error, response) => {
+                if (error) {
+                    done(error);
+                }
+                expect(response).to.have.status(404);
+                expect(response.body.error).to.contain("movie does not exist");
+                done();
+            })
+    })
 
 })
