@@ -1,6 +1,7 @@
 import React from 'react';
 import Member from '../Components/Information/About/Member';
 import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react' // (or /dom, /vue, ...)
 import { create } from 'react-test-renderer';
 
 // describe.skip('Booking Tickets testing with props', () => {
@@ -32,3 +33,4 @@ test("It matches the snapshot", () => {
     expect(tree).toMatchSnapshot();
 
 });
+
