@@ -46,18 +46,20 @@ const ContactUs = () => {
             <Jumbotron className="bgBlur">
                 <Container className="text-white">
                     <h1 class='landing-text'> Contact Us </h1>
-                    <Container className="center">
-                        <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ flex: 1, backgroundColor: '#A02626' }} className="rounded">
-                            <Form.Group as={Row} className="mb-3">
-                                <Form.Label column sm="2" className="text-right pr-4 mt-3"> Your E-mail </Form.Label>
-                                <Form.Control required name="email" type='email' id='email' className="center mt-3" placeholder="name@example.com" onChange={(event) => {
+                    <Container >
+                        <Form onSubmit={handleSubmit} noValidate validated={validated} style={{ backgroundColor: '#A02626' }} className="rounded">
+
+                            <Form.Group as={Row} className="mb-3 padd-1">
+                                <Form.Label sm={12} md={2} className="text-right pr-4 mt-3"> Email address </Form.Label>
+                                <Form.Control sm={12} md={10} required name="email" type='email' id='email' className="mt-3" placeholder="name@example.com" onChange={(event) => {
                                     setEmail(event.target.value);
                                 }} value={email}></Form.Control>
                             </Form.Group>
-                            <Form.Group as={Row} className="mb-3 pr-4" >
-                                <Form.Label column sm="2" className="text-right"> Topic</Form.Label>
+
+                            <Form.Group as={Row} className="mb-3 padd-1" >
+                                <Form.Label sm={12} md={2} className="text-right">Message Topic</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control required as="select" name='subject' id='subject' className="center"
+                                    <Form.Control sm={12} md={10} required as="select" name='subject' id='subject'
                                         onChange={(event) => {
                                             setTopic(event.target.value);
                                         }} value={topic}>
@@ -67,14 +69,16 @@ const ContactUs = () => {
                                     </Form.Control>
                                 </Col>
                             </Form.Group>
-                            <Form.Group as={Row} className="mb-3">
-                                <Form.Label column sm="2" className="text-right pr-4"> Your Message </Form.Label>
-                                <Form.Control required
-                                    name="message" as="textarea" id='message' placeholder="Leave a comment here" className="center"
+
+                            <Form.Group as={Row} className="mb-3 padd-1">
+                                <Form.Label sm={12} md={2} className="text-right pr-4"> Your Message </Form.Label>
+                                <Form.Control sm={12} md={10} required
+                                    name="message" as="textarea" id='message' placeholder="Leave a comment here"
                                     onChange={(event) => {
                                         setMessage(event.target.value);
                                     }} value={message}></Form.Control>
                             </Form.Group>
+
                             <Button variant="outline-dark" id='submit' type='submit' size="lg"> Send </Button>
                             <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
