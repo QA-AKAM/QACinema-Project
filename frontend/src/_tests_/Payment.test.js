@@ -1,5 +1,6 @@
 import Payment from "../Components/TicketBooking/Payment";
 import { create } from 'react-test-renderer';
+import React from 'react';
 
 describe('Payment testing with props', () => {
 
@@ -48,12 +49,25 @@ describe('Payment testing with props', () => {
         //Assert
         expect(h5.children[1]).toEqual(paymentData.name);
     })
-    it("Should render the final h5 with the correct total", () => {
+    it("Should render the final h5 with the correct total", async () => {
         //Arrange + Act
+        const realUseState = React.useState;
+
+        jest.spyOn(React, 'useState')
+            .mockImplementationOnce(() => realUseState({
+                adult: 5,
+                child: 3,
+                senior: 4
+            }))
+            .mockImplementationOnce(() => realUseState(true))
+            .mockImplementationOnce(() => realUseState(null))
+            .mockImplementationOnce(() => realUseState(13));
+
+        testComponent = create(<Payment bookingProp={paymentData} getPaymentProp={paymentType} />).root;
+
         const h5 = testComponent.findAllByType('h5')[5];
 
-        //Assert (Relies on function???)
-        expect(h5.children[1]).toEqual('NaN');
+        expect(h5.children[1]).toEqual('13.00');
     })
 
 })
