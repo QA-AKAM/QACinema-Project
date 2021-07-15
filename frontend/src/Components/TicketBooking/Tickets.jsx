@@ -2,8 +2,8 @@ import '../../CSS/Pages.css';
 import { useEffect, useState } from 'react';
 import BookingDetails from "./BookingDetails";
 import Payment from "./Payment";
-import { Card, Jumbotron, Container } from 'react-bootstrap';
 import axios from 'axios';
+import { Jumbotron, Container } from 'react-bootstrap';
 
 const Tickets = () => {
 

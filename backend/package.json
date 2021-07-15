@@ -4,14 +4,19 @@
   "description": "This is the backend server for the QACinema Project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha _tests_ --exit",
+    "coverage": "nyc npm test"
   },
   "author": "QA Group 3",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mocha": "^9.0.2",
     "mongoose": "^5.13.2",
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "nyc": "^15.1.0"
   }
 }

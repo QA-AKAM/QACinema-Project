@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
 
-const DiscussionBoard = () => {
+const ForumComments = () => {
 
     const { movie } = useParams();
     const [commentList, setCommentList] = useState([]);
@@ -225,4 +225,4 @@ const DiscussionBoard = () => {
     );
 }
 
-export default DiscussionBoard;
+export default ForumComments;

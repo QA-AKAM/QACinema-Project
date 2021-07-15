@@ -6,6 +6,7 @@ import Member from './Member';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card'
 
 const About = () => {
     const [team, setTeam] = useState([
@@ -18,7 +19,6 @@ const About = () => {
             linkedin: "https://www.linkedin.com/in/kevin-kcdoan/",
             email: "Kdoan@qa.com",
             telephone: "+447542962985"
-
 
         },
         {
@@ -75,14 +75,8 @@ const About = () => {
                                 <Col className="spec col-sm-6" sm={12} lg={6} md={6}>
                                     <h2 className="display-4 padd-1">About Team AKAM</h2>
                                     <p className="lead justify marg-1">
-                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Scott Stevens and Amandeep Bassi</b>.
-
+                                        Team AKAM is the best of the bunch, no words are needed to describe the sheer presence and intelligence of these individuals. Comparisons can be drawn but no one especially group 1 can even come close to matching our brilliance. Stand there in awe and embrace the almighty before you, or be banished to the shadow realm, <b>Scott Stevens and Amandeep Bassi</b>
                                     </p>
-                                </Col>
-                                <Col className="spec col-sm-12 text-center padd-3">
-                                    <h2 className="display-4 padd-1">Scrum description</h2>
-                                    <p className="lead justify">
-                                        QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.</p>
                                 </Col>
                             </Row>
                         </Container>
@@ -93,14 +87,31 @@ const About = () => {
                                     <Member member={member} />
                                 ))}
                             </Row>
+                            <Col className="spec col-sm-12 text-center padd-3">
+                                <Card style={{ flex: 1, backgroundColor: '#912323' }}>
+                                    <Card.Body>
+                                        <h2 className="display-4 padd-1">Scrum description</h2>
+                                        <p className="lead justify">
+                                            <a href="https://www.scrum.org/" style={{ color: 'black' }}>Scrum</a> is an agile methodology used to help teams conceptulize, design and deliver a product. A scrum team will include the following roles:
+                                            <ul>
+                                                <li>Product Owner - representing the client and thier intrests.</li>
+                                                <li>Scrum Master - accountable for the team to deliver the goal.</li>
+                                                <li>Developers - carry out the work required to complete the backlog</li>
+                                            </ul>
+                                            We used scrum by following the basic scrum principles. Create a backlog of user stories and features. Plan a sprint with a realistic amount of goals
+                                            that can be done in the time set of the sprint. If any tasks were not complete, it was moved to the next sprint. At the start of every day we would have
+                                            our daily scrum to note our progress and what we can work on. We also had a sprint review and retrospective at the end of each sprint. This is where we talked
+                                            about what we accomplished during the sprint. We also discussed on any issues that could impede our future sprints and how we could minimise the risk of the
+                                            issue taking place.
+                                        </p>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         </Container>
-
                     </Container>
                 </Container>
-
             </div >
         </div >
-
     )
 }
 export default About;

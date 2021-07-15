@@ -53,6 +53,7 @@ exports[`It matches the snapshot 1`] = `
                 <b>
                   Scott Stevens and Amandeep Bassi
                 </b>
+<<<<<<< HEAD
                 .
               </p>
             </div>
@@ -68,6 +69,8 @@ exports[`It matches the snapshot 1`] = `
                 className="lead justify"
               >
                 QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.
+=======
+>>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
               </p>
             </div>
           </div>
@@ -596,6 +599,59 @@ exports[`It matches the snapshot 1`] = `
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+          <div
+            className="spec col-sm-12 text-center padd-3 col"
+          >
+            <div
+              className="card"
+              style={
+                Object {
+                  "backgroundColor": "#912323",
+                  "flex": 1,
+                }
+              }
+            >
+              <div
+                className="card-body"
+              >
+                <h2
+                  className="display-4 padd-1"
+                >
+                  Scrum description
+                </h2>
+                <p
+                  className="lead justify"
+                >
+                  <a
+                    href="https://www.scrum.org/"
+                    style={
+                      Object {
+                        "color": "black",
+                      }
+                    }
+                  >
+                    Scrum
+                  </a>
+                   is an agile methodology used to help teams conceptulize, design and deliver a product. A scrum team will include the following roles:
+                  <ul>
+                    <li>
+                      Product Owner - representing the client and thier intrests.
+                    </li>
+                    <li>
+                      Scrum Master - accountable for the team to deliver the goal.
+                    </li>
+                    <li>
+                      Developers - carry out the work required to complete the backlog
+                    </li>
+                  </ul>
+                  We used scrum by following the basic scrum principles. Create a backlog of user stories and features. Plan a sprint with a realistic amount of goals that can be done in the time set of the sprint. If any tasks were not complete, it was moved to the next sprint. At the start of every day we would have our daily scrum to note our progress and what we can work on. We also had a sprint review and retrospective at the end of each sprint. This is where we talked about what we accomplished during the sprint. We also discussed on any issues that could impede our future sprints and how we could minimise the risk of the issue taking place.
+                </p>
+              </div>
+            </div>
+          </div>
+>>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
         </div>
       </div>
     </div>

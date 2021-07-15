@@ -52,8 +52,8 @@ const Directions = () => {
                 <Jumbotron className="bgBlur">
                     <h1 class='landing-text'>Nearby Venues</h1>
                     <Row>
-                        {cardData.map(item => (
-                            <NearbyVenue cardData={item} />
+                        {cardData.map((item, i) => (
+                            <NearbyVenue key={i} cardData={item} />
                         ))};
                     </Row>
                 </Jumbotron>

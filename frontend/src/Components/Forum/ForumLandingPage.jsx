@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import React from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,11 +12,11 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import '../../CSS/Pages.css';
 
 
-const DiscussionBoardMain = () => {
+const ForumCommentsMain = () => {
 
-    const [movieList, setMovieList] = useState([]);
-    const [error, setError] = useState(null);
-    const [loaded, setLoaded] = useState(false);
+    const [movieList, setMovieList] = React.useState([]);
+    const [error, setError] = React.useState(null);
+    const [loaded, setLoaded] = React.useState(false);
 
     const getMovies = () => {
         axios.get('http://localhost:5000/released/true')
@@ -70,4 +71,4 @@ const DiscussionBoardMain = () => {
     );
 }
 
-export default DiscussionBoardMain;
+export default ForumCommentsMain;

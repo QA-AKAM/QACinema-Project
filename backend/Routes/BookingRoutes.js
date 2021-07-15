@@ -55,20 +55,6 @@ router.delete('/booking/:id', async (req, res) => {
     }
 });
 
-//get booking by id
-router.get('/booking/:id', async (req, res) => {
-    try {
-        const booking = await Booking.findById(req.params.id)
-            .populate({
-                path: 'movieID',
-                select: 'title imageURL'
-            });
-        res.status(201).send(booking);
-    } catch {
-        res.status(404).send({ error: 'Booking does not exist' })
-    }
-});
-
 //get booking by name
 router.get('/booking/name/:name', async (req, res) => {
     try {
