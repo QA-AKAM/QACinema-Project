@@ -132,10 +132,17 @@ We use [SemVer](http://semver.org/) for versioning.
 
 All supporting documentation can be found in the "Documentation" folder. This folder includes the following:
 
-1. Jira Folder - Screenshots from Jira
-3. Risk assessment.pdf
-4. ERD Initial.png
-4. UML Diagram.png
+1. jira_link_and_report.pdf
+2. Risk assessment.pdf
+3. ERD_1.png
+4. ERD_2.png
+5. mongodb_gcp_setup.pdf
+6. backend_api_documentation.png
+7. backend_design.png
+8. component_hierarchy.png
+9. database_structure.png
+10. feature_branch_model.png
+11. Coverage Reports Folder - all coverage related files.
 
 ## Authors
 
