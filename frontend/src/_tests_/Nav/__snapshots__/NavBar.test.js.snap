@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing the navigation It matches the snapshot 1`] = `
+exports[`testing the navigation tests the search function 1`] = `
 <nav
   className="NavBar navbar navbar-expand-lg navbar-dark"
 >
