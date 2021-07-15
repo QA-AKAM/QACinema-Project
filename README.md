@@ -6,7 +6,7 @@ Backend coverage: 91.24%
 
 # QA Cinema Website by Team AKAM
 
-This project focuses on a cinema website that was coded using the MERN (MongoDB, Express, React, Node) stack. The backend was built using express by creating various API requests. The data for the requests was retrieved from a cloud mongo database
+This project focuses on a cinema website that was coded using the MERN (MongoDB, Express, React, Node) stack. The backend was built using express by creating various API requests. The data for the requests was retrieved from a cloud mongo database using axios in the frontend. The frontend was built using the 
 
 ## Getting Started
 
@@ -82,15 +82,47 @@ Additional tools:
 
 ## MongoDB Setup
 
+MongoDB is simple to setup and run directly from https://www.mongodb.com/try
 
+Follow the register and setup intuitive UI to set a MongoDB instance on Google Cloud Platform or other cloud provider available on mongodb.com (Azure and AWS).
 
+After you are all setup and have create a database, try to connect. You will be asked to set your connection credentials and connection type. Select connect your app and you will receive a connection string which will be used in your express app in index.js file to connect to the database
 
+```javascript
+mongoose.connect(CONN_STRING, { useNewUrlParser: true, useUnifiedTopology: true }) 
+```
+
+See “mongodb_gcp_setup”  in  the documentation folder for further reference.
 
 ## Running the tests
 
-### Deployment
+For testing we achieved 91.24% on the backed but only achieved 59.04% for the frontend. This was due to a problem we had with using Jest, a JavaScript testing framework. With Jest we had issues in testing components that heavily relied on useStates and useParams. It was recommended that Enzyme was used to test states however we did not have time at the end to learn and use it. 
 
-To deploy this program once its been developed and tested:
+We did do several snapshot tests which confirmed the functionality of the code. For example for the test of the released movie page, a movie object was passed to the useState and in the snapshot the movie card is displayed along with the opening times and the high quality image link. This shows that the function that gets the high quality movie image works, as well as the function that automatically sorts the movie days and times according to the current date and time. 
+
+The backend testing was much more straightforward. We used Mocha and Chai for testing, and used Istanbul to see the code coverage of the tests. A test mongoDB cloud database was setup so it would not affect the production environment. There was no issues in running the tests.
+
+To run the tests follow the steps below:
+
+1. To test and see the coverage for the backend, simply run the command below in the backend terminal:
+
+   ```
+   npm run coverage
+   ```
+
+   When the tests are complete, it will show the coverage:
+
+   ![](https://i.imgur.com/VAyw6to.png)
+
+2. To test and see the coverage for the frontend, simply run the following command in the frontend terminal:
+
+   ```
+   npm test -- --coverage --watchAll
+   ```
+
+   This will run all the test files and show the coverage:
+
+   ![](https://i.imgur.com/SQsq49z.png)
 
 ## Versioning
 
