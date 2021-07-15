@@ -25,6 +25,11 @@ describe(`NearbyVenue component testing with props`, () => {
         testComponent = TestInstance.root;
     });
 
+    it(`Should match the snapshot`, () => {
+        const element = create(<NearbyVenue cardData={nearbyVenueData} />).toJSON();
+        expect(element).toMatchSnapshot();
+    })
+
     it(`Should render card-title which contains the name of the venue`, () => {
         // const cardTitle = testComponent.findByType('Card.Title');
         // expect(cardTitle.children).toEqual([nearbyVenueData.title]);
