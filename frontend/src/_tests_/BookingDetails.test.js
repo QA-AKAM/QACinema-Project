@@ -1,5 +1,6 @@
 import BookingDetails from "../Components/TicketBooking/BookingDetails";
 import { create } from 'react-test-renderer';
+import React from 'react';
 
 describe('Booking Tickets testing with props', () => {
 
@@ -24,24 +25,25 @@ describe('Booking Tickets testing with props', () => {
         testComponent = TestInstance.root;
     })
 
-
-    it(`Should render a h3 which Booking Details`, () => {
-
-        //Arrange + Act
-        //Create h3 variable, it is euqal to the first h3 in component
-        const cardTitle = testComponent.findByType();
-
-        //Assert
-        expect(h3.children[0]).toEqual('Booking Details');
-    });
-    // it('Should render alert when incorrect data entered', () => {
+    // it('Should render input labels correctly', () => {
     //     //Arrange + Act
-    //     const button = testComponent.findByType('button');
-    //     act(() => {
-    //         button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    //     });
-    //     const alert = testComponent.findByType('Alert');
+    //     const formLabel = testComponent.find(" Booking Name ");
     //     //Assert
-    //     expect(alert).toBe();
+    //     expect(formLabel).toEqual(" Booking Name ");
     // })
+
+    it('Should render alert when incorrect data entered', () => {
+        const realUseState = React.useState;
+        jest.spyOn(React, 'useState')
+            .mockImplementationOnce(() => realUseState([]))
+            .mockImplementationOnce(() => realUseState(false))
+            .mockImplementationOnce(() => realUseState(true))
+            .mockImplementationOnce(() => realUseState(true));
+
+        testComponent = create(<BookingDetails{...bookingData} />).root;
+        //Arrange + Act
+        const alert = testComponent.findAllByType('li')[0];
+        //Assert
+        expect(alert.children[0]).toBe(" Your name needs to be a minimum of 4 characters long. ");
+    })
 })
