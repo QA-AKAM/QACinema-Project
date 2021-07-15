@@ -16,7 +16,7 @@ exports[`Directions snapshot test Should match the snapshot 1`] = `
          Contact Us 
       </h1>
       <div
-        className="center container"
+        className="container"
       >
         <form
           className="rounded"
@@ -25,46 +25,53 @@ exports[`Directions snapshot test Should match the snapshot 1`] = `
           style={
             Object {
               "backgroundColor": "#A02626",
-              "flex": 1,
             }
           }
         >
           <div
-            className="mb-3 form-group row"
+            className="mb-3 padd-1 form-group row"
           >
             <label
-              className="text-right pr-4 mt-3 form-label col-form-label col-sm-2"
+              className="text-right pr-4 mt-3 form-label"
+              md={2}
+              sm={12}
             >
-               Your E-mail 
+               Email address 
             </label>
             <input
-              className="center mt-3 form-control"
+              className="mt-3 form-control"
               id="email"
+              md={10}
               name="email"
               onChange={[Function]}
               placeholder="name@example.com"
               required={true}
+              sm={12}
               type="email"
               value=""
             />
           </div>
           <div
-            className="mb-3 pr-4 form-group row"
+            className="mb-3 padd-1 form-group row"
           >
             <label
-              className="text-right form-label col-form-label col-sm-2"
+              className="text-right form-label"
+              md={2}
+              sm={12}
             >
-               Topic
+              Message Topic
             </label>
             <div
               className="col-sm-10"
             >
               <select
-                className="center form-control"
+                className="form-control"
                 id="subject"
+                md={10}
                 name="subject"
                 onChange={[Function]}
                 required={true}
+                sm={12}
                 value="feedback"
               >
                 <option
@@ -86,20 +93,24 @@ exports[`Directions snapshot test Should match the snapshot 1`] = `
             </div>
           </div>
           <div
-            className="mb-3 form-group row"
+            className="mb-3 padd-1 form-group row"
           >
             <label
-              className="text-right pr-4 form-label col-form-label col-sm-2"
+              className="text-right pr-4 form-label"
+              md={2}
+              sm={12}
             >
                Your Message 
             </label>
             <textarea
-              className="center form-control"
+              className="form-control"
               id="message"
+              md={10}
               name="message"
               onChange={[Function]}
               placeholder="Leave a comment here"
               required={true}
+              sm={12}
               value=""
             />
           </div>
