@@ -44,21 +44,6 @@ describe('Booking Tickets testing with props', () => {
         //Arrange + Act
         const alert = testComponent.findAllByType('li')[0];
         //Assert
-<<<<<<< HEAD
-        expect(h3.children[0]).toEqual('Booking Details');
-    });
-    // it('Should render alert when incorrect data entered', () => {
-    //     //Arrange + Act
-    //     const button = testComponent.findByType('button');
-    //     act(() => {
-    //         button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    //     });
-    //     const alert = testComponent.findByType('Alert');
-    //     //Assert
-    //     expect(alert).toBe();
-    // })
-=======
         expect(alert.children[0]).toBe(" Your name needs to be a minimum of 4 characters long. ");
     })
->>>>>>> dev
 })
