@@ -13,7 +13,7 @@ const commentRouter = require('./Routes/CommentRoutes');
 
 //set current database URI
 let MONGODB_URI;
-const NODE = "test";
+const NODE = "prod";
 if (NODE == "test") {
     MONGODB_URI = 'mongodb+srv://akam:reactnode@cluster0.ihlmt.mongodb.net/test-cinema';
 
