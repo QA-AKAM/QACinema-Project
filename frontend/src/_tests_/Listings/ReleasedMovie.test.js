@@ -1,39 +1,12 @@
-import ForumComments from "../../Components/Forum/ForumComments";
+import ReleasedMovies from "../../Components/Listings/ReleasedMovie";
 import { create } from 'react-test-renderer';
 import { BrowserRouter } from "react-router-dom";
 import React from 'react';
 
-describe(`Forum board testing`, () => {
+describe(`Unreleased movie testing`, () => {
 
     let creator;
     let testComponent;
-
-    let commentArr = [
-        {
-            movieID: [
-                {
-                    "_id": "60e41cf77a5d6042284b2f33",
-                    "title": "Fast and Furious 9"
-                }
-            ],
-            _id: "60eea4903041d70bc4fc525f",
-            author: "test_user",
-            rate: 5,
-            comment: "This film was a good action film."
-        },
-        {
-            movieID: [
-                {
-                    _id: "60e41cf77a5d6042284b2f33",
-                    title: "Fast and Furious 9"
-                }
-            ],
-            _id: "60eea3ed09aa805e6c550e7d",
-            author: "test_user_2",
-            rate: 5,
-            comment: "This film was a decent action film."
-        },
-    ]
 
     let movieObj = {
         title: "Fast and Furious 9",
@@ -147,20 +120,20 @@ describe(`Forum board testing`, () => {
         const realUseState = React.useState
 
         jest.spyOn(React, 'useState')
-            .mockImplementationOnce(() => realUseState(commentArr))
             .mockImplementationOnce(() => realUseState(movieObj))
             .mockImplementationOnce(() => realUseState(null))
-            .mockImplementationOnce(() => realUseState(false))
             .mockImplementationOnce(() => realUseState(true))
-            .mockImplementationOnce(() => realUseState(true))
-            .mockImplementationOnce(() => realUseState(false))
 
-        const TestInstance = create(
+        creator = create(
             <BrowserRouter>
-                <ForumComments />
+                <ReleasedMovies />
             </BrowserRouter>
         )
+
+        testComponent = creator.root
+
+        const tree = creator.toJSON();
+        expect(tree).toMatchSnapshot();
     })
 
 })
-

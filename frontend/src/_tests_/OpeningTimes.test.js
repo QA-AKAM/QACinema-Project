@@ -1,9 +1,9 @@
 import React from 'react';
-import ForumLandingPage from '../Components/Forum/ForumLandingPage';
+import OpeningTimes from '../Components/Information/OpeningTimes';
 import renderer from 'react-test-renderer';
 
 test("It matches the snapshot", () => {
-    const tree = renderer.create(<ForumLandingPage />).toJSON();
+    const tree = renderer.create(<OpeningTimes />).toJSON();
     expect(tree).toMatchSnapshot();
 
 })

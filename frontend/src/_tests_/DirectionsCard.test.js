@@ -2,7 +2,7 @@ import DirectionsCard from "../Components/Information/Directions/DirectionsCard"
 import { create } from 'react-test-renderer';
 import CinemaOutside from '../Images/cinema_outside.jpeg';
 
-describe(`NearbyVenue component testing with props`, () => {
+describe(`DirectionsCard component testing with props`, () => {
 
     const directionsCardData = {
         title: "QA Cinema",
@@ -19,10 +19,9 @@ describe(`NearbyVenue component testing with props`, () => {
         testComponent = TestInstance.root;
     });
 
-    it(`Should render card-title which contains the name of the directions card`, () => {
-        // const cardTitle = testComponent.findByType('Card.Title');
-        // expect(cardTitle.children).toEqual([nearbyVenueData.title]);
-        expect(true).toEqual(true);
-    });
+    it(`Should match the snapshot`, () => {
+        const element = create(<DirectionsCard cardData={directionsCardData} />).toJSON();
+        expect(element).toMatchSnapshot();
+    })
 
 });
