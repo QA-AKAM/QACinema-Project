@@ -73,6 +73,21 @@ exports[`It matches the snapshot 1`] = `
 >>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
               </p>
             </div>
+            <div
+              className="spec col-sm-12 text-center padd-3 col"
+            >
+              <h2
+                className="display-4 padd-1"
+              >
+                Scrum description
+              </h2>
+              <p
+                className="lead justify"
+              >
+                QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.
+
+              </p>
+            </div>
           </div>
         </div>
         <div
@@ -600,7 +615,11 @@ exports[`It matches the snapshot 1`] = `
             </div>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> dev
           <div
             className="spec col-sm-12 text-center padd-3 col"
           >
@@ -651,7 +670,11 @@ exports[`It matches the snapshot 1`] = `
               </div>
             </div>
           </div>
+<<<<<<< HEAD
 >>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
+=======
+
+>>>>>>> dev
         </div>
       </div>
     </div>
