@@ -34,4 +34,14 @@ describe('Booking Tickets testing with props', () => {
         //Assert
         expect(h3.children[0]).toEqual('Booking Details');
     });
+    // it('Should render alert when incorrect data entered', () => {
+    //     //Arrange + Act
+    //     const button = testComponent.findByType('button');
+    //     act(() => {
+    //         button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    //     });
+    //     const alert = testComponent.findByType('Alert');
+    //     //Assert
+    //     expect(alert).toBe();
+    // })
 })
