@@ -56,7 +56,11 @@ exports[`It matches the snapshot 1`] = `
         >
           <img
             alt="In the heights img"
+<<<<<<< HEAD
             height="800"
+=======
+            height="900"
+>>>>>>> c00bfa318da12406fe43df5062a16512e64dc9b8
             href="/Forum"
             src="In-The-Heights.jpg"
             style={
@@ -73,7 +77,11 @@ exports[`It matches the snapshot 1`] = `
         >
           <img
             alt="Black Widow img"
+<<<<<<< HEAD
             height="800"
+=======
+            height="900"
+>>>>>>> c00bfa318da12406fe43df5062a16512e64dc9b8
             src="Black-Widow.jpg"
             style={
               Object {
@@ -89,7 +97,11 @@ exports[`It matches the snapshot 1`] = `
         >
           <img
             alt="Demon Slayer img"
+<<<<<<< HEAD
             height="800"
+=======
+            height="900"
+>>>>>>> c00bfa318da12406fe43df5062a16512e64dc9b8
             src="Demon Slayer.jpg"
             style={
               Object {
@@ -105,7 +117,11 @@ exports[`It matches the snapshot 1`] = `
         >
           <img
             alt="Fast and Furious img"
+<<<<<<< HEAD
             height="800"
+=======
+            height="900"
+>>>>>>> c00bfa318da12406fe43df5062a16512e64dc9b8
             src="Fast9.jpg"
             style={
               Object {

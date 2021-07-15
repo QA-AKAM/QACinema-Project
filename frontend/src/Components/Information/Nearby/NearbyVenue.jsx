@@ -22,8 +22,8 @@ const NearbyVenue = ({ cardData }) => {
                     <Card.Text title='QA Cinema related offers' className='c-r txt-area' label='QA Cinema Offers' >QA Cinema offers:</Card.Text>
                     <div class='padd-1'>
                         {
-                            cardData.offers.map(offer => (
-                                <Card.Text title='single cinema offer item' class='landing-text txt-area marg-1 c-w'>{offer}</Card.Text>
+                            cardData.offers.map((offer, o) => (
+                                <Card.Text key={o} title='single cinema offer item' class='landing-text txt-area marg-1 c-w'>{offer}</Card.Text>
                             ))
                         }
                     </div>

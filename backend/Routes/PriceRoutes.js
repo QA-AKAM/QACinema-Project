@@ -37,7 +37,7 @@ router.put('/price/:id', async (req, res) => {
     }
 });
 
-//delete price by type
+//delete price by id
 router.delete('/price/:id', async (req, res) => {
     try {
         const prices = await Price.findById(req.params.id);
