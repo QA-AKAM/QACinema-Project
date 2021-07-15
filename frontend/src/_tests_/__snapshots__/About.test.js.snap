@@ -53,8 +53,6 @@ exports[`It matches the snapshot 1`] = `
                 <b>
                   Scott Stevens and Amandeep Bassi
                 </b>
-<<<<<<< HEAD
-                .
               </p>
             </div>
             <div
@@ -69,8 +67,7 @@ exports[`It matches the snapshot 1`] = `
                 className="lead justify"
               >
                 QA Cinema is part of QA Limited - one of the UK's leading digital education and skills providers, who ahve now branched out into the entertainement industry. Operated and managed by their leading team, Team AKAM, we strive to provide the best services to our clients and customers.
-=======
->>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
+
               </p>
             </div>
           </div>
@@ -599,8 +596,7 @@ exports[`It matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-=======
+
           <div
             className="spec col-sm-12 text-center padd-3 col"
           >
@@ -651,7 +647,7 @@ exports[`It matches the snapshot 1`] = `
               </div>
             </div>
           </div>
->>>>>>> c180cc6c2b832e6f233933de1e9143458cbc0643
+
         </div>
       </div>
     </div>
