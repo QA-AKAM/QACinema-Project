@@ -143,6 +143,7 @@ All supporting documentation can be found in the "Documentation" folder. This fo
 9. database_structure.png
 10. feature_branch_model.png
 11. Coverage Reports Folder - all coverage related files.
+12. QA-Cinema Project.pdf
 
 ## Authors
 
