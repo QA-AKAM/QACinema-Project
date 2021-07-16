@@ -98,18 +98,18 @@ const ForumComments = () => {
                     }
                 })
                     .then((response) => {
-                        console.log(response);
+                        setAuthor("");
+                        setRate("5");
+                        setComment("");
+                        getComments();
+                        handleClose();
                     })
                     .catch((error) => {
-                        console.log(error)
                         setError(error)
-                    });
-                setAuthor("");
-                setRate("5");
-                setComment("");
-                getComments();
-                handleClose();
-                window.location.reload();
+                    })
+
+
+
             }
             window.onload = resetProfanityCount;
         }

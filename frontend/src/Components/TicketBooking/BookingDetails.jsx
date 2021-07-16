@@ -65,7 +65,7 @@ const BookingDetails = ({ getBookingProp }) => {
 
     useEffect(() => {
         getPrices();
-    }, [prices]);
+    }, []);
 
     //get movies
     const getMovies = () => {
@@ -83,7 +83,7 @@ const BookingDetails = ({ getBookingProp }) => {
     //set movies
     useEffect(() => {
         getMovies();
-    }, [movieList]);
+    }, []);
 
     //set days
     useEffect(() => {
