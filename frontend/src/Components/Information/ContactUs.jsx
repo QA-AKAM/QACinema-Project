@@ -2,6 +2,7 @@ import { Modal, Button, Container, Form, Row, Col, Jumbotron } from 'react-boots
 import { useState } from 'react';
 import '../../CSS/Pages.css';
 import emailjs from 'emailjs-com';
+import config from "../../config.js"
 
 const ContactUs = () => {
 
@@ -30,7 +31,7 @@ const ContactUs = () => {
         } else {
             setValidated(true);
             e.preventDefault();
-            emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, 'user_uiL5ntpceYUPx25miHmY0')
+            emailjs.sendForm('qacinema', 'template_kn9ua19', e.target, config.emailJsId)
                 .then(() => {
                     handleShow();
                 }, (error) => {

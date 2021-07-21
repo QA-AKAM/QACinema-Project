@@ -1,11 +1,12 @@
 
 import GoogleMaps from "simple-react-google-maps"
+import config from "../../../config.js"
 
 const Map = ({ coord }) => {
     const { lat, lng } = coord;
     return (
         <GoogleMaps
-            apiKey={"AIzaSyBUfUckWghbs-wyuV-KNPODMAQcog4qA28&callback=initMap"}
+            apiKey={config.googleMapsAPIKey}
             style={{ height: "300px", width: "100%" }}
             zoom={17}
             center={{ lat: lat, lng: lng }}
