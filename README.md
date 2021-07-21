@@ -145,6 +145,19 @@ All supporting documentation can be found in the "Documentation" folder. This fo
 11. Coverage Reports Folder - all coverage related files.
 12. QA-Cinema Project.pdf
 
+## API Keys and config file
+All keys are gitignored in a config.js file.
+To have embedeed maps and email functionality create a file named `config.js` in the source file of the frontned -> ../frontend/src
+Open the file and paste the following code adding you google map keys and email-jd id
+
+```
+const config = {
+    googleMapsAPIKey: `your ap key`,
+    emailJsId: `your user id`
+}
+export default config;
+```
+
 ## Authors
 
 * **Asshwin Mugundharajah** - [ashkl](https://github.com/ashkl)
